@@ -5,6 +5,8 @@ import { assignAuth } from '../dto/auth.request.dto';
 import { LoginRequestDto } from '../dto/login.request.dto';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
+import { EmailRequestDto } from '../dto/email.request.dto';
+import { NameRequestDto } from '../dto/name.request.dto';
 @Injectable()
 export class ServiceService {
   constructor(
@@ -17,15 +19,15 @@ export class ServiceService {
     return await this.prismaService.user.findMany();
   }
 
-  async findUser(info: assignAuth): Promise<User> {
+  async findUser(info: EmailRequestDto): Promise<User> {
     return await this.prismaService.user.findUnique({
       where: { email: info.email },
     });
   }
 
-  async checkName(nicname): Promise<User> {
+  async checkName(nicname: NameRequestDto): Promise<User> {
     return await this.prismaService.user.findUnique({
-      where: { name: nicname },
+      where: { name: nicname.name },
     });
   }
 

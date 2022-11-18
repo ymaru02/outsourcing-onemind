@@ -6,7 +6,7 @@ import { ServiceService } from './auth/service/service.service';
 import { ControllerController } from './auth/controller/controller.controller';
 import { LoggerMiddleware } from './logger/logger.middleware';
 import { prismaService } from './prisma.service';
-import { JwtModule, JwtService } from '@nestjs/jwt';
+import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 
 @Module({
@@ -15,7 +15,7 @@ import { PassportModule } from '@nestjs/passport';
     PassportModule.register({ defaultStrategy: 'jwt', session: true }),
     JwtModule.register({
       secret: process.env.SECRET_KEY,
-      signOptions: { expiresIn: '1y' },
+      signOptions: { expiresIn: '1h' },
     }),
   ],
   controllers: [AppController, ControllerController],

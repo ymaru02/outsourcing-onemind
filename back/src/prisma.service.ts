@@ -5,7 +5,6 @@ import { PrismaClient } from '@prisma/client';
 export class prismaService extends PrismaClient implements OnModuleInit {
   async onModuleInit() {
     await this.$connect();
-    console.log('onModuleInit');
   }
 
   async enableShutdownHooks(app: INestApplication) {

@@ -6,6 +6,8 @@ import { assignAuth } from '../dto/auth.request.dto';
 import { LoginRequestDto } from '../dto/login.request.dto';
 import { JwtAuthGuard } from '../jwt/jwt.guard';
 import { Request } from 'express';
+import { EmailRequestDto } from '../dto/email.request.dto';
+import { NameRequestDto } from '../dto/name.request.dto';
 @Controller('auth')
 export class ControllerController {
   constructor(private readonly Service: ServiceService) {}
@@ -30,14 +32,14 @@ export class ControllerController {
   }
 
   @ApiOperation({ summary: '이메일 중복 체크' })
-  @Get('email')
-  async checkE(@Body() info: assignAuth) {
-    return this.Service.findUser(info);
+  @Post('email')
+  async checkE(@Body() info: EmailRequestDto) {
+    return this.Service.findUser({ email: info.email });
   }
 
   @ApiOperation({ summary: '이름 중복 체크' })
-  @Get('id')
-  async checkN(@Body() info: assignAuth) {
-    return this.Service.checkName(info.name);
+  @Post('id')
+  async checkN(@Body() info: NameRequestDto) {
+    return this.Service.checkName({ name: info.name });
   }
 }
