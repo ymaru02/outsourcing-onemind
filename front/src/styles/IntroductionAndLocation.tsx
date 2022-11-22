@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import TestImg from "../img/testImg.jpg";
 
+// Introduction & Location 공통
 export const Wrap = styled.div`
   width: 100%;
   height: 100%;
@@ -46,7 +47,9 @@ export const ContentsDiv = styled.div`
 export const InfoDiv = styled.div`
   text-align: left;
 `;
+
+// Location 적용
 export const MapBox = styled.div`
-  width: 800px;
+  width: 100%;
   height: 450px;
 `;

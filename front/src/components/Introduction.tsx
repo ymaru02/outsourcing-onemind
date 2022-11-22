@@ -10,7 +10,7 @@ import {
   ContentsBox,
   ContentsDiv,
   InfoDiv,
-} from "../styles/Location";
+} from "../styles/IntroductionAndLocation";
 
 export default function Introduction() {
   useEffect(() => {

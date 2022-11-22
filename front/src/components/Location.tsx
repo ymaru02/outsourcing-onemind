@@ -12,7 +12,7 @@ import {
   ContentsDiv,
   InfoDiv,
   MapBox,
-} from "../styles/Location";
+} from "../styles/IntroductionAndLocation";
 
 export default function Location() {
   useEffect(() => {
@@ -45,7 +45,7 @@ export default function Location() {
             </InfoDiv>
           </ContentsDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
-            <MapBox id="map">
+            <MapBox>
               <LocationMap />
             </MapBox>
           </ContentsDiv>
