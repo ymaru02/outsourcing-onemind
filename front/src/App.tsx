@@ -4,10 +4,12 @@ import NotFound from "./components/NotFound";
 import Home from "./components/Home";
 import Introduction from "./components/Introduction";
 import Location from "./components/Location";
+import GStyle from "./styles/GStyle"; // GlobalStyle
 
 function App() {
   return (
     <BrowserRouter>
+      <GStyle /> {/* GlobalStyle */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<NotFound />} />

@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-// AOS import
-import AOS from "aos";
+import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
+import {
+  Wrap,
+  TestImgBox,
+  DivideBox,
+  SidebarBox,
+  ContentsBox,
+  ContentsDiv,
+  InfoDiv,
+} from "../styles/Location";
 
 export default function Introduction() {
   useEffect(() => {
@@ -11,8 +18,9 @@ export default function Introduction() {
   });
   return (
     <Wrap>
-      <DivideDiv>
-        <SidebarDiv>
+      <TestImgBox></TestImgBox>
+      <DivideBox>
+        <SidebarBox>
           {/* 사이드바 제작 후 분리 예정 */}
           <aside>사이드바</aside>
           <ul>
@@ -23,55 +31,19 @@ export default function Introduction() {
               <li>교회 오시는 길</li>
             </Link>
           </ul>
-        </SidebarDiv>
-        <ContentsDiv>
-          <ContentBox>
-            <TitleBox>영상 및 사진</TitleBox>
-          </ContentBox>
-          <ContentBox data-aos="fade-right" data-aos-duration="800">
-            <TitleBox>교회론</TitleBox>
-          </ContentBox>
-          <ContentBox data-aos="fade-left" data-aos-duration="800">
-            <TitleBox>교회 연혁</TitleBox>
-          </ContentBox>
-        </ContentsDiv>
-      </DivideDiv>
+        </SidebarBox>
+        <ContentsBox>
+          <ContentsDiv>
+            <InfoDiv>영상 및 사진</InfoDiv>
+          </ContentsDiv>
+          <ContentsDiv data-aos="fade-right" data-aos-duration="800">
+            <InfoDiv>교회론</InfoDiv>
+          </ContentsDiv>
+          <ContentsDiv data-aos="fade-left" data-aos-duration="800">
+            <InfoDiv>교회 연혁</InfoDiv>
+          </ContentsDiv>
+        </ContentsBox>
+      </DivideBox>
     </Wrap>
   );
 }
-const Wrap = styled.div`
-  width: 100%;
-  height: 100%;
-  margin-top: 100px;
-  padding: 25px 0 25px 0;
-  border: 1px solid red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const DivideDiv = styled.div`
-  max-width: 1280px;
-  width: 100%;
-  border: 1px solid blue;
-  display: flex;
-  flex-flow: row wrap;
-  gap: 50px;
-`;
-const SidebarDiv = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  gap: 50px;
-  flex: 2;
-`;
-const ContentsDiv = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-  gap: 50px;
-  flex: 8;
-`;
-const ContentBox = styled.div`
-  border: 1px solid green;
-`;
-const TitleBox = styled.div`
-  text-align: center;
-`;
