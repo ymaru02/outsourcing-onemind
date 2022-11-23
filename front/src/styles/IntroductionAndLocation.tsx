@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import TestImg from "../img/testImg.jpg";
 
+const Flex = styled.div`
+  display: flex;
+`;
 // Introduction & Location 공통
-export const Wrap = styled.div`
+export const Wrap = styled(Flex)`
   width: 100%;
-  height: 100%;
   margin-top: 100px;
   padding: 0 0 25px 0;
   border: 1px solid red;
-  display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
@@ -19,27 +20,30 @@ export const TestImgBox = styled.div`
   width: 100%;
   height: 250px;
 `;
-export const DivideBox = styled.div`
+export const DivideBox = styled(Flex)`
   max-width: 1280px;
   width: 100%;
   border: 1px solid blue;
-  display: flex;
   flex-flow: row wrap;
   gap: 50px;
 `;
-export const SidebarBox = styled.div`
-  display: flex;
+export const SidebarBox = styled(Flex)`
   flex-flow: column wrap;
   gap: 50px;
   flex: 2;
-  padding: 16px 0 16px 16px;
+  padding: 30px 0 30px 30px;
 `;
-export const ContentsBox = styled.div`
+export const Ul = styled.ul`
   display: flex;
+  flex-flow: column wrap;
+  padding: 5px;
+  gap: 10px;
+`;
+export const ContentsBox = styled(Flex)`
   flex-flow: column wrap;
   gap: 30px;
   flex: 8;
-  padding: 16px 16px 16px 0;
+  padding: 30px 30px 30px 0;
 `;
 export const ContentsDiv = styled.div`
   border: 1px solid green;

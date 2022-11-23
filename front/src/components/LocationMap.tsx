@@ -36,6 +36,15 @@ const MapContainer = () => {
     });
     // 마커 위에 인포윈도우 표시(두번째 파라미터 marker를 넣어주지 않으면 지도 위에 표시됨)
     infowindow.open(map, marker);
+
+    // 지도타입 컨트롤 생성
+    var mapTypeControl = new window.kakao.maps.MapTypeControl();
+    // 지도에 컨트롤 표시
+    // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의
+    map.addControl(mapTypeControl, window.kakao.maps.ControlPosition.TOPRIGHT);
+    // 줌 컨트롤을 생성
+    var zoomControl = new window.kakao.maps.ZoomControl();
+    map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
   }, []);
   return <div id="map" style={{ width: "100%", height: "100%" }} />;
 };

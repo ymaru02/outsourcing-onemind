@@ -33,6 +33,8 @@ export default function Introduction() {
           </ul>
         </SidebarBox>
         <ContentsBox>
+          <h2>교회 소개</h2>
+          <hr />
           <ContentsDiv>
             <InfoDiv>영상 및 사진</InfoDiv>
           </ContentsDiv>

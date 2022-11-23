@@ -12,6 +12,7 @@ import {
   ContentsDiv,
   InfoDiv,
   MapBox,
+  Ul,
 } from "../styles/IntroductionAndLocation";
 
 export default function Location() {
@@ -25,23 +26,25 @@ export default function Location() {
         <SidebarBox>
           {/* 사이드바 제작 후 분리 예정 */}
           <aside>사이드바</aside>
-          <ul>
+          <Ul>
             <Link to="/introduction">
               <li>교회 소개</li>
             </Link>
             <Link to="/location">
               <li>교회 오시는 길</li>
             </Link>
-          </ul>
+          </Ul>
         </SidebarBox>
         <ContentsBox>
+          <h2>주소 및 연락처</h2>
+          <hr />
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
-              <ul>
+              <Ul>
                 <li>📬 대구광역시 수성구 범안로8길 19(범물동) </li>
                 <li>📞 010-6228-8433</li>
-                <li>+ 그 외 추가 연락처</li>
-              </ul>
+                <li>+ 그 외 추가 사항</li>
+              </Ul>
             </InfoDiv>
           </ContentsDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
