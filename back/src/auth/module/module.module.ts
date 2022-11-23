@@ -16,6 +16,6 @@ import { ServiceService } from '../service/service.service';
   ],
   controllers: [ControllerController],
   providers: [ServiceService, prismaService, JwtStrategy],
-  exports: [ServiceService, prismaService],
+  exports: [ServiceService, prismaService, JwtStrategy],
 })
 export class authModule {}
