@@ -1,0 +1,25 @@
+.wrap{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+.Footer{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+.Footer li{
+    text-decoration: none;
+    list-style-type: none;
+    display: inline;
+    padding: 20px;
+}
+.Footer a{
+    text-decoration: none;
+    color: black;
+}
+.Footer a:hover{
+    color: skyblue;
+}
