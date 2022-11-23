@@ -27,7 +27,7 @@ const MapContainer = () => {
     marker.setMap(map);
     // 인포윈도우에 표출될 내용
     var iwContent = `<div style="width:100px;padding:5px;text-align:center;margin-left:20px;font-weight:bold;">한마음 교회<br>
-        <a href="https://map.kakao.com/link/map/한마음 교회,35.816473,128.643336" style="color:blue" target="_blank">큰 지도 보기</a></div>`,
+        <a href="https://map.kakao.com/link/map/한마음 교회,35.816473,128.643336" style="color:blue; text-decoration:none" target="_blank">큰 지도 보기</a></div>`,
       iwPosition = new window.kakao.maps.LatLng(35.816473, 128.643336); //인포윈도우 표시 위치
     // 인포윈도우 생성
     var infowindow = new window.kakao.maps.InfoWindow({

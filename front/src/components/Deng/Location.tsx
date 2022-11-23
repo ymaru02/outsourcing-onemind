@@ -4,7 +4,7 @@ import "aos/dist/aos.css"; // AOS import
 import LocationMap from "./LocationMap";
 import {
   Wrap,
-  TestImgBox,
+  ImgBox250W,
   DivideBox,
   ContentsBox,
   ContentsDiv,
@@ -12,6 +12,7 @@ import {
   MapBox,
   Ul,
   InfoTitleDiv,
+  Li,
 } from "../../styles/IntroductionAndLocation";
 import Sidebar from "./Sidebar";
 
@@ -21,7 +22,7 @@ export default function Location() {
   });
   return (
     <Wrap>
-      <TestImgBox></TestImgBox>
+      <ImgBox250W></ImgBox250W>
       <DivideBox>
         <Sidebar />
         <ContentsBox>
@@ -29,9 +30,9 @@ export default function Location() {
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
               <Ul>
-                <li>📬 대구광역시 수성구 범안로8길 19(범물동) </li>
-                <li>📞 010-6228-8433</li>
-                <li>+ 그 외 추가 사항</li>
+                <Li>📬 대구광역시 수성구 범안로8길 19(범물동) </Li>
+                <Li>📞 010-6228-8433</Li>
+                <Li>+ 그 외 추가 사항</Li>
               </Ul>
             </InfoDiv>
           </ContentsDiv>

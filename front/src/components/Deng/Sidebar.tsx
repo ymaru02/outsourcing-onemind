@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { H2, SidebarBox, Ul } from "../../styles/IntroductionAndLocation";
+import {
+  H2,
+  Lihover,
+  SidebarBox,
+  Ul,
+} from "../../styles/IntroductionAndLocation";
 
 interface SideItem {
   name: string;
@@ -24,12 +29,10 @@ function Sidebar() {
               to={menu.path}
               key={index}
               style={{
-                color: "black",
                 textDecoration: "none",
-                fontWeight: "bold",
               }}
             >
-              <li>{menu.name}</li>
+              <Lihover>{menu.name}</Lihover>
             </Link>
           );
         })}
