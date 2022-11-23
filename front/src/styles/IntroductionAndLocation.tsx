@@ -4,6 +4,10 @@ import TestImg from "../img/testImg.jpg";
 const Flex = styled.div`
   display: flex;
 `;
+export const H2 = styled.h2`
+  height: 45px;
+  border-bottom: 1px solid grey;
+`;
 // Introduction & Location 공통
 export const Wrap = styled(Flex)`
   width: 100%;
@@ -53,10 +57,13 @@ export const ContentsDiv = styled.div`
 export const InfoDiv = styled.div`
   text-align: left;
 `;
-export const Hr = styled.hr`
-  color: light-gray;
+export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
+  height: 40px;
+  text-align: left;
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+  border-bottom: 1px solid grey;
 `;
-
 // Location 적용
 export const MapBox = styled.div`
   width: 100%;

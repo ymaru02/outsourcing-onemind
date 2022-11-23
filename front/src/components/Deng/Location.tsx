@@ -11,6 +11,7 @@ import {
   InfoDiv,
   MapBox,
   Ul,
+  InfoTitleDiv,
 } from "../../styles/IntroductionAndLocation";
 import Sidebar from "./Sidebar";
 
@@ -24,8 +25,7 @@ export default function Location() {
       <DivideBox>
         <Sidebar />
         <ContentsBox>
-          <h3>주소 및 연락처</h3>
-          <hr />
+          <InfoTitleDiv fontsize="20px">주소 및 연락처</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
               <Ul>

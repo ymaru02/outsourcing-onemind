@@ -8,6 +8,7 @@ import {
   ContentsBox,
   ContentsDiv,
   InfoDiv,
+  InfoTitleDiv,
 } from "../../styles/IntroductionAndLocation";
 import Sidebar from "./Sidebar";
 
@@ -21,8 +22,7 @@ export default function Introduction() {
       <DivideBox>
         <Sidebar />
         <ContentsBox>
-          <h3>교회 소개</h3>
-          <hr />
+          <InfoTitleDiv fontsize="20px">교회 소개</InfoTitleDiv>
           <ContentsDiv>
             <InfoDiv>영상 및 사진</InfoDiv>
           </ContentsDiv>

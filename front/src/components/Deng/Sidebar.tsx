@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Hr, SidebarBox, Ul } from "../../styles/IntroductionAndLocation";
+import { H2, SidebarBox, Ul } from "../../styles/IntroductionAndLocation";
 
 interface SideItem {
   name: string;
@@ -16,8 +16,7 @@ function Sidebar() {
   return (
     <SidebarBox>
       {/* 사이드바 제작 후 분리 예정 */}
-      <h2>교회 소개</h2>
-      <Hr />
+      <H2>교회 소개</H2>
       <Ul>
         {intro_menus.map((menu, index) => {
           return (
