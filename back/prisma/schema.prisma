@@ -11,11 +11,20 @@ datasource db {
 }
 
 model User {
+<<<<<<< HEAD
   id       Int    @id @default(autoincrement())
   email    String @unique
   name     String @unique
   password String
   posts    Post[]
+=======
+  id    Int     @default(autoincrement()) @id
+  email String  @unique
+  name  String  @unique
+  password String 
+
+  posts Post[]
+>>>>>>> 4e387c1afba32398933d723a4f65d63bce736fc6
 }
 
 model Post {
