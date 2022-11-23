@@ -8,6 +8,7 @@ import { LoggerMiddleware } from './logger/logger.middleware';
 import { prismaService } from './prisma.service';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
+import { PostModule } from './post/post.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { PassportModule } from '@nestjs/passport';
       secret: process.env.SECRET_KEY,
       signOptions: { expiresIn: '1h' },
     }),
+    PostModule,
   ],
   controllers: [AppController, ControllerController],
   providers: [AppService, ServiceService, prismaService],
