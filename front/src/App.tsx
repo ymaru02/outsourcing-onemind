@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Home from "./components/Home";
-import Introduction from "./components/Introduction";
-import Location from "./components/Location";
+import Introduction from "./components/Deng/Introduction";
+import Location from "./components/Deng/Location";
 import GStyle from "./styles/GStyle"; // GlobalStyle
 
 function App() {

@@ -29,15 +29,17 @@ export const DivideBox = styled(Flex)`
 `;
 export const SidebarBox = styled(Flex)`
   flex-flow: column wrap;
-  gap: 50px;
+  gap: 30px;
   flex: 2;
   padding: 30px 0 30px 30px;
+  position: relative;
+  bottom: 6px;
 `;
 export const Ul = styled.ul`
   display: flex;
   flex-flow: column wrap;
   padding: 5px;
-  gap: 10px;
+  gap: 30px;
 `;
 export const ContentsBox = styled(Flex)`
   flex-flow: column wrap;
@@ -50,6 +52,9 @@ export const ContentsDiv = styled.div`
 `;
 export const InfoDiv = styled.div`
   text-align: left;
+`;
+export const Hr = styled.hr`
+  color: light-gray;
 `;
 
 // Location 적용

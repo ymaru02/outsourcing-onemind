@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css"; // AOS import
 import LocationMap from "./LocationMap";
@@ -7,13 +6,13 @@ import {
   Wrap,
   TestImgBox,
   DivideBox,
-  SidebarBox,
   ContentsBox,
   ContentsDiv,
   InfoDiv,
   MapBox,
   Ul,
-} from "../styles/IntroductionAndLocation";
+} from "../../styles/IntroductionAndLocation";
+import Sidebar from "./Sidebar";
 
 export default function Location() {
   useEffect(() => {
@@ -23,20 +22,9 @@ export default function Location() {
     <Wrap>
       <TestImgBox></TestImgBox>
       <DivideBox>
-        <SidebarBox>
-          {/* 사이드바 제작 후 분리 예정 */}
-          <aside>사이드바</aside>
-          <Ul>
-            <Link to="/introduction">
-              <li>교회 소개</li>
-            </Link>
-            <Link to="/location">
-              <li>교회 오시는 길</li>
-            </Link>
-          </Ul>
-        </SidebarBox>
+        <Sidebar />
         <ContentsBox>
-          <h2>주소 및 연락처</h2>
+          <h3>주소 및 연락처</h3>
           <hr />
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>

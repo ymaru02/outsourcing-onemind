@@ -1,0 +1,42 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { Hr, SidebarBox, Ul } from "../../styles/IntroductionAndLocation";
+
+interface SideItem {
+  name: string;
+  path: string;
+}
+
+function Sidebar() {
+  // const pathName = useLocation().pathname; // url path 값을 받아옴
+  const intro_menus: SideItem[] = [
+    { name: "교회 소개", path: "/introduction" },
+    { name: "교회 오시는 길", path: "/location" },
+  ];
+  return (
+    <SidebarBox>
+      {/* 사이드바 제작 후 분리 예정 */}
+      <h2>교회 소개</h2>
+      <Hr />
+      <Ul>
+        {intro_menus.map((menu, index) => {
+          return (
+            <Link
+              to={menu.path}
+              key={index}
+              style={{
+                color: "black",
+                textDecoration: "none",
+                fontWeight: "bold",
+              }}
+            >
+              <li>{menu.name}</li>
+            </Link>
+          );
+        })}
+      </Ul>
+    </SidebarBox>
+  );
+}
+
+export default Sidebar;
