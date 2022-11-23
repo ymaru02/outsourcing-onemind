@@ -5,10 +5,6 @@ import Warm250 from "../img/warmVer250.png";
 const Flex = styled.div`
   display: flex;
 `;
-export const H2 = styled.h2`
-  height: 45px;
-  border-bottom: 1px solid lightgrey;
-`;
 // Introduction & Location 공통
 export const Wrap = styled(Flex)`
   width: 100%;
@@ -92,4 +88,9 @@ export const MapBox = styled.div`
   width: 100%;
   height: 450px;
   border: 1px solid skyblue;
+`;
+// Sidebar
+export const H2 = styled.h2`
+  height: 45px;
+  border-bottom: 1px solid lightgrey;
 `;
