@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Rainbow250 from "../img/rainbowVer250.png";
 import Warm250 from "../img/warmVer250.png";
+import { theme } from "./Theme";
 
 const Flex = styled.div`
   display: flex;
@@ -15,17 +16,23 @@ export const Wrap = styled(Flex)`
 `;
 export const ImgBox250R = styled.div`
   max-width: 1280px;
+  min-height: 250px;
   background: url(${Rainbow250});
   width: 100%;
   height: 250px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  background-size: contain;
+  background-repeat: no-repeat;
 `;
 export const ImgBox250W = styled.div`
   max-width: 1280px;
+  min-height: 250px;
   background: url(${Warm250});
   width: 100%;
-  height: 250px;
+  height: 100%
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  background-size: contain;
+  background-repeat: no-repeat;
 `;
 export const DivideBox = styled(Flex)`
   max-width: 1280px;
@@ -40,6 +47,10 @@ export const SidebarBox = styled(Flex)`
   padding: 30px 0 30px 30px;
   position: relative;
   bottom: 6px;
+
+  @media ${(props) => props.theme.desktop} {
+    display: none;
+  }
 `;
 export const Ul = styled.ul`
   display: flex;
@@ -56,13 +67,13 @@ export const Lihover = styled(Li)`
   color: black;
   text-decoration: none;
   font-weight: bold;
-  border: 2px solid skyblue;
+  border: 2px solid ${theme.mainColor};
   border-radius: 50px;
   text-align: center;
   padding-top: 12px;
   &:hover {
-    background-color: skyblue;
-    color: white;
+    background-color: ${theme.mainColor};
+    color: ${theme.subColor};
   }
 `;
 export const ContentsBox = styled(Flex)`
@@ -87,7 +98,7 @@ export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
 export const MapBox = styled.div`
   width: 100%;
   height: 450px;
-  border: 1px solid skyblue;
+  border: 1px solid ${theme.mainColor};
 `;
 // Sidebar
 export const H2 = styled.h2`
