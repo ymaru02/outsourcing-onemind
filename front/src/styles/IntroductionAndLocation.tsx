@@ -14,23 +14,20 @@ export const Wrap = styled(Flex)`
   justify-content: center;
   align-items: center;
 `;
-export const ImgBox250R = styled.div`
+const ImgBox = styled.div`
   max-width: 1280px;
   min-height: 250px;
-  background: url(${Rainbow250});
   width: 100%;
-  height: 250px;
+  height: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+`;
+export const ImgBox250R = styled(ImgBox)`
+  background: url(${Rainbow250});
   background-size: contain;
   background-repeat: no-repeat;
 `;
-export const ImgBox250W = styled.div`
-  max-width: 1280px;
-  min-height: 250px;
+export const ImgBox250W = styled(ImgBox)`
   background: url(${Warm250});
-  width: 100%;
-  height: 100%
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   background-size: contain;
   background-repeat: no-repeat;
 `;
