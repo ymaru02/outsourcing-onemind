@@ -5,12 +5,10 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import Introduction from "./components/Deng/Introduction";
 import Location from "./components/Deng/Location";
-import GStyle from "./styles/GStyle"; // GlobalStyle
 
 function App() {
   return (
     <BrowserRouter>
-      <GStyle /> {/* GlobalStyle */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<NotFound />} />
