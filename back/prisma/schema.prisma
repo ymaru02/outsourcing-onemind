@@ -27,6 +27,14 @@ model Post {
   // Img      Img[]
 }
 
+model Member {
+  id Int @id @default(autoincrement())
+  name String
+  imgLink String?
+  explain String?
+  line String
+}
+
 // model Img {
 //   id          Int   @id @default(autoincrement())
 //   postOwner   Post? @relation(fields: [postOwnerId], references: [id])
