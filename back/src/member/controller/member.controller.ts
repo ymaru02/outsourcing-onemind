@@ -19,7 +19,7 @@ import { MemberDto } from '../dto/member.request.dto';
 export class MemberController {
   constructor(private readonly service: MemberService) {}
 
-  @Get('member')
+  @Get('takemember')
   async takeMember(@Req() req: Request) {
     try {
       const data = await this.service.takemember();
