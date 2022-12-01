@@ -3,7 +3,8 @@ import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import {
   Wrap,
-  ImgBox250R,
+  ImgBox,
+  Img,
   DivideBox,
   ContentsBox,
   ContentsDiv,
@@ -11,6 +12,7 @@ import {
   InfoTitleDiv,
 } from "../../styles/Intro";
 import Sidebar from "./Sidebar";
+import Rainbow250 from "../../img/rainbowVer250.png";
 
 export default function Introduction() {
   useEffect(() => {
@@ -18,8 +20,10 @@ export default function Introduction() {
   });
   return (
     <Wrap>
-      <ImgBox250R></ImgBox250R>
       <DivideBox>
+        <ImgBox>
+          <Img src={Rainbow250} alt="" />
+        </ImgBox>
         <Sidebar />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">교회 소개</InfoTitleDiv>

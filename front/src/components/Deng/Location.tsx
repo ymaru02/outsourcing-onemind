@@ -4,7 +4,7 @@ import "aos/dist/aos.css"; // AOS import
 import LocationMap from "./LocationMap";
 import {
   Wrap,
-  ImgBox250W,
+  ImgBox,
   DivideBox,
   ContentsBox,
   ContentsDiv,
@@ -13,8 +13,10 @@ import {
   Ul,
   InfoTitleDiv,
   Li,
+  Img,
 } from "../../styles/Intro";
 import Sidebar from "./Sidebar";
+import Warm250 from "../../img/warmVer250.png";
 
 export default function Location() {
   useEffect(() => {
@@ -22,8 +24,10 @@ export default function Location() {
   });
   return (
     <Wrap>
-      <ImgBox250W></ImgBox250W>
       <DivideBox>
+        <ImgBox>
+          <Img src={Warm250} alt="" />
+        </ImgBox>
         <Sidebar />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">주소 및 연락처</InfoTitleDiv>

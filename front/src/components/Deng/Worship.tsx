@@ -3,14 +3,16 @@ import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import {
   Wrap,
-  ImgBox250R,
+  ImgBox,
   DivideBox,
   ContentsBox,
   ContentsDiv,
   InfoDiv,
   InfoTitleDiv,
+  Img,
 } from "../../styles/Intro";
 import Sidebar from "./Sidebar";
+import Rainbow250 from "../../img/rainbowVer250.png";
 
 export default function Worship() {
   useEffect(() => {
@@ -18,8 +20,10 @@ export default function Worship() {
   });
   return (
     <Wrap>
-      <ImgBox250R></ImgBox250R>
       <DivideBox>
+        <ImgBox>
+          <Img src={Rainbow250} alt="" />
+        </ImgBox>
         <Sidebar />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">예배 시간</InfoTitleDiv>

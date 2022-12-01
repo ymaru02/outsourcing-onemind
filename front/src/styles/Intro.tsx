@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import Rainbow250 from "../img/rainbowVer250.png";
-import Warm250 from "../img/warmVer250.png";
 import { theme } from "./Theme";
 
 const Flex = styled.div`
@@ -8,34 +6,26 @@ const Flex = styled.div`
 `;
 // Introduction & Location 공통
 export const Wrap = styled(Flex)`
+  max-width: 1280px;
   width: 100%;
   padding: 0 0 25px 0;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  margin: auto;
 `;
-const ImgBox = styled.div`
-  max-width: 1280px;
-  min-height: 250px;
+export const ImgBox = styled.div`
   width: 100%;
-  height: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 `;
-export const ImgBox250R = styled(ImgBox)`
-  background: url(${Rainbow250});
-  background-size: contain;
-  background-repeat: no-repeat;
-`;
-export const ImgBox250W = styled(ImgBox)`
-  background: url(${Warm250});
-  background-size: contain;
-  background-repeat: no-repeat;
+export const Img = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 export const DivideBox = styled(Flex)`
-  max-width: 1280px;
   width: 100%;
   flex-flow: row wrap;
-  gap: 50px;
+  gap: 30px;
 `;
 export const SidebarBox = styled(Flex)`
   flex-flow: column wrap;
@@ -93,6 +83,7 @@ export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
 `;
 // Location 적용
 export const MapBox = styled.div`
+  max-width: 1150px;
   width: 100%;
   height: 450px;
   border: 1px solid ${theme.mainColor};
