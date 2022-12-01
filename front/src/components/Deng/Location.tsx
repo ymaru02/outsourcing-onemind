@@ -13,7 +13,7 @@ import {
   Ul,
   InfoTitleDiv,
   Li,
-} from "../../styles/IntroductionAndLocation";
+} from "../../styles/Intro";
 import Sidebar from "./Sidebar";
 
 export default function Location() {

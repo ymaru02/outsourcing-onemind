@@ -1,11 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  H2,
-  Lihover,
-  SidebarBox,
-  Ul,
-} from "../../styles/IntroductionAndLocation";
+import { H2, Lihover, SidebarBox, Ul } from "../../styles/Intro";
 import NotFound from "../NotFound";
 
 interface SideItem {
@@ -17,14 +12,17 @@ function Sidebar() {
   const pathName = useLocation().pathname; // url path 값을 받아옴
   // console.log(pathName);
   const intro_menus: SideItem[] = [
-    { name: "교회 소개", path: "/introduction" },
-    { name: "교회 오시는 길", path: "/location" },
+    { name: "교회 소개", path: "/intro/introduction" },
+    { name: "교회 오시는 길", path: "/intro/location" },
+    { name: "예배 시간", path: "/intro/worship" },
   ];
   return (
     <SidebarBox>
       <H2>교회 소개</H2>
       <Ul>
-        {pathName === "/introduction" || "/location" ? (
+        {pathName === "/intro/introduction" ||
+        "/intro/location" ||
+        "/intro/worship" ? (
           intro_menus.map((menu, index) => {
             return (
               <Link

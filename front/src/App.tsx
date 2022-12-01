@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import Introduction from "./components/Deng/Introduction";
 import Location from "./components/Deng/Location";
+import Worship from "./components/Deng/Worship";
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<NotFound />} />
-        <Route path="/introduction" element={<Introduction />} />
-        <Route path="/location" element={<Location />} />
+        <Route path="/intro/introduction" element={<Introduction />} />
+        <Route path="/intro/location" element={<Location />} />
+        <Route path="/intro/worship" element={<Worship />} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

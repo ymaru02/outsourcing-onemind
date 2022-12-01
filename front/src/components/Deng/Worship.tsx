@@ -12,7 +12,7 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "./Sidebar";
 
-export default function Introduction() {
+export default function Worship() {
   useEffect(() => {
     AOS.init();
   });
@@ -22,15 +22,9 @@ export default function Introduction() {
       <DivideBox>
         <Sidebar />
         <ContentsBox>
-          <InfoTitleDiv fontsize="20px">교회 소개</InfoTitleDiv>
-          <ContentsDiv data-aos="fade-left" data-aos-duration="800">
-            <InfoDiv>영상 및 사진</InfoDiv>
-          </ContentsDiv>
-          <ContentsDiv data-aos="fade-right" data-aos-duration="800">
-            <InfoDiv>교회론</InfoDiv>
-          </ContentsDiv>
-          <ContentsDiv data-aos="fade-left" data-aos-duration="800">
-            <InfoDiv>교회 연혁</InfoDiv>
+          <InfoTitleDiv fontsize="20px">예배 시간</InfoTitleDiv>
+          <ContentsDiv data-aos="fade-up" data-aos-duration="800">
+            <InfoDiv>예배 시간표</InfoDiv>
           </ContentsDiv>
         </ContentsBox>
       </DivideBox>
