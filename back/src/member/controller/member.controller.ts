@@ -29,7 +29,6 @@ export class MemberController {
     }
   }
 
-  @UseGuards(JwtAuthGuard)
   @Post('img')
   @UseInterceptors(FilesInterceptor('files', 1, multerOptions('memberImg')))
   async uploadImg(
