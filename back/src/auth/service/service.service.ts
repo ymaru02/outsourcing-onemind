@@ -41,26 +41,27 @@ export class ServiceService {
 
   async JwtLogin(info: LoginRequestDto) {
     const { email, password } = info;
+    try {
+      const people = await this.prismaService.user.findUnique({
+        where: { email: info.email },
+      });
+      const passwordIsOkay: boolean = await bcrypt.compare(
+        password,
+        people.password,
+      );
+      if (!people) {
+        throw new UnauthorizedException('이메일과 비밀번호를 확인해주세요');
+      }
+      if (!passwordIsOkay) {
+        throw new UnauthorizedException('이메일과 비밀번호를 확인해주세요');
+      }
+      const payload = { email: email, id: people.id, name: people.name };
 
-    const people = await this.prismaService.user.findUnique({
-      where: { email: info.email },
-    });
-
-    const passwordIsOkay: boolean = await bcrypt.compare(
-      password,
-      people.password,
-    );
-    if (!people) {
+      return {
+        token: this.jwtService.sign(payload),
+      };
+    } catch (error) {
       throw new UnauthorizedException('이메일과 비밀번호를 확인해주세요');
     }
-    if (!passwordIsOkay) {
-      throw new UnauthorizedException('이메일과 비밀번호를 확인해주세요');
-    }
-
-    const payload = { email: email, id: people.id, name: people.name };
-
-    return {
-      token: this.jwtService.sign(payload),
-    };
   }
 }

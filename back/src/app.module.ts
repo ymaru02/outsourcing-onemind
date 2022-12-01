@@ -8,6 +8,10 @@ import { LoggerMiddleware } from './logger/logger.middleware';
 import { prismaService } from './prisma.service';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
+import { PostModule } from './post/post.module';
+import { MemberService } from './member/service/member.service';
+import { MemberController } from './member/controller/member.controller';
+import { MemberModule } from './member/member.module';
 
 @Module({
   imports: [
@@ -17,9 +21,11 @@ import { PassportModule } from '@nestjs/passport';
       secret: process.env.SECRET_KEY,
       signOptions: { expiresIn: '1h' },
     }),
+    PostModule,
+    MemberModule,
   ],
-  controllers: [AppController, ControllerController],
-  providers: [AppService, ServiceService, prismaService],
+  controllers: [AppController, ControllerController, MemberController],
+  providers: [AppService, ServiceService, prismaService, MemberService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

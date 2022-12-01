@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import styled from 'styled-components';
 
@@ -9,4 +10,10 @@ export default function Home() {
     </video>
     </>
     )
+=======
+import React from "react";
+
+export default function Home() {
+  return <div>Home</div>;
+>>>>>>> upstream/feature
 }
