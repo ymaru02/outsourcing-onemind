@@ -18,9 +18,15 @@ export const ImgBox = styled.div`
   width: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 `;
-export const Img = styled.img`
-  width: 100%;
-  height: 100%;
+export const Img = styled.img<{ width: any; height: any }>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+`;
+export const FloatImg = styled.img<{ width: any; height: any; float: any }>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  float: ${(props) => props.float};
+  margin: 5px 20px 20px 0;
 `;
 export const DivideBox = styled(Flex)`
   width: 100%;
@@ -80,6 +86,10 @@ export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
   font-size: ${(props) => props.fontsize};
   font-weight: bold;
   border-bottom: 1px solid lightgrey;
+`;
+export const TinyTitle = styled.p<{ fontsize: any }>`
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
 `;
 // Location 적용
 export const MapBox = styled.div`

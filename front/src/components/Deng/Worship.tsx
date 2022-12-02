@@ -22,7 +22,7 @@ export default function Worship() {
     <Wrap>
       <DivideBox>
         <ImgBox>
-          <Img src={Rainbow250} alt="" />
+          <Img src={Rainbow250} alt="" width="100%" height="100%" />
         </ImgBox>
         <Sidebar />
         <ContentsBox>

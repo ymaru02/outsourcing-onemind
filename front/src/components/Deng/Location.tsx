@@ -26,7 +26,7 @@ export default function Location() {
     <Wrap>
       <DivideBox>
         <ImgBox>
-          <Img src={Warm250} alt="" />
+          <Img src={Warm250} alt="" width="100%" height="100%" />
         </ImgBox>
         <Sidebar />
         <ContentsBox>
