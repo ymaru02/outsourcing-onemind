@@ -18,26 +18,32 @@ export const ImgBox = styled.div`
   width: 100%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
 `;
-export const Img = styled.img<{ width: any; height: any }>`
+export const Img = styled.img<{ width: any; height: any; margin: any }>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  margin: ${(props) => props.margin};
 `;
 export const FloatImg = styled.img<{ width: any; height: any; float: any }>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   float: ${(props) => props.float};
   margin: 5px 20px 20px 0;
+
+  @media ${(props) => props.theme.mobile} {
+    margin: auto;
+  }
 `;
 export const DivideBox = styled(Flex)`
   width: 100%;
   flex-flow: row wrap;
-  gap: 30px;
+  gap: 25px;
 `;
 export const SidebarBox = styled(Flex)`
+  max-height: 500px;
   flex-flow: column wrap;
   gap: 30px;
   flex: 2;
-  padding: 30px 0 30px 30px;
+  padding: 20px 0 30px 30px;
   position: relative;
   bottom: 6px;
 
@@ -73,12 +79,18 @@ export const ContentsBox = styled(Flex)`
   flex-flow: column wrap;
   gap: 30px;
   flex: 8;
-  padding: 30px 30px 30px;
+  padding: 20px 30px 30px;
 `;
 export const ContentsDiv = styled.div``;
 export const InfoDiv = styled.div`
   text-align: left;
   padding-left: 20px;
+
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+  }
 `;
 export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
   height: 40px;
@@ -93,10 +105,12 @@ export const TinyTitle = styled.p<{ fontsize: any }>`
 `;
 // Location 적용
 export const MapBox = styled.div`
-  max-width: 1150px;
   width: 100%;
-  height: 450px;
+  height: 500px;
   border: 1px solid ${theme.mainColor};
+
+  @media ${(props) => props.theme.mobile} {
+  }
 `;
 // Sidebar
 export const H2 = styled.h2`
