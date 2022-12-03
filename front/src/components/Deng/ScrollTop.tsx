@@ -25,9 +25,9 @@ const TopBtnStyle = styled.button`
   }
 `;
 
-interface TopBtnType {
-  showBtn: boolean;
-}
+// interface TopBtnType {
+//   showBtn: boolean;
+// }
 
 const TopBtn = () => {
   const [showBtn, setShowBtn] = useState(false);
