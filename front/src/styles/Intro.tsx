@@ -72,6 +72,7 @@ export const Lihover = styled(Li)`
   text-align: center;
   padding-top: 12px;
   &:hover {
+    font-size: 18px;
     background-color: ${theme.mainColor};
     color: ${theme.subColor};
   }
