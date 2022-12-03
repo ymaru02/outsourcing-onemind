@@ -34,18 +34,19 @@ export const FloatImg = styled.img<{ width: any; height: any; float: any }>`
   }
 `;
 export const DivideBox = styled(Flex)`
-  width: 100%;
+  // width: 100%;
   flex-flow: row wrap;
   gap: 25px;
 `;
 export const SidebarBox = styled(Flex)`
-  max-height: 500px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10px;
+  height: 500px;
   flex-flow: column wrap;
   gap: 30px;
   flex: 2;
-  padding: 20px 0 30px 30px;
-  position: relative;
-  bottom: 6px;
+  padding: 16px 0 30px 30px;
 
   @media ${(props) => props.theme.desktop} {
     display: none;
@@ -67,7 +68,7 @@ export const Lihover = styled(Li)`
   text-decoration: none;
   font-weight: bold;
   border: 2px solid ${theme.mainColor};
-  border-radius: 50px;
+  border-radius: 8px;
   text-align: center;
   padding-top: 12px;
   &:hover {
