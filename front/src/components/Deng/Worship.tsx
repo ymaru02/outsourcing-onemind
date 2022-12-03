@@ -22,16 +22,10 @@ export default function Worship() {
   });
   return (
     <Wrap>
+      <ImgBox>
+        <Img src={Rainbow250} alt="" width="100%" height="100%" margin="auto" />
+      </ImgBox>
       <DivideBox>
-        <ImgBox>
-          <Img
-            src={Rainbow250}
-            alt=""
-            width="100%"
-            height="100%"
-            margin="auto"
-          />
-        </ImgBox>
         <Sidebar />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">예배 시간</InfoTitleDiv>

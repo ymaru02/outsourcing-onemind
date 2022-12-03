@@ -6,7 +6,6 @@ const Flex = styled.div`
 `;
 // Introduction & Location 공통
 export const Wrap = styled(Flex)`
-  max-width: 1280px;
   width: 100%;
   padding: 0 0 25px 0;
   flex-flow: column wrap;
@@ -34,7 +33,8 @@ export const FloatImg = styled.img<{ width: any; height: any; float: any }>`
   }
 `;
 export const DivideBox = styled(Flex)`
-  // width: 100%;
+  width: 100%;
+  max-width: 1280px;
   flex-flow: row wrap;
   gap: 25px;
 `;

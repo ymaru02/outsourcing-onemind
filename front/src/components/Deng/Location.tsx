@@ -24,10 +24,10 @@ export default function Location() {
   });
   return (
     <Wrap>
+      <ImgBox>
+        <Img src={Warm250} alt="" width="100%" height="100%" margin="auto" />
+      </ImgBox>
       <DivideBox>
-        <ImgBox>
-          <Img src={Warm250} alt="" width="100%" height="100%" margin="auto" />
-        </ImgBox>
         <Sidebar />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">주소 및 연락처</InfoTitleDiv>
