@@ -4,7 +4,7 @@ import "aos/dist/aos.css"; // AOS import
 import LocationMap from "./LocationMap";
 import {
   Wrap,
-  ImgBox250W,
+  ImgBox,
   DivideBox,
   ContentsBox,
   ContentsDiv,
@@ -13,8 +13,10 @@ import {
   Ul,
   InfoTitleDiv,
   Li,
-} from "../../styles/IntroductionAndLocation";
+  Img,
+} from "../../styles/Intro";
 import Sidebar from "./Sidebar";
+import Warm250 from "../../img/warmVer250.png";
 
 export default function Location() {
   useEffect(() => {
@@ -22,7 +24,9 @@ export default function Location() {
   });
   return (
     <Wrap>
-      <ImgBox250W></ImgBox250W>
+      <ImgBox>
+        <Img src={Warm250} alt="" width="100%" height="100%" margin="auto" />
+      </ImgBox>
       <DivideBox>
         <Sidebar />
         <ContentsBox>
@@ -31,7 +35,7 @@ export default function Location() {
             <InfoDiv>
               <Ul>
                 <Li>📬 대구광역시 수성구 범안로8길 19(범물동) </Li>
-                <Li>📞 010-6228-8433</Li>
+                <Li>📞 010-1234-5678</Li>
                 <Li>+ 그 외 추가 사항</Li>
               </Ul>
             </InfoDiv>
