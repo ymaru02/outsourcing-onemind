@@ -115,20 +115,28 @@ export default function PostComponent() {
   };
   return (
     <>
-      <div style={{ height: "400px", width: "50%", border: "1px solid black" }}>
+      <div
+        style={{
+          marginTop: "10px",
+          height: "400px",
+          width: "100%",
+          border: "1px solid black",
+        }}
+      >
         <ReactQuill
-          style={{ height: "300px" }}
+          style={{ height: "360px" }}
           ref={quillRef}
           theme="snow"
-          placeholder="플레이스 홀더"
+          placeholder="글을 작성해 주세요"
           value={value}
           onChange={setValue}
           modules={modules}
           formats={formats}
         />
-        
       </div>
-      <button onClick={sendData}>보내기</button>
+      <div style={{marginTop:"20px",width:"100%",display:"flex" , justifyContent:"flex-end"}}>
+        <button onClick={sendData}>보내기</button>
+      </div>
     </>
   );
 }

@@ -7,6 +7,7 @@ import Introduction from "./components/Deng/Introduction";
 import Location from "./components/Deng/Location";
 import PostComponent from "./components/PostComp/PostCompnent";
 import Worship from "./components/Deng/Worship";
+import MakePost from "./components/PostComp/MakePost";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/intro/introduction" element={<Introduction />} />
         <Route path="/intro/location" element={<Location />} />
         <Route path="/intro/worship" element={<Worship />} />
+        <Route path="/post" element={<MakePost/>} />
+
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

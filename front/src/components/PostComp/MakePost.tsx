@@ -15,8 +15,9 @@ import {
 import Sidebar from "../Deng/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import worshipImg from "../../img/worship.jpg";
+import PostComponent from "./PostCompnent";
 
-export default function Worship() {
+export default function MakePost() {
   useEffect(() => {
     AOS.init();
   });
@@ -31,14 +32,8 @@ export default function Worship() {
           <InfoTitleDiv fontsize="20px">글 작성</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
-              <TinyTitle fontsize="18px">예배 시간표</TinyTitle>
-              <Img
-                src={worshipImg}
-                alt=""
-                width="100%"
-                height="600px"
-                margin="5px auto"
-              />
+              <TinyTitle fontsize="18px">글 작성하기</TinyTitle>
+              <PostComponent/>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

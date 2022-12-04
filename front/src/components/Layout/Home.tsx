@@ -32,6 +32,7 @@ const Nav = styled.div`
 export default function Home() {
   return (
     <>
+    
       <Temp>Temp</Temp>
       <Nav>
         <Circle image={img1} content={"예배시간"}></Circle>
