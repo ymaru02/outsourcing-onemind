@@ -12,17 +12,15 @@ function Sidebar() {
   const pathName = useLocation().pathname; // url path 값을 받아옴
   // console.log(pathName);
   const intro_menus: SideItem[] = [
-    { name: "교회 소개", path: "/intro/introduction" },
-    { name: "교회 오시는 길", path: "/intro/location" },
-    { name: "예배 시간", path: "/intro/worship" },
+    { name: "교회 소개", path: "/introduction" },
+    { name: "교회 오시는 길", path: "/location" },
+    { name: "예배 시간", path: "/worship" },
   ];
   return (
     <SidebarBox>
       <H2>교회 소개</H2>
       <Ul>
-        {pathName === "/intro/introduction" ||
-        "/intro/location" ||
-        "/intro/worship" ? (
+        {pathName === "/introduction" || "/location" || "/worship" ? (
           intro_menus.map((menu, index) => {
             return (
               <Link

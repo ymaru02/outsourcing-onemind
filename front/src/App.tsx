@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Home from "./components/Layout/Home";
 import Footer from "./components/Footer";
-import Introduction from "./components/Deng/Introduction";
-import Location from "./components/Deng/Location";
-import Worship from "./components/Deng/Worship";
+import Introduction from "./components/Layout/Introduction";
+import Location from "./components/Layout/Location";
+import Worship from "./components/Layout/Worship";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
@@ -15,9 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<NotFound />} />
-        <Route path="/intro/introduction" element={<Introduction />} />
-        <Route path="/intro/location" element={<Location />} />
-        <Route path="/intro/worship" element={<Worship />} />
+        <Route path="/introduction" element={<Introduction />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/worship" element={<Worship />} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
