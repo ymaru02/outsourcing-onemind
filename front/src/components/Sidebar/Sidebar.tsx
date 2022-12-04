@@ -13,6 +13,8 @@ function Sidebar() {
   // console.log(pathName);
   const intro_menus: SideItem[] = [
     { name: "교회 소개", path: "/introduction" },
+    { name: "교회 소식", path: "/news" },
+    { name: "교회 앨범", path: "/album" },
     { name: "교회 오시는 길", path: "/location" },
     { name: "예배 시간", path: "/worship" },
   ];
@@ -20,7 +22,11 @@ function Sidebar() {
     <SidebarBox>
       <H2>교회 소개</H2>
       <Ul>
-        {pathName === "/introduction" || "/location" || "/worship" ? (
+        {pathName === "/introduction" ||
+        "/news" ||
+        "/album" ||
+        "/location" ||
+        "/worship" ? (
           intro_menus.map((menu, index) => {
             return (
               <Link
