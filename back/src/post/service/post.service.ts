@@ -10,19 +10,22 @@ export class PostService {
   constructor(private prismaService: prismaService) {}
 
   async uploadImg(files: Array<Express.Multer.File>) {
-    let url = 'http://localhost:3000';
-    url += files[0].path;
+    let url = 'http://localhost:8080/media/announced/';
+    url += files[0].filename;
     return url;
   }
 
   async uploadPost(postInfo: PostDto) {
-    const num = Number(postInfo.authorId);
-    const creatdata = {
-      title: postInfo.title,
-      content: postInfo.content,
-      authorId: num,
-    };
     try {
+      const num = Number(postInfo.authorId);
+      const result = await this.prismaService.user.findUnique({
+        where: { id: 1 },
+      });
+      const creatdata = {
+        title: postInfo.title,
+        content: postInfo.content,
+        authorId: result.id,
+      };
       const data = await this.prismaService.post.createMany({
         data: creatdata,
       });

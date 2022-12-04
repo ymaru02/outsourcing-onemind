@@ -9,6 +9,10 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.enableCors({
+    origin: true, //여기에 url을 넣어도된다.
+    credentials: true,
+  });
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useStaticAssets(path.join(__dirname, './common', 'uploads'), {
@@ -31,6 +35,6 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
-  await app.listen(3000);
+  await app.listen(8080);
 }
 bootstrap();
