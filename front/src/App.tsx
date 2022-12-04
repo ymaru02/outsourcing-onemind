@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Introduction from "./components/Deng/Introduction";
 import Location from "./components/Deng/Location";
 import GStyle from "./styles/GStyle"; // GlobalStyle
+import PostComponent from "./components/PostComp/PostCompnent";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route element={<NotFound />} />
         <Route path="/introduction" element={<Introduction />} />
         <Route path="/location" element={<Location />} />
+        <Route path="/post" element={<PostComponent/>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
