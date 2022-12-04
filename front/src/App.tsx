@@ -6,10 +6,12 @@ import Footer from "./components/Footer";
 import Introduction from "./components/Deng/Introduction";
 import Location from "./components/Deng/Location";
 import Worship from "./components/Deng/Worship";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
+      <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<NotFound />} />
