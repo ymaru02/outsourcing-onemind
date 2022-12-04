@@ -9,6 +9,7 @@ import Album from "./components/Layout/Album";
 import Location from "./components/Layout/Location";
 import Worship from "./components/Layout/Worship";
 import Navbar from "./components/Navbar/Navbar";
+import MakePost from "./components/PostComp/MakePost";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/album" element={<Album />} />
         <Route path="/location" element={<Location />} />
         <Route path="/worship" element={<Worship />} />
+        <Route path="/makepost" element={<MakePost />} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

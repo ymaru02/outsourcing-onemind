@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import SubNav from "./SubNav";
 import MainNav from "./MainNav";
+import Logo1 from "../../img/quick_logo.png";
+import { Link } from "react-router-dom";
 
 const Header = styled.div`
   width: 100%;
@@ -22,13 +24,19 @@ const Logo = styled.a`
   height: 75px;
 `;
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
 export default function Navbar() {
   return (
     <Header>
       <Inner>
         <TopNav>
           <Logo>
-            <img src="./images/OneMind_logo.png" alt="OneMind" />
+            <StyledLink to={"/"}>
+              <img src={Logo1} alt="OneMind" />
+            </StyledLink>
           </Logo>
           <SubNav></SubNav>
         </TopNav>

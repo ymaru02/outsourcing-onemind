@@ -10,6 +10,7 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
+import Notice from "../Layout/Notice";
 
 export default function News() {
   return (
@@ -21,6 +22,7 @@ export default function News() {
         <Sidebar />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">교회 소식</InfoTitleDiv>
+          <Notice></Notice>
         </ContentsBox>
       </DivideBox>
     </Wrap>

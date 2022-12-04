@@ -33,7 +33,7 @@ export default function MakePost() {
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
               <TinyTitle fontsize="18px">글 작성하기</TinyTitle>
-              <PostComponent/>
+              <PostComponent />
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

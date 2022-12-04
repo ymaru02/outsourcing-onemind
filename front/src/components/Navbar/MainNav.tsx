@@ -46,13 +46,17 @@ const Inner = styled.ul`
 const InnerItem = styled.li`
   width: 220px;
 `;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
 export default function MainNav() {
   return (
     <MainMenu>
       <Item>
-        <Link to={"/intro/introduction"}>
+        <StyledLink to={"/introduction"}>
           <ItemName>교회소개</ItemName>
-        </Link>
+        </StyledLink>
         <ItemCotents>
           <ContentsMenu>
             <Inner>
@@ -63,9 +67,9 @@ export default function MainNav() {
         </ItemCotents>
       </Item>
       <Item>
-        <Link to={"/intro/introduction"}>
+        <StyledLink to={"/news"}>
           <ItemName>교회소식</ItemName>
-        </Link>
+        </StyledLink>
         <ItemCotents>
           <ContentsMenu>
             <Inner>
@@ -76,7 +80,9 @@ export default function MainNav() {
         </ItemCotents>
       </Item>
       <Item>
-        <ItemName>교회앨범</ItemName>
+        <StyledLink to={"/album"}>
+          <ItemName>교회앨범</ItemName>
+        </StyledLink>
         <ItemCotents>
           <ContentsMenu>
             <Inner>
@@ -87,7 +93,9 @@ export default function MainNav() {
         </ItemCotents>
       </Item>
       <Item>
-        <ItemName>오시는길</ItemName>
+        <StyledLink to={"/location"}>
+          <ItemName>오시는길</ItemName>
+        </StyledLink>
         <ItemCotents>
           <ContentsMenu>
             <Inner>

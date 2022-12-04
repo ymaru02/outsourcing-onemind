@@ -18,7 +18,10 @@ const Content = styled.div`
   height: 100%;
   font-size: 2em;
   color: white;
-  text-decoration: none;DW
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
 
 interface Imgprops {
@@ -30,12 +33,12 @@ interface Imgprops {
 export default function Circle({ image, content, link }: Imgprops) {
   return (
     <Menu>
-      <Link to={link}>
+      <StyledLink to={link}>
         <Content>
           <img src={image} alt="" />
           <span>{content}</span>
         </Content>
-      </Link>
+      </StyledLink>
     </Menu>
   );
 }
