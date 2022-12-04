@@ -35,10 +35,10 @@ export default function Home() {
     
       <Temp>Temp</Temp>
       <Nav>
-        <Circle image={img1} content={"예배시간"}></Circle>
-        <Circle image={img2} content={"교회소식"}></Circle>
-        <Circle image={img3} content={"교회앨범"}></Circle>
-        <Circle image={img4} content={"오시는길"}></Circle>
+        <Circle image={img1} content={"예배시간"} link={""}></Circle>
+        <Circle image={img2} content={"교회소식"} link={""}></Circle>
+        <Circle image={img3} content={"교회앨범"} link={""}></Circle>
+        <Circle image={img4} content={"오시는길"} link={""}></Circle>
       </Nav>
       <Video controls={false} controlsList="nodownload" autoPlay loop muted>
         <source src="/background.mp4" type="video/mp4" />

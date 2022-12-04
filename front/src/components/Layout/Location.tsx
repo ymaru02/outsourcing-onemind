@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css"; // AOS import
-import LocationMap from "./LocationMap";
+import LocationMap from "../Maps/LocationMap";
 import {
   Wrap,
   ImgBox,
@@ -15,7 +15,7 @@ import {
   Li,
   Img,
 } from "../../styles/Intro";
-import Sidebar from "./Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 import Warm250 from "../../img/warmVer250.png";
 
 export default function Location() {

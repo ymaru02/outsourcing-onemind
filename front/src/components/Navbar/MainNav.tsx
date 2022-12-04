@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const MainMenu = styled.ul`
   display: flex;
@@ -17,7 +18,7 @@ const ItemName = styled.div`
   font-size: 20px;
   padding: 10px;
   &:hover {
-    background-color: rgba(200,200,200,0.5);
+    background-color: rgba(200, 200, 200, 0.5);
     color: #ffffff;
     border-radius: 6px 6px 0 0;
   }
@@ -49,7 +50,9 @@ export default function MainNav() {
   return (
     <MainMenu>
       <Item>
-        <ItemName>교회소개</ItemName>
+        <Link to={"/intro/introduction"}>
+          <ItemName>교회소개</ItemName>
+        </Link>
         <ItemCotents>
           <ContentsMenu>
             <Inner>
@@ -60,7 +63,9 @@ export default function MainNav() {
         </ItemCotents>
       </Item>
       <Item>
-        <ItemName>교회소식</ItemName>
+        <Link to={"/intro/introduction"}>
+          <ItemName>교회소식</ItemName>
+        </Link>
         <ItemCotents>
           <ContentsMenu>
             <Inner>
