@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 const Menu = styled.div`
   width: 20vh;
   height: 20vh;
@@ -15,20 +17,25 @@ const Content = styled.div`
   align-items: center;
   height: 100%;
   font-size: 2em;
+  color: white;
+  text-decoration: none;DW
 `;
 
 interface Imgprops {
   image: string;
   content: string;
+  link: string;
 }
 
-export default function Circle({ image, content }: Imgprops) {
+export default function Circle({ image, content, link }: Imgprops) {
   return (
     <Menu>
-      <Content>
-        <img src={image} alt="" />
-        <span>{content}</span>
-      </Content>
+      <Link to={link}>
+        <Content>
+          <img src={image} alt="" />
+          <span>{content}</span>
+        </Content>
+      </Link>
     </Menu>
   );
 }
