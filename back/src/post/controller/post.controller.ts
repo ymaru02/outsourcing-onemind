@@ -36,7 +36,7 @@ export class PostController {
     return this.service.uploadPost(content);
   }
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Get('takepost')
   async takePost(@Req() req: Request) {
     const result = this.service.takePost(Number(req.query.id));

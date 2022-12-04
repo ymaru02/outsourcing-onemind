@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { Post } from '@prisma/client';
 import { prismaService } from 'src/prisma.service';
 import { Request } from 'express';
@@ -38,13 +42,11 @@ export class PostService {
 
   async takePost(id: number): Promise<Post[]> {
     try {
-      const data = await this.prismaService.post.findMany({
-        where: { authorId: id },
-      });
+      const data = await this.prismaService.post.findMany();
 
       return data;
     } catch (error) {
-      throw new UnauthorizedException('알수없는오류로 업로드가 불가합니다');
+      throw new NotFoundException('알수없는 오류입니다');
     }
   }
 }
