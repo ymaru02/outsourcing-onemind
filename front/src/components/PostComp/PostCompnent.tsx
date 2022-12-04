@@ -134,7 +134,14 @@ export default function PostComponent() {
           formats={formats}
         />
       </div>
-      <div style={{marginTop:"20px",width:"100%",display:"flex" , justifyContent:"flex-end"}}>
+      <div
+        style={{
+          marginTop: "20px",
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-end",
+        }}
+      >
         <button onClick={sendData}>보내기</button>
       </div>
     </>
