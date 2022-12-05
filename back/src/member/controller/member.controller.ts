@@ -28,13 +28,4 @@ export class MemberController {
       throw new UnauthorizedException('mysql is dead');
     }
   }
-
-  @Post('img')
-  @UseInterceptors(FilesInterceptor('files', 1, multerOptions('memberImg')))
-  async uploadImg(
-    @Body() member: MemberDto,
-    @UploadedFiles() files: Array<Express.Multer.File>,
-  ) {
-    return this.service.plusMember(member, files);
-  }
 }

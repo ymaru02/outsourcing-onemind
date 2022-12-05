@@ -11,16 +11,4 @@ export class MemberService {
     const data = await this.prismaService.member.findMany();
     return data;
   }
-  async plusMember(member: MemberDto, files: Array<Express.Multer.File>) {
-    let url = 'http://localhost:3000';
-    url += files[0].path;
-    const memberData = {
-      name: member.name,
-      explain: member.explain,
-      line: member.line,
-      imgLink: url,
-    };
-    const data = await this.prismaService.member.create({ data: memberData });
-    return { code: 200, data: data };
-  }
 }
