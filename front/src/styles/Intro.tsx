@@ -41,7 +41,7 @@ export const DivideBox = styled(Flex)`
 export const SidebarBox = styled(Flex)`
   position: -webkit-sticky;
   position: sticky;
-  top: 10px;
+  top: 0;
   height: 500px;
   flex-flow: column wrap;
   gap: 30px;

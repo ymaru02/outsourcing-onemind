@@ -18,7 +18,7 @@ export default function Album() {
         <Img src={Rainbow250} alt="" width="100%" height="100%" margin="auto" />
       </ImgBox>
       <DivideBox>
-        <Sidebar />
+        <Sidebar title="교회 앨범" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">교회 앨범</InfoTitleDiv>
         </ContentsBox>

@@ -28,7 +28,7 @@ export default function Location() {
         <Img src={Warm250} alt="" width="100%" height="100%" margin="auto" />
       </ImgBox>
       <DivideBox>
-        <Sidebar />
+        <Sidebar title="교회 오시는 길" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">주소 및 연락처</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
