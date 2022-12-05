@@ -1,4 +1,5 @@
 import {
+  BadGatewayException,
   Injectable,
   NotFoundException,
   UnauthorizedException,
@@ -36,7 +37,7 @@ export class PostService {
 
       return data;
     } catch (error) {
-      throw new UnauthorizedException('알수없는오류로 업로드가 불가합니다');
+      throw new BadGatewayException('알수없는오류로 업로드가 불가합니다');
     }
   }
 
@@ -46,7 +47,7 @@ export class PostService {
 
       return data;
     } catch (error) {
-      throw new NotFoundException('알수없는 오류입니다');
+      throw new BadGatewayException();
     }
   }
 }
