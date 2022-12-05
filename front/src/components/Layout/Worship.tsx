@@ -26,7 +26,7 @@ export default function Worship() {
         <Img src={Rainbow250} alt="" width="100%" height="100%" margin="auto" />
       </ImgBox>
       <DivideBox>
-        <Sidebar />
+        <Sidebar title="예배 시간" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">예배 시간</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
