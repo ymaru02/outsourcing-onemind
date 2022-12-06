@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SubNav from "./SubNav";
 import MainNav from "./MainNav";
-import Logo1 from "../../img/quick_logo.png";
+import Logo1 from "../../img/logo.png";
 import { Link } from "react-router-dom";
 
 const Header = styled.div`
@@ -20,24 +20,21 @@ const TopNav = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const Logo = styled.a`
-  height: 75px;
-`;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
 `;
+
+const LogoImg = styled.img``;
 
 export default function Navbar() {
   return (
     <Header>
       <Inner>
         <TopNav>
-          <Logo>
-            <StyledLink to={"/"}>
-              <img src={Logo1} alt="OneMind" />
-            </StyledLink>
-          </Logo>
+          <StyledLink to={"/"}>
+            <LogoImg src={Logo1} alt="OneMind" />
+          </StyledLink>
           <SubNav></SubNav>
         </TopNav>
         <MainNav></MainNav>
