@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
   Query,
   Req,
@@ -21,7 +22,7 @@ export class MemberController {
   constructor(private readonly service: MemberService) {}
 
   @Get('takemember')
-  async takeMember(@Query() qer) {
+  async takeMember(@Query('index') qer) {
     try {
       const data = await this.service.takemember(qer);
       return { code: 200, data: data };
