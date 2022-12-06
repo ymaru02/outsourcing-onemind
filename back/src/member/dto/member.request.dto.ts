@@ -10,13 +10,4 @@ export class MemberDto {
   @IsString()
   @IsNotEmpty()
   name: string;
-
-  @ApiProperty({
-    example: '직책',
-    description: '장로',
-    required: true,
-  })
-  @IsString()
-  @IsNotEmpty()
-  line: string;
 }
