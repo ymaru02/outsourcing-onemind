@@ -22,6 +22,33 @@ const PostWrite = styled.button`
   font-size: 0.7em;
 `;
 
+const PostTable = styled.table`
+  text-align: center;
+  border: 1px #a39485 solid;
+  font-size: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 5px;
+  overflow: hidden;
+`;
+const Thead = styled.thead`
+  font-weight: bold;
+  color: #fff;
+  background: skyblue;
+`;
+
+const Th = styled.th`
+  padding: 0.7em 0.5em;
+  vertical-align: middle;
+`;
+const Td = styled.td`
+  padding: 0.8em 0.5em;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fff;
+`;
+
 const NoticeComponent = (props: any) => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,6 +57,7 @@ const NoticeComponent = (props: any) => {
   useEffect(() => {
     const fetchPosts = async () => {
       let res = await axios.get("http://localhost:8080/post/takepost");
+      console.log(res.data.date);
       setPosts(res.data);
     };
     fetchPosts();
@@ -52,45 +80,29 @@ const NoticeComponent = (props: any) => {
           </Link>
         </PostWriteContainer>
         <div>
-          <table>
+          <PostTable>
             <colgroup>
-              <col width="5%" />
-              <col width="*" />
+              <col width="10%" />
               <col width="50%" />
               <col width="*" />
-              <col width="*" />
-              <col width="*" />
-              <col width="*" />
             </colgroup>
-            <thead>
+            <Thead>
               <tr>
-                <th>번호</th>
-                <th>구분</th>
-                <th>제목</th>
-                <th>작성자</th>
-                <th>작성일시</th>
-                <th>조회수</th>
-                <th>첨부</th>
+                <Th>번호</Th>
+                <Th>제목</Th>
+                <Th>작성일시</Th>
               </tr>
-            </thead>
+            </Thead>
             <tbody>
               {currentPosts.map((post) => (
-                <tr key={post._id}>
-                  <td>{post._id}</td>
-                  <td>{post.type}</td>
-                  <td>{post.title}</td>
-                  <td>{post.userName}</td>
-                  <td>{moment(post.date).format("YYYY-MM-DD")}</td>
-                  <td>{post.readCount}</td>
-                  <td>
-                    {post.fileList.length > 0 && (
-                      <img src="/images/board_attach.gif" />
-                    )}
-                  </td>
+                <tr key={post.id}>
+                  <Td>{post.id}</Td>
+                  <Td>{post.title}</Td>
+                  <Td>{moment(post.date).format("YYYY-MM-DD")}</Td>
                 </tr>
               ))}
             </tbody>
-          </table>
+          </PostTable>
         </div>
 
         <Pagination

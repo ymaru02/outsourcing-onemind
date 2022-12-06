@@ -26,7 +26,7 @@ export default function Worship() {
         <Img src={Rainbow250} alt="" width="100%" height="100%" margin="auto" />
       </ImgBox>
       <DivideBox>
-        <Sidebar />
+        <Sidebar title="글 작성" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">글 작성</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
