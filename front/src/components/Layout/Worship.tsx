@@ -11,15 +11,31 @@ import {
   InfoTitleDiv,
   Img,
   TinyTitle,
+  WorshipItem,
+  WorshipInnerItem,
+  P,
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import worshipImg from "../../img/worship.jpg";
+
+interface worship {
+  title: string;
+  time: string;
+}
 
 export default function Worship() {
   useEffect(() => {
     AOS.init();
   });
+  const worshipItem: worship[] = [
+    { title: "주일 오전 예배", time: "오전 11:00" },
+    { title: "주일 오후 예배", time: "오후 14:00" },
+    { title: "주일 학교 예배", time: "오전 9:30" },
+    { title: "수요 예배", time: "수요일 오후 7:30" },
+    { title: "중고등부 예배", time: "오후 13:00" },
+    { title: "영아부 예배", time: "오전 11:00" },
+    { title: "새벽 기도회", time: "오전 5:00" },
+  ];
   return (
     <Wrap>
       <ImgBox>
@@ -32,13 +48,16 @@ export default function Worship() {
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
               <TinyTitle fontsize="18px">예배 시간표</TinyTitle>
-              <Img
-                src={worshipImg}
-                alt=""
-                width="100%"
-                height="600px"
-                margin="5px auto"
-              />
+              <WorshipItem>
+                {worshipItem.map((worship, index) => {
+                  return (
+                    <WorshipInnerItem key={index}>
+                      <h2>{worship.title}</h2>
+                      <P>{worship.time}</P>
+                    </WorshipInnerItem>
+                  );
+                })}
+              </WorshipItem>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

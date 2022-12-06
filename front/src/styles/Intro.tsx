@@ -62,21 +62,7 @@ export const Ul = styled.ul`
 export const Li = styled.li`
   list-style: none;
 `;
-export const Lihover = styled(Li)`
-  height: 32px;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  border: 2px solid ${theme.mainColor};
-  border-radius: 8px;
-  text-align: center;
-  padding-top: 12px;
-  &:hover {
-    font-size: 18px;
-    background-color: ${theme.mainColor};
-    color: ${theme.subColor};
-  }
-`;
+
 export const ContentsBox = styled(Flex)`
   flex-flow: column wrap;
   gap: 30px;
@@ -110,12 +96,50 @@ export const MapBox = styled.div`
   width: 100%;
   height: 500px;
   border: 1px solid ${theme.mainColor};
-
-  @media ${(props) => props.theme.mobile} {
-  }
 `;
-// Sidebar
+// Sidebar 적용
 export const H2 = styled.h2`
   height: 45px;
   border-bottom: 1px solid lightgrey;
+`;
+export const Lihover = styled(Li)`
+  height: 32px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid ${theme.mainColor};
+  border-radius: 8px;
+  text-align: center;
+  padding: 10px 0 6px 0;
+  &:hover {
+    font-size: 18px;
+    background-color: ${theme.mainColor};
+    color: ${theme.subColor};
+  }
+`;
+// Worship 적용
+export const WorshipItem = styled(Flex)`
+  border-left: 2px solid ${theme.mainColor};
+  border-right: 2px solid ${theme.mainColor};
+  border-radius: 20px;
+  width: 100%;
+  height: 300px;
+  margin: 20px 0 0 0;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+`;
+export const WorshipInnerItem = styled(Flex)`
+  width: 33%;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 50%;
+  }
+`;
+export const P = styled.p`
+  // border-bottom: 1px double ${theme.mainColor};
+  border-bottom: 1px double lightgrey;
 `;
