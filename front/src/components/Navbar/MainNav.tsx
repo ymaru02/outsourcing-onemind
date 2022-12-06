@@ -7,6 +7,7 @@ const MainMenu = styled.ul`
   justify-content: center;
   flex-wrap: wrap;
   gap: 30px;
+  background-color: rgba(230, 230, 230, 0.6);
 `;
 
 const Item = styled.li`
