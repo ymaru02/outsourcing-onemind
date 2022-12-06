@@ -22,6 +22,7 @@ model Post {
   id       Int     @id @default(autoincrement())
   title    String
   content  String?
+  createdAt    DateTime       @default(now())
   author   User    @relation(fields: [authorId], references: [id])
   authorId Int
   // Img      Img[]
@@ -29,14 +30,8 @@ model Post {
 
 model Member {
   id      Int     @id @default(autoincrement())
-  name    String
   imgLink String?
-  explain String?
-  line    String
+  createdAt    DateTime       @default(now())
 }
 
-model Img {
-  id     Int    @id @default(autoincrement())
-  imgUrl String?
-  name   String
-}
+

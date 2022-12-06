@@ -2,7 +2,9 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
+  Query,
   Req,
   UnauthorizedException,
   UploadedFiles,
@@ -20,21 +22,18 @@ export class MemberController {
   constructor(private readonly service: MemberService) {}
 
   @Get('takemember')
-  async takeMember(@Req() req: Request) {
+  async takeMember(@Query('index') qer) {
     try {
-      const data = await this.service.takemember();
+      const data = await this.service.takemember(qer);
       return { code: 200, data: data };
     } catch (error) {
       throw new UnauthorizedException('mysql is dead');
     }
   }
-
-  @Post('img')
-  @UseInterceptors(FilesInterceptor('files', 1, multerOptions('memberImg')))
-  async uploadImg(
-    @Body() member: MemberDto,
-    @UploadedFiles() files: Array<Express.Multer.File>,
-  ) {
-    return this.service.plusMember(member, files);
+  @Post('uploaddata')
+  @UseInterceptors(FilesInterceptor('files', 10, multerOptions('history')))
+  async uploadImg(@UploadedFiles() files: Array<Express.Multer.File>) {
+    console.log(files);
+    return this.service.uploadImg(files);
   }
 }
