@@ -10,7 +10,6 @@ import {
   InfoDiv,
   InfoTitleDiv,
   Img,
-  TinyTitle,
   WorshipItem,
   WorshipInnerItem,
   P,
@@ -39,7 +38,13 @@ export default function Worship() {
   return (
     <Wrap>
       <ImgBox>
-        <Img src={Rainbow250} alt="" width="100%" height="100%" margin="auto" />
+        <Img
+          src={Rainbow250}
+          alt=""
+          width="100%"
+          height="100%"
+          margin="0 0 -5px 0"
+        />
       </ImgBox>
       <DivideBox>
         <Sidebar title="예배 시간" />
@@ -47,7 +52,6 @@ export default function Worship() {
           <InfoTitleDiv fontsize="20px">예배 시간</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
-              <TinyTitle fontsize="18px">예배 시간표</TinyTitle>
               <WorshipItem>
                 {worshipItem.map((worship, index) => {
                   return (

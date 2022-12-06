@@ -15,12 +15,13 @@ export const Wrap = styled(Flex)`
 `;
 export const ImgBox = styled.div`
   width: 100%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.22);
 `;
 export const Img = styled.img<{ width: any; height: any; margin: any }>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
+  object-fit: cover;
 `;
 export const FloatImg = styled.img<{ width: any; height: any; float: any }>`
   width: ${(props) => props.width};
@@ -42,7 +43,7 @@ export const SidebarBox = styled(Flex)`
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  height: 500px;
+  height: 600px;
   flex-flow: column wrap;
   gap: 30px;
   flex: 2;
@@ -101,6 +102,7 @@ export const MapBox = styled.div`
 export const H2 = styled.h2`
   height: 45px;
   border-bottom: 1px solid lightgrey;
+  text-align: center;
 `;
 export const Lihover = styled(Li)`
   height: 32px;

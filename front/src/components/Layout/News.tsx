@@ -16,7 +16,13 @@ export default function News() {
   return (
     <Wrap>
       <ImgBox>
-        <Img src={Rainbow250} alt="" width="100%" height="100%" margin="auto" />
+        <Img
+          src={Rainbow250}
+          alt=""
+          width="100%"
+          height="100%"
+          margin="0 0 -5px 0"
+        />
       </ImgBox>
       <DivideBox>
         <Sidebar title="교회 소식" />

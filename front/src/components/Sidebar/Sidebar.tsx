@@ -19,10 +19,11 @@ function Sidebar(prop: prop) {
   const pathName = useLocation().pathname; // url path 값을 받아옴
   const intro_menus: SideItem[] = [
     { name: "교회 소개", path: "/introduction", id: "introduction" },
+    { name: "목사 소개", path: "/pastor", id: "pastor" },
     { name: "교회 소식", path: "/news", id: "news" },
     { name: "교회 앨범", path: "/album", id: "album" },
-    { name: "교회 오시는 길", path: "/location", id: "location" },
     { name: "예배 시간", path: "/worship", id: "worship" },
+    { name: "교회 오시는 길", path: "/location", id: "location" },
   ];
   const [currentClick, setCurrentClick] = useState(); // 현재 클릭
   const GetClick = (e: E) => {
