@@ -30,9 +30,8 @@ model Post {
 
 model Member {
   id      Int     @id @default(autoincrement())
-  name    String
   imgLink String?
-  line    String
+  createdAt    DateTime       @default(now())
 }
 
 
