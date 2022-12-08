@@ -1,4 +1,4 @@
-import { BadGatewayException, Injectable } from '@nestjs/common';
+import { BadGatewayException, ConsoleLogger, Injectable } from '@nestjs/common';
 import { Member } from '@prisma/client';
 import { prismaService } from 'src/prisma.service';
 import { MemberDto } from '../dto/member.request.dto';
@@ -6,14 +6,43 @@ import { MemberDto } from '../dto/member.request.dto';
 @Injectable()
 export class MemberService {
   constructor(private prismaService: prismaService) {}
-
+  // `${Number(qur)}-0${i}`
   async takemember(qur): Promise<Member[]> {
     const index = (Number(qur) - 1) * 20;
+    const result = [];
+    for (let i = 1; i < 12; i++) {
+      let strgte = qur;
+      let strlt = qur;
+      if (i > 9) {
+        strgte += '-';
+        strlt += '-';
+      } else {
+        strgte += '-0';
+        strlt += '-0';
+      }
+      strgte += String(i);
+      strlt += String(i + 1);
+      console.log(strgte, strlt);
+      const data = await this.prismaService.member.findMany({
+        where: {
+          createdAt: {
+            gte: new Date(String(strgte)),
+            lt: new Date(String(strlt)),
+          },
+        },
+      });
+      result.push(data);
+    }
     const data = await this.prismaService.member.findMany({
-      take: 20,
-      skip: index,
+      where: {
+        createdAt: {
+          gte: new Date(qur + '-012'),
+          lt: new Date(String(Number(qur) + 1)),
+        },
+      },
     });
-    return data;
+    result.push(data);
+    return result;
   }
   async uploadImg(files: Array<Express.Multer.File>) {
     try {
