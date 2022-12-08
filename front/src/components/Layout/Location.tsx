@@ -25,7 +25,13 @@ export default function Location() {
   return (
     <Wrap>
       <ImgBox>
-        <Img src={Warm250} alt="" width="100%" height="100%" margin="auto" />
+        <Img
+          src={Warm250}
+          alt=""
+          width="100%"
+          height="100%"
+          margin="0 0 -5px 0"
+        />
       </ImgBox>
       <DivideBox>
         <Sidebar title="교회 오시는 길" />

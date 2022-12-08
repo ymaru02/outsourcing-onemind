@@ -10,6 +10,7 @@ import Location from "./components/Layout/Location";
 import Worship from "./components/Layout/Worship";
 import Navbar from "./components/Navbar/Navbar";
 import MakePost from "./components/PostComp/MakePost";
+import Pastor from "./components/Layout/Pastor";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/location" element={<Location />} />
         <Route path="/worship" element={<Worship />} />
         <Route path="/makepost" element={<MakePost />} />
+        <Route path="/pastor" element={<Pastor />} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

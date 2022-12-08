@@ -1,4 +1,5 @@
 import {
+  BadGatewayException,
   Body,
   Controller,
   Get,
@@ -23,12 +24,7 @@ export class MemberController {
 
   @Get('takemember')
   async takeMember(@Query('index') qer) {
-    try {
-      const data = await this.service.takemember(qer);
-      return { code: 200, data: data };
-    } catch (error) {
-      throw new UnauthorizedException('mysql is dead');
-    }
+    return await this.service.takemember(qer);
   }
   @Post('uploaddata')
   @UseInterceptors(FilesInterceptor('files', 10, multerOptions('history')))
