@@ -14,7 +14,6 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import worshipImg from "../../img/worship.jpg";
 import PostComponent from "./PostCompnent";
 
 export default function MakePost() {
