@@ -73,7 +73,6 @@ export const ContentsBox = styled(Flex)`
 export const ContentsDiv = styled.div``;
 export const InfoDiv = styled.div`
   text-align: left;
-  padding-left: 20px;
 
   @media ${(props) => props.theme.mobile} {
     display: flex;
@@ -91,7 +90,15 @@ export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
 export const TinyTitle = styled.p<{ fontsize: any }>`
   font-size: ${(props) => props.fontsize};
   font-weight: bold;
+  text-align: center;
 `;
+export const TinyTitles = styled.p<{ fontsize: any }>`
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+  text-align: start;
+  margin-left: 60px;
+`;
+
 // Location 적용
 export const MapBox = styled.div`
   width: 100%;
@@ -144,4 +151,22 @@ export const WorshipInnerItem = styled(Flex)`
 export const P = styled.p`
   // border-bottom: 1px double ${theme.mainColor};
   border-bottom: 1px double lightgrey;
+`;
+// Pastor 적용
+export const PastorDiv = styled(Flex)`
+  width: 100%;
+  justify-content: start;
+  align-items: start;
+  flex-flow: row wrap;
+  margin-bottom: 50px;
+  gap: 20px;
+`;
+export const PastorItem = styled(Flex)`
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 15px;
 `;

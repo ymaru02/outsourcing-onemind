@@ -46,7 +46,7 @@ export default function Introduction() {
                 float="left"
               />
               <div>
-                <TinyTitle fontsize="18px">교회론</TinyTitle>
+                <TinyTitle fontsize="20px">교회론</TinyTitle>
                 <p>
                   느린 심장 박동 너네 진지한 말도 너무 거대한 파도 날 이제 놔줘
                   다 가져 가 싸가지 없게 다 바가지 박아 목요일 밤엔 복을 받아
@@ -80,7 +80,7 @@ export default function Introduction() {
           </ContentsDiv>
           <ContentsDiv data-aos="fade-right" data-aos-duration="800">
             <InfoDiv>
-              <TinyTitle fontsize="18px">교회 연혁</TinyTitle>
+              <TinyTitle fontsize="20px">교회 연혁</TinyTitle>
               {/* 이미지가 있다면 이미지로 대체 */}
               <p>
                 시기 다른 랩퍼들의 반대편을 바라보던 랩퍼들의 배포 그건 백프로
