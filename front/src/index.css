@@ -4,3 +4,8 @@
   font-family: "Gowun Dodum", sans-serif;
   font-family: "Jua", sans-serif;
 }
+
+body .down {
+  transform: translateY(-80px);
+
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import SubNav from "./SubNav";
 import MainNav from "./MainNav";
@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 const Header = styled.div`
   width: 100%;
   border-bottom: 1px solid #c8c8c8;
+  transition: transform 0.5s;
+  position: fixed;
+  z-index: 1000;
 `;
 
 const Inner = styled.div`
@@ -18,7 +21,7 @@ const Inner = styled.div`
 
 const TopNav = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const StyledLink = styled(Link)`
@@ -28,8 +31,23 @@ const StyledLink = styled(Link)`
 const LogoImg = styled.img``;
 
 export default function Navbar() {
+  const Top = useRef(null);
+
+  window.addEventListener("mousewheel", (e: any) => {
+    const direction = e.deltaY > 0 ? true : false;
+
+    if (Top && direction) {
+      Top.current?.classList?.add("down");
+    } else {
+      Top.current?.classList?.remove("down");
+    }
+  });
+
+  useEffect(() => {
+    console.log(Top.current);
+  }, []);
   return (
-    <Header>
+    <Header ref={Top}>
       <Inner>
         <TopNav>
           <StyledLink to={"/"}>
@@ -37,8 +55,8 @@ export default function Navbar() {
           </StyledLink>
           <SubNav></SubNav>
         </TopNav>
-        <MainNav></MainNav>
       </Inner>
+      <MainNav></MainNav>
     </Header>
   );
 }
