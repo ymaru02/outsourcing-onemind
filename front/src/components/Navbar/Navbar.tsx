@@ -10,6 +10,7 @@ const Header = styled.div`
   border-bottom: 1px solid #c8c8c8;
   transition: transform 0.5s;
   position: fixed;
+  z-index: 1000;
 `;
 
 const Inner = styled.div`
