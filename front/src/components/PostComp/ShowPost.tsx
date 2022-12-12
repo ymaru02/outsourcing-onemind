@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import {
@@ -15,10 +15,23 @@ import {
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import worshipImg from "../../img/worship.jpg";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
-export default function Worship() {
+export default function ShowPost() {
+  const {id}=useParams();
+  const content : any=useRef();
   useEffect(() => {
     AOS.init();
+    axios({
+      url: "http://localhost:8080/post/takecontent",
+      method: "get",
+      params: {id:id},
+      withCredentials: true,
+    }).then((result)=>{
+      console.log(result.data)
+      content.current.innerHTML=result.data.content;
+    });
   });
   return (
     <Wrap>
@@ -32,13 +45,9 @@ export default function Worship() {
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
               <TinyTitle fontsize="18px">예배 시간표</TinyTitle>
-              <Img
-                src={worshipImg}
-                alt=""
-                width="100%"
-                height="600px"
-                margin="5px auto"
-              />
+              <div ref={content}>
+
+              </div>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

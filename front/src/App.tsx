@@ -11,6 +11,7 @@ import Worship from "./components/Layout/Worship";
 import Navbar from "./components/Navbar/Navbar";
 import MakePost from "./components/PostComp/MakePost";
 import Pastor from "./components/Layout/Pastor";
+import ShowPost from "./components/PostComp/ShowPost";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/worship" element={<Worship />} />
         <Route path="/makepost" element={<MakePost />} />
         <Route path="/pastor" element={<Pastor />} />
+        <Route path="/showpost/:id" element={<ShowPost/>}></Route>
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
