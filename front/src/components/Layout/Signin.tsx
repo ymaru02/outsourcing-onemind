@@ -20,6 +20,10 @@ import styled from "styled-components";
 import axios from "axios";
 import signLogo from "../../img/sign.png";
 
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store";
+import { access_token } from "../../store/token";
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -62,15 +66,26 @@ const ButtonTag = styled.button`
   border-color: skyblue;
   background-color: white;
 `;
+
 export default function WorshSigninip() {
   const [ID, setID] = useState("");
   const [PW, setPW] = useState("");
 
+  const dispatch = useDispatch();
+  const { token } = useSelector((state: RootState) => state.token);
+
+  const access = (token: string) => {
+    // store에 있는 state 바꾸는 함수 실행
+    dispatch(access_token(token));
+  };
+
   const handleLogIn = () => {
-    axios.post("http://localhost:8080/auth/login", {
-      email: ID,
-      password: PW,
-    });
+    axios
+      .post("http://localhost:8080/auth/login", {
+        email: ID,
+        password: PW,
+      })
+      .then((res) => access(res.data));
   };
   return (
     <Wrap>
