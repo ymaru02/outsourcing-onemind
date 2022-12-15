@@ -16,7 +16,6 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import pastor from "../../img/pastor.jpg";
 import PasterItem from "../Pastor/PasterItem";
 
 export default function Pastor() {
