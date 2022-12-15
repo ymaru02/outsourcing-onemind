@@ -13,7 +13,6 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import IntroImg from "../../img/introImg.jpg";
 
 export default function Introduction() {
   useEffect(() => {
