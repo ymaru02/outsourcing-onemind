@@ -24,6 +24,7 @@ export default function Pastor() {
   });
   return (
     <Wrap>
+      <div style={{ height: "80px" }}></div>
       <ImgBox>
         <Img
           src={Rainbow250}

@@ -128,6 +128,7 @@ export default function Album() {
 
   return (
     <Wrap>
+      <div style={{ height: "80px" }}></div>
       <ImgBox>
         <Img
           src={Rainbow250}

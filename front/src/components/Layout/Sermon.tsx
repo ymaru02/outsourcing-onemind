@@ -20,6 +20,7 @@ export default function Introduction() {
   });
   return (
     <Wrap>
+      <div style={{ height: "80px" }}></div>
       <ImgBox>
         <Img
           src={Rainbow250}
@@ -34,7 +35,7 @@ export default function Introduction() {
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">설교 말씀</InfoTitleDiv>
           <ContentsDiv data-aos="fade-left" data-aos-duration="800">
-            <InfoDiv>Constent</InfoDiv>
+            <InfoDiv>Contents</InfoDiv>
           </ContentsDiv>
         </ContentsBox>
       </DivideBox>
