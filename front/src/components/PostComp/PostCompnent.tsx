@@ -3,6 +3,17 @@ import axios from "axios";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
+import styled from "styled-components";
+
+const ButtonTag = styled.button`
+  width: 120px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.2s;
+  border-color: skyblue;
+  background-color: white;
+`;
 export default function PostComponent() {
   const [value, setValue] = useState("");
   const quillRef = useRef(null);
@@ -142,7 +153,7 @@ export default function PostComponent() {
           justifyContent: "flex-end",
         }}
       >
-        <button onClick={sendData}>보내기</button>
+        <ButtonTag onClick={sendData}>보내기</ButtonTag>
       </div>
     </>
   );
