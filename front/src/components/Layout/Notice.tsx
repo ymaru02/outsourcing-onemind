@@ -106,8 +106,10 @@ const NoticeComponent = (props: any) => {
               {currentPosts.map((post) => (
                 <tr key={post.id}>
                   <Td>{post.id}</Td>
-                  <Td>{post.title}</Td>
-                  <Td>{moment(post.date).format("YYYY-MM-DD")}</Td>
+                  <Td><Link to={'/showpost/'+String(post.id)}>{post.title}</Link></Td>
+                  <Td>
+                    {moment(post.date).format("YYYY-MM-DD")}
+                  </Td>
                 </tr>
               ))}
             </tbody>

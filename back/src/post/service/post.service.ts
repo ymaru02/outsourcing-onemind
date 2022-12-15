@@ -50,4 +50,10 @@ export class PostService {
       throw new BadGatewayException();
     }
   }
+  async takeContent(id: number): Promise<Post> {
+    const data = await this.prismaService.post.findUnique({
+      where: { id: id },
+    });
+    return data;
+  }
 }
