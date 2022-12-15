@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import {
@@ -14,11 +14,25 @@ import {
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import YouTube from "./youtube";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
-export default function Introduction() {
+export default function ShowSermon() {
+  const { id } = useParams();
+  const content: any = useRef();
   useEffect(() => {
     AOS.init();
+    axios({
+      url: "http://localhost:8080/you-tube/tag",
+      method: "get",
+      params: { id: id },
+      withCredentials: true,
+    }).then((result:any) => {
+      console.log(result.data);
+      content.current.innerHTML = result.data.tag;
+    });
   });
+
   return (
     <Wrap>
       <div style={{ height: "80px" }}></div>
@@ -37,7 +51,7 @@ export default function Introduction() {
           <InfoTitleDiv fontsize="20px">설교 말씀</InfoTitleDiv>
           <ContentsDiv data-aos="fade-left" data-aos-duration="800">
             <InfoDiv>
-                <YouTube/>
+              <div ref={content}></div>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>
