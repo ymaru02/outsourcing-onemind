@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import {
@@ -14,8 +14,23 @@ import {
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import YouTube from "./youtube";
+import axios from "axios";
 
-export default function Introduction() {
+export default function MakeSermon() {
+  const [link, SetLink] = useState("");
+  const senddata = async () =>{
+    const data = {
+        title:"코황",
+        tag:link,
+    }
+    const result = await axios({
+        url: "http://localhost:8080/you-tube/upload",
+        method: "post",
+        data: data,
+        withCredentials: true,
+      });
+      console.log(result)
+  }
   useEffect(() => {
     AOS.init();
   });
@@ -37,7 +52,15 @@ export default function Introduction() {
           <InfoTitleDiv fontsize="20px">설교 말씀</InfoTitleDiv>
           <ContentsDiv data-aos="fade-left" data-aos-duration="800">
             <InfoDiv>
-                <YouTube/>
+              <div>
+                <input
+                  onChange={(e) => {
+                    SetLink(e.target.value);
+                  }}
+                  type="text"
+                />
+                <button onClick={senddata}>제출</button>
+              </div>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

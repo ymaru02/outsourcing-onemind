@@ -18,7 +18,7 @@ export class YouTubeController {
   }
 
   @Get('tag')
-  async takeTag(@Query() num) {
+  async takeTag(@Query('id') num) {
     return this.service.findtag(num);
   }
 }

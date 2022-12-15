@@ -42,6 +42,4 @@ export class ControllerController {
   async checkN(@Body() info: NameRequestDto) {
     return this.Service.checkName({ name: info.name });
   }
-
-  
 }

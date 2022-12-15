@@ -8,15 +8,15 @@ export class YouTubeService {
   constructor(private prismaService: prismaService) {}
 
   async upload(content: YouTubeDto) {
-    try {
-      const data = await this.prismaService.youTube.createMany({
-        data: content,
-      });
+    const sdata = {
+      title: content.title,
+      tag: content.tag,
+    };
+    const data = await this.prismaService.youTube.createMany({
+      data: sdata,
+    });
 
-      return data;
-    } catch (error) {
-      throw new BadGatewayException();
-    }
+    return data;
   }
 
   async takeList() {
@@ -27,11 +27,12 @@ export class YouTubeService {
       throw new BadGatewayException();
     }
   }
-  async findtag(id: string) {
+  async findtag(id) {
     try {
       const data = await this.prismaService.youTube.findUnique({
         where: { id: Number(id) },
       });
+      console.log(data);
       return data;
     } catch (error) {
       throw new BadGatewayException();
