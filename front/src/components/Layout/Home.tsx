@@ -30,10 +30,14 @@ const Nav = styled.div`
   gap: 20px;
   color: white;
 `;
+const Temp = styled.div`
+  height: 120px;
+`;
 
 export default function Home() {
   return (
     <>
+      <Temp></Temp>
       <MainImg src={main} />
       <Nav>
         <Circle image={img1} content={"예배시간"} link={"/news"}></Circle>

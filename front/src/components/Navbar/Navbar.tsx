@@ -11,6 +11,7 @@ const Header = styled.div`
   transition: transform 0.5s;
   position: fixed;
   z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
 `;
 
 const Inner = styled.div`
@@ -43,9 +44,6 @@ export default function Navbar() {
     }
   });
 
-  useEffect(() => {
-    console.log(Top.current);
-  }, []);
   return (
     <Header ref={Top}>
       <Inner>
