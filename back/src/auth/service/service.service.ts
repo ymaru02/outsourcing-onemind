@@ -59,6 +59,7 @@ export class ServiceService {
 
       return {
         token: this.jwtService.sign(payload),
+        name: people.name,
       };
     } catch (error) {
       throw new UnauthorizedException('이메일과 비밀번호를 확인해주세요');

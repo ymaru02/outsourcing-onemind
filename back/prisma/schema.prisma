@@ -38,6 +38,7 @@ model YouTube {
   id      Int     @id @default(autoincrement())
   tag     String?
   title   String
+  createdAt    DateTime       @default(now())
 }
 
 
