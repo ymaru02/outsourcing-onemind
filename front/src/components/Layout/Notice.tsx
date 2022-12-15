@@ -93,7 +93,7 @@ const NoticeComponent = (props: any) => {
             <PostWrite>글쓰기</PostWrite>
           </Link>
         </PostWriteContainer>
-        <div data-aos="fade-left" data-aos-duration="800">
+        <div data-aos="fade-top" data-aos-duration="800">
           <PostTable>
             <colgroup>
               <col width="10%" />
@@ -111,10 +111,12 @@ const NoticeComponent = (props: any) => {
               {currentPosts.map((post) => (
                 <tr key={post.id}>
                   <Td>{post.id}</Td>
-                  <Td><Link to={'/showpost/'+String(post.id)}>{post.title}</Link></Td>
                   <Td>
-                    {moment(post.date).format("YYYY-MM-DD")}
+                    <Link to={"/showpost/" + String(post.id)}>
+                      {post.title}
+                    </Link>
                   </Td>
+                  <Td>{moment(post.date).format("YYYY-MM-DD")}</Td>
                 </tr>
               ))}
             </tbody>

@@ -37,6 +37,7 @@ export default function Worship() {
   ];
   return (
     <Wrap>
+      <div style={{ height: "80px" }}></div>
       <ImgBox>
         <Img
           src={Rainbow250}

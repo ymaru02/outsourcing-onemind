@@ -15,6 +15,7 @@ import Notice from "../Layout/Notice";
 export default function News() {
   return (
     <Wrap>
+      <div style={{ height: "80px" }}></div>
       <ImgBox>
         <Img
           src={Rainbow250}
