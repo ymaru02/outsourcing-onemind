@@ -11,9 +11,11 @@ import Worship from "./components/Layout/Worship";
 import Navbar from "./components/Navbar/Navbar";
 import MakePost from "./components/PostComp/MakePost";
 import Pastor from "./components/Layout/Pastor";
+
+import Sermon from "./components/Layout/Sermon";
+
 import ShowPost from "./components/PostComp/ShowPost";
 import Signin from "./components/Layout/Signin";
-
 
 function App() {
   return (
@@ -23,13 +25,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route element={<NotFound />} />
         <Route path="/introduction" element={<Introduction />} />
+        <Route path="/pastor" element={<Pastor />} />
+        <Route path="/sermon" element={<Sermon />} />
         <Route path="/news" element={<News />} />
         <Route path="/album" element={<Album />} />
         <Route path="/location" element={<Location />} />
         <Route path="/worship" element={<Worship />} />
         <Route path="/makepost" element={<MakePost />} />
         <Route path="/pastor" element={<Pastor />} />
-        <Route path="/showpost/:id" element={<ShowPost/>}></Route>
+        <Route path="/showpost/:id" element={<ShowPost />}></Route>
         <Route path="/signin" element={<Signin />} />
       </Routes>
       <Footer></Footer>

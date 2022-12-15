@@ -22,6 +22,7 @@ function Sidebar(prop: prop) {
   const intro_menus: SideItem[] = [
     { name: "교회 소개", path: "/introduction", id: "introduction" },
     { name: "목사 소개", path: "/pastor", id: "pastor" },
+    { name: "설교 말씀", path: "/sermon", id: "sermon" },
     { name: "교회 소식", path: "/news", id: "news" },
     { name: "교회 앨범", path: "/album", id: "album" },
     { name: "예배 시간", path: "/worship", id: "worship" },
@@ -42,6 +43,8 @@ function Sidebar(prop: prop) {
       <H2>{prop.title}</H2>
       <Ul>
         {pathName === "/introduction" ||
+        "/pastor" ||
+        "/sermon" ||
         "/news" ||
         "/album" ||
         "/location" ||
