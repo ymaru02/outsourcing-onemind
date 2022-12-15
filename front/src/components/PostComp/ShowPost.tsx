@@ -44,7 +44,7 @@ export default function ShowPost() {
           <InfoTitleDiv fontsize="20px">글 작성</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
-              <TinyTitle fontsize="18px">예배 시간표</TinyTitle>
+              <TinyTitle fontsize="18px">게시글</TinyTitle>
               <div ref={content}>
 
               </div>

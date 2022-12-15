@@ -25,8 +25,8 @@ export class ServiceService {
     });
   }
 
-  async checkName(nicname: NameRequestDto): Promise<User> {
-    return await this.prismaService.user.findUnique({
+  async checkName(nicname: NameRequestDto): Promise<User[]> {
+    return await this.prismaService.user.findMany({
       where: { name: nicname.name },
     });
   }

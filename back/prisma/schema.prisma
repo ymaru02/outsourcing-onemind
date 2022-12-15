@@ -13,7 +13,7 @@ datasource db {
 model User {
   id       Int    @id @default(autoincrement())
   email    String @unique
-  name     String @unique
+  name     String 
   password String
   posts    Post[]
 }
@@ -32,6 +32,12 @@ model Member {
   id      Int     @id @default(autoincrement())
   imgLink String?
   createdAt    DateTime       @default(now())
+}
+
+model YouTube {
+  id      Int     @id @default(autoincrement())
+  tag     String?
+  title   String
 }
 
 
