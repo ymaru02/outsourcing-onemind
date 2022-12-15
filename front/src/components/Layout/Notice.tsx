@@ -4,6 +4,8 @@ import axios from "axios";
 import Pagination from "../Pagination/Pagination";
 import moment from "moment";
 import styled from "styled-components";
+import AOS from "aos"; // AOS import
+import "aos/dist/aos.css";
 
 const Content = styled.div``;
 
@@ -68,6 +70,9 @@ const NoticeComponent = (props: any) => {
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  useEffect(() => {
+    AOS.init();
+  });
   return (
     <Content>
       <TopInner>
@@ -79,7 +84,7 @@ const NoticeComponent = (props: any) => {
             <PostWrite>글쓰기</PostWrite>
           </Link>
         </PostWriteContainer>
-        <div>
+        <div data-aos="fade-left" data-aos-duration="800">
           <PostTable>
             <colgroup>
               <col width="10%" />
