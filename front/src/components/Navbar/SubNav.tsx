@@ -46,11 +46,6 @@ export default function SubNav() {
             <MenuName>Sign In</MenuName>
           </Link>
         </MenuList>
-        <MenuList>
-          <Link to={`signin`}>
-            <MenuName>Sign In</MenuName>
-          </Link>
-        </MenuList>
       </Menu>
     </SubMenu>
   );
