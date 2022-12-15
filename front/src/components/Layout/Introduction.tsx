@@ -23,6 +23,7 @@ export default function Introduction() {
   });
   return (
     <Wrap>
+      <div style={{ height: "80px" }}></div>
       <ImgBox>
         <Img
           src={Rainbow250}
@@ -36,7 +37,7 @@ export default function Introduction() {
         <Sidebar title="교회 소개" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">교회 소개</InfoTitleDiv>
-          <ContentsDiv data-aos="fade-left" data-aos-duration="800">
+          <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
               <FloatImg
                 src={IntroImg}
@@ -78,7 +79,7 @@ export default function Introduction() {
               </div>
             </InfoDiv>
           </ContentsDiv>
-          <ContentsDiv data-aos="fade-right" data-aos-duration="800">
+          <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
               <TinyTitle fontsize="20px">교회 연혁</TinyTitle>
               {/* 이미지가 있다면 이미지로 대체 */}

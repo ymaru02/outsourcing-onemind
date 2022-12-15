@@ -24,6 +24,7 @@ export default function Location() {
   });
   return (
     <Wrap>
+      <div style={{ height: "80px" }}></div>
       <ImgBox>
         <Img
           src={Warm250}
