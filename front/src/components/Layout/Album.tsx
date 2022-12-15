@@ -51,7 +51,7 @@ const InputTag = styled.input`
   padding: 0 10px;
   vertical-align: middle;
   border: 1px solid #dddddd;
-  width: 60%;
+  width: 30%;
   color: #999999;
   border-radius: 5px;
 `;
