@@ -15,9 +15,9 @@ const Item = styled.li`
 
 const ItemName = styled.div`
   font-weight: bold;
-  font-size: 20px;
   padding: 10px;
   color: black;
+  font-size: 1.5vh;
   &:hover {
     background-color: rgba(200, 200, 200, 0.5);
     color: #ffffff;

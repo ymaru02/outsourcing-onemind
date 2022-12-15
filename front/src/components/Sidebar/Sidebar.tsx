@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { H2, Lihover, SidebarBox, Ul } from "../../styles/Intro";
-import NotFound from "../NotFound";
+import NotFound from "../Layout/NotFound";
 
 interface prop {
   title: string;

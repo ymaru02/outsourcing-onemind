@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store";
+import { access_token } from "../../store/token";
+
 const SubMenu = styled.div``;
 const Menu = styled.ul`
   font-family: Arial, sans-serif;
@@ -38,17 +42,14 @@ const MenuName = styled.span`
   color: #656565;
 `;
 export default function SubNav() {
+  const { token } = useSelector((state: RootState) => state.token);
+
   return (
     <SubMenu>
       <Menu>
         <MenuList>
           <Link to={`signin`}>
-            <MenuName>Sign In</MenuName>
-          </Link>
-        </MenuList>
-        <MenuList>
-          <Link to={`signin`}>
-            <MenuName>Sign In</MenuName>
+            <MenuName>{token ? "" : "Sign In"}</MenuName>
           </Link>
         </MenuList>
       </Menu>

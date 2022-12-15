@@ -42,4 +42,9 @@ export class PostController {
     const result = this.service.takePost(Number(req.query.id));
     return result;
   }
+  @Get('takecontent')
+  async takeContent(@Req() req: Request) {
+    const result = this.service.takeContent(Number(req.query.id));
+    return result;
+  }
 }

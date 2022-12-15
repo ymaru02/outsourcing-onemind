@@ -22,6 +22,13 @@ const PostWrite = styled.button`
   padding: 4px 12px;
   background-color: rgba(255, 255, 255, 1);
   font-size: 0.7em;
+  width: 120px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.2s;
+  border-color: skyblue;
+  background-color: white;
 `;
 
 const PostTable = styled.table`
@@ -50,6 +57,8 @@ const Td = styled.td`
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background: #fff;
 `;
+
+const ButtonTag = styled.button``;
 
 const NoticeComponent = (props: any) => {
   const [posts, setPosts] = useState([]);
@@ -102,8 +111,10 @@ const NoticeComponent = (props: any) => {
               {currentPosts.map((post) => (
                 <tr key={post.id}>
                   <Td>{post.id}</Td>
-                  <Td>{post.title}</Td>
-                  <Td>{moment(post.date).format("YYYY-MM-DD")}</Td>
+                  <Td><Link to={'/showpost/'+String(post.id)}>{post.title}</Link></Td>
+                  <Td>
+                    {moment(post.date).format("YYYY-MM-DD")}
+                  </Td>
                 </tr>
               ))}
             </tbody>
