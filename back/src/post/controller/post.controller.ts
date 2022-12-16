@@ -18,7 +18,7 @@ import { PostDto } from '../dto/post.request.dto';
 export class PostController {
   constructor(private service: PostService) {}
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Post('img')
   @UseInterceptors(FilesInterceptor('files', 10, multerOptions('announced')))
   async uploadImg(
@@ -29,19 +29,19 @@ export class PostController {
     return this.service.uploadImg(files);
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Post('upload')
   async uploadPost(@Body() content: PostDto) {
     console.log(content);
     return this.service.uploadPost(content);
   }
 
-  // @UseGuards(JwtAuthGuard)
   @Get('takepost')
   async takePost(@Req() req: Request) {
     const result = this.service.takePost(Number(req.query.id));
     return result;
   }
+
   @Get('takecontent')
   async takeContent(@Req() req: Request) {
     const result = this.service.takeContent(Number(req.query.id));

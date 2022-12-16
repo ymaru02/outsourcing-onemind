@@ -31,7 +31,7 @@ export default function ShowSermon() {
       console.log(result.data);
       content.current.innerHTML = result.data.tag;
     });
-  });
+  },[]);
 
   return (
     <Wrap>
