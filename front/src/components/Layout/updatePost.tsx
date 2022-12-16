@@ -69,8 +69,8 @@ export default function UpdatePost() {
       console.log(quillRef);
       axios({
         headers: {
-            Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
-          },
+          Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+        },
         url: "http://localhost:8080/post/img",
         method: "post",
         data: formData,
@@ -148,7 +148,7 @@ export default function UpdatePost() {
       authorId: "1",
       content: quillRef.current.value,
     };
-    
+
     const result = await axios({
       url: "http://localhost:8080/post/update",
       method: "post",
@@ -158,7 +158,7 @@ export default function UpdatePost() {
       data: { id: id, data: data },
       withCredentials: true,
     });
-    navigate(`showpost/${id}`);
+    navigate(`/showpost/${id}`);
   };
   useEffect(() => {
     axios({
@@ -168,7 +168,7 @@ export default function UpdatePost() {
       withCredentials: true,
     }).then((result) => {
       const editor = quillRef.current.getEditor(); // 에디터 객체 가져오기
-      console.log(result.data.content)
+      console.log(result.data.content);
       editor.clipboard.dangerouslyPasteHTML(0, result.data.content);
       setPostTitle(result.data.title);
     });

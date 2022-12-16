@@ -13,7 +13,7 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import UpdatePost from "./updatePost";
+import UpdatePost from "./UpdatePost";
 
 export default function PostUpdataDefault() {
   useEffect(() => {
