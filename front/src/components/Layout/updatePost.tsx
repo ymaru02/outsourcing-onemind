@@ -68,6 +68,9 @@ export default function UpdatePost() {
       console.log(input.files[0]);
       console.log(quillRef);
       axios({
+        headers: {
+            Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+          },
         url: "http://localhost:8080/post/img",
         method: "post",
         data: formData,
@@ -145,22 +148,14 @@ export default function UpdatePost() {
       authorId: "1",
       content: quillRef.current.value,
     };
-    const name = await axios({
-      url: "http://localhost:8080/auth/takeid",
-      headers: {
-        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
-      },
-      method: "get",
-      data: { name: window.sessionStorage.getItem("userName") },
-      withCredentials: true,
-    });
+    
     const result = await axios({
       url: "http://localhost:8080/post/update",
+      method: "post",
       headers: {
         Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
       },
-      method: "post",
-      data: { id: name.data, data: data },
+      data: { id: id, data: data },
       withCredentials: true,
     });
     navigate(`showpost/${id}`);
@@ -173,6 +168,7 @@ export default function UpdatePost() {
       withCredentials: true,
     }).then((result) => {
       const editor = quillRef.current.getEditor(); // 에디터 객체 가져오기
+      console.log(result.data.content)
       editor.clipboard.dangerouslyPasteHTML(0, result.data.content);
       setPostTitle(result.data.title);
     });
@@ -192,6 +188,7 @@ export default function UpdatePost() {
           ref={quillRef}
           theme="snow"
           placeholder="글을 작성해 주세요"
+          value={value}
           onChange={setValue}
           modules={modules}
           formats={formats}

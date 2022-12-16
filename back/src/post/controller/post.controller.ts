@@ -20,7 +20,7 @@ import { PostDto } from '../dto/post.request.dto';
 export class PostController {
   constructor(private service: PostService) {}
 
-  @UseGuards(JwtAuthGuard)
+  // @UseGuards(JwtAuthGuard)
   @Post('img')
   @UseInterceptors(FilesInterceptor('files', 10, multerOptions('announced')))
   async uploadImg(

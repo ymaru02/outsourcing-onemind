@@ -24,7 +24,9 @@ export class ControllerController {
   @Get('takeid')
   @UseGuards(JwtAuthGuard)
   async takeU(@Query('name') name: string) {
-    return (await this.Service.takeOneUser(name)).id;
+    return await (
+      await this.Service.takeOneUser(name)
+    ).id;
   }
 
   @ApiOperation({ summary: '로그인' })
