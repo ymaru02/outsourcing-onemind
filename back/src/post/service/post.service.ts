@@ -69,9 +69,11 @@ export class PostService {
 
   async updatePost(num: any, postInfo: PostDto) {
     try {
-      const authNum = Number(postInfo.authorId);
+      const search = await this.prismaService.post.findUnique({
+        where: { id: Number(num) },
+      });
       const result = await this.prismaService.user.findUnique({
-        where: { id: authNum },
+        where: { id: search.authorId },
       });
       const creatdata = {
         title: postInfo.title,

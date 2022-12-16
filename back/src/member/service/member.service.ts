@@ -65,6 +65,8 @@ export class MemberService {
       const data = await this.prismaService.member.delete({
         where: { id: Number(id) },
       });
-    } catch (error) {}
+    } catch (error) {
+      throw new BadGatewayException('알수없는오류로 업로드가 불가합니다');
+    }
   }
 }
