@@ -5,6 +5,22 @@ import "react-quill/dist/quill.snow.css";
 
 import styled from "styled-components";
 
+const TextTag = styled.div`
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+const TitleInput = styled.input`
+  height: 40px;
+  padding: 0 10px;
+  vertical-align: middle;
+  border: 1px solid #dddddd;
+  color: #999999;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+`;
+
 const ButtonTag = styled.button`
   width: 120px;
   font-weight: 600;
@@ -14,9 +30,19 @@ const ButtonTag = styled.button`
   border-color: skyblue;
   background-color: white;
 `;
+
+const Container = styled.div`
+  margin-top: 10px;
+  height: 400px;
+  width: 100%;
+  border: 1px solid black;
+`;
+
 export default function PostComponent() {
   const [value, setValue] = useState("");
   const quillRef = useRef(null);
+  const title = useRef(null);
+
   const imageHandler = () => {
     console.log("에디터에서 이미지 버튼을 클릭하면 이 핸들러가 시작됩니다!");
 
@@ -112,7 +138,7 @@ export default function PostComponent() {
 
   const sendData = async () => {
     const data = {
-      title: "모종의 이유가 있다",
+      title: title.current.value,
       authorId: "1",
       content: quillRef.current.value,
     };
@@ -126,16 +152,12 @@ export default function PostComponent() {
   };
   return (
     <>
-      <div
-        style={{
-          marginTop: "10px",
-          height: "400px",
-          width: "100%",
-          border: "1px solid black",
-        }}
-      >
+      <TextTag>제목</TextTag>
+      <TitleInput ref={title}></TitleInput>
+      <TextTag>내용</TextTag>
+      <Container>
         <ReactQuill
-          style={{ height: "360px" }}
+          style={{ height: "360px", color: "#999999", borderRadius: "5px" }}
           ref={quillRef}
           theme="snow"
           placeholder="글을 작성해 주세요"
@@ -144,7 +166,7 @@ export default function PostComponent() {
           modules={modules}
           formats={formats}
         />
-      </div>
+      </Container>
       <div
         style={{
           marginTop: "20px",

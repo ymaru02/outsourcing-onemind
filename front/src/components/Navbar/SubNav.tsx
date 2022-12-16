@@ -1,10 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store";
-import { access_token } from "../../store/token";
+import { style } from "@mui/system";
 
 const SubMenu = styled.div``;
 const Menu = styled.ul`
@@ -41,17 +38,48 @@ const MenuName = styled.span`
   font-size: 13px;
   color: #656565;
 `;
-export default function SubNav() {
-  const { token } = useSelector((state: RootState) => state.token);
 
+const ATag = styled.a`
+  &:hover {
+    cursor: pointer;
+  }
+`;
+export default function SubNav() {
+  const [token, setToken] = useState("");
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    setUserName(window.sessionStorage.getItem("userName"));
+    setToken(window.sessionStorage.getItem("token"));
+  }, [token, userName]);
+
+  const handleLogout = () => {
+    window.sessionStorage.removeItem("token");
+    window.sessionStorage.removeItem("userName");
+    setToken("");
+    setUserName("");
+  };
   return (
     <SubMenu>
       <Menu>
-        <MenuList>
-          <Link to={`signin`}>
-            <MenuName>{token ? "" : "Sign In"}</MenuName>
-          </Link>
-        </MenuList>
+        {token ? (
+          <>
+            <MenuList>
+              <MenuName> {userName}</MenuName>
+            </MenuList>
+            <MenuList>
+              <MenuName>
+                <ATag onClick={handleLogout}>Logout</ATag>
+              </MenuName>
+            </MenuList>
+          </>
+        ) : (
+          <MenuList>
+            <Link to={`login`}>
+              <MenuName> LogIn</MenuName>
+            </Link>
+          </MenuList>
+        )}
       </Menu>
     </SubMenu>
   );

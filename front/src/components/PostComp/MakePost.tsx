@@ -20,6 +20,7 @@ export default function MakePost() {
   useEffect(() => {
     AOS.init();
   });
+
   return (
     <Wrap>
       <ImgBox>
