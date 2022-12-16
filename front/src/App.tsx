@@ -15,7 +15,7 @@ import Pastor from "./components/Layout/Pastor";
 import Sermon from "./components/Layout/Sermon";
 
 import ShowPost from "./components/PostComp/ShowPost";
-import Signin from "./components/Layout/Signin";
+import Login from "./components/Layout/Login";
 import MakeSermon from "./components/Layout/MakeSermon";
 import ShowSermon from "./components/Layout/ShowSermon";
 
@@ -36,11 +36,9 @@ function App() {
         <Route path="/makepost" element={<MakePost />} />
         <Route path="/pastor" element={<Pastor />} />
         <Route path="/showpost/:id" element={<ShowPost />}></Route>
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/makesermon" element={<MakeSermon/>} />
-        <Route path="/showsermond/:id" element={<ShowSermon/>} />
-
-
+        <Route path="/login" element={<Login />} />
+        <Route path="/makesermon" element={<MakeSermon />} />
+        <Route path="/showsermond/:id" element={<ShowSermon />} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import {
@@ -15,22 +15,51 @@ import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import YouTube from "./youtube";
 import axios from "axios";
+import styled from "styled-components";
 
+const TextTag = styled.div`
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
+const TitleInput = styled.input`
+  height: 40px;
+  padding: 0 10px;
+  vertical-align: middle;
+  border: 1px solid #dddddd;
+  color: #999999;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 100%;
+`;
+const ButtonTag = styled.button`
+  width: 120px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 5px;
+  transition: all 0.2s;
+  border-color: skyblue;
+  background-color: white;
+  margin-top: 10px;
+`;
 export default function MakeSermon() {
   const [link, SetLink] = useState("");
-  const senddata = async () =>{
+
+  const title = useRef(null);
+
+  const senddata = async () => {
     const data = {
-        title:"코황",
-        tag:link,
-    }
+      title: title.current.value,
+      tag: link,
+    };
     const result = await axios({
-        url: "http://localhost:8080/you-tube/upload",
-        method: "post",
-        data: data,
-        withCredentials: true,
-      });
-      console.log(result)
-  }
+      url: "http://localhost:8080/you-tube/upload",
+      method: "post",
+      data: data,
+      withCredentials: true,
+    });
+    console.log(result);
+  };
   useEffect(() => {
     AOS.init();
   });
@@ -52,15 +81,16 @@ export default function MakeSermon() {
           <InfoTitleDiv fontsize="20px">설교 말씀</InfoTitleDiv>
           <ContentsDiv data-aos="fade-left" data-aos-duration="800">
             <InfoDiv>
-              <div>
-                <input
-                  onChange={(e) => {
-                    SetLink(e.target.value);
-                  }}
-                  type="text"
-                />
-                <button onClick={senddata}>제출</button>
-              </div>
+              <TextTag>제목</TextTag>
+              <TitleInput ref={title} type="text" />
+              <TextTag>유튜브 링크</TextTag>
+              <TitleInput
+                onChange={(e) => {
+                  SetLink(e.target.value);
+                }}
+                type="text"
+              />
+              <ButtonTag onClick={senddata}>제출</ButtonTag>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

@@ -116,7 +116,7 @@ const YouTube = (props: any) => {
                       {post.title}
                     </Link>
                   </Td>
-                  <Td>{moment(post.date).format("YYYY-MM-DD")}</Td>
+                  <Td>{moment(post.createdAt).format("YYYY-MM-DD")}</Td>
                 </tr>
               ))}
             </tbody>
