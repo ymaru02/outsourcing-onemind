@@ -2,6 +2,7 @@ import {
   BadGatewayException,
   Body,
   Controller,
+  Delete,
   Get,
   Param,
   Post,
@@ -26,10 +27,18 @@ export class MemberController {
   async takeMember(@Query('index') qer) {
     return await this.service.takemember(qer);
   }
+
+  @UseGuards(JwtAuthGuard)
   @Post('uploaddata')
   @UseInterceptors(FilesInterceptor('files', 10, multerOptions('history')))
   async uploadImg(@UploadedFiles() files: Array<Express.Multer.File>) {
     console.log(files);
     return this.service.uploadImg(files);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete('delete')
+  async deleteMember(@Query('index') qer) {
+    return await this.service.deleteMember(qer);
   }
 }
