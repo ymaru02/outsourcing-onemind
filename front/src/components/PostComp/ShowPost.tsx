@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import {
@@ -21,6 +21,7 @@ import { useParams } from "react-router-dom";
 export default function ShowPost() {
   const {id}=useParams();
   const content : any=useRef();
+  const [title,setTitle]=useState('');
   useEffect(() => {
     AOS.init();
     axios({
@@ -30,6 +31,7 @@ export default function ShowPost() {
       withCredentials: true,
     }).then((result)=>{
       console.log(result.data)
+      setTitle(result.data.title)
       content.current.innerHTML=result.data.content;
     });
   });
@@ -39,12 +41,12 @@ export default function ShowPost() {
         <Img src={Rainbow250} alt="" width="100%" height="100%" margin="auto" />
       </ImgBox>
       <DivideBox>
-        <Sidebar title="글 작성" />
+        <Sidebar title="소식" />
         <ContentsBox>
-          <InfoTitleDiv fontsize="20px">글 작성</InfoTitleDiv>
+          <InfoTitleDiv fontsize="20px">소식</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
-              <TinyTitle fontsize="18px">게시글</TinyTitle>
+              <TinyTitle fontsize="18px">{title}</TinyTitle>
               <div ref={content}>
 
               </div>
