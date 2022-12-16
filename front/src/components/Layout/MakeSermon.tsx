@@ -54,11 +54,13 @@ export default function MakeSermon() {
     };
     const result = await axios({
       url: "http://localhost:8080/you-tube/upload",
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
       method: "post",
       data: data,
       withCredentials: true,
     });
-    console.log(result);
   };
   useEffect(() => {
     AOS.init();

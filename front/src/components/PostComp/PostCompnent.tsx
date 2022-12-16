@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
@@ -42,10 +43,9 @@ export default function PostComponent() {
   const [value, setValue] = useState("");
   const quillRef = useRef(null);
   const title = useRef(null);
+  const navigate = useNavigate();
 
   const imageHandler = () => {
-    console.log("에디터에서 이미지 버튼을 클릭하면 이 핸들러가 시작됩니다!");
-
     // 1. 이미지를 저장할 input type=file DOM을 만든다.
     const input = document.createElement("input");
     // 속성 써주기
@@ -56,22 +56,20 @@ export default function PostComponent() {
 
     // input에 변화가 생긴다면 = 이미지를 선택
     input.addEventListener("change", async () => {
-      console.log("온체인지");
       const file = input.files[0];
       // multer에 맞는 형식으로 데이터 만들어준다.
       const formData = new FormData();
       formData.append("files", file); // formData는 키-밸류 구조
       // 백엔드 multer라우터에 이미지를 보낸다.
-      console.log(input.files[0]);
-      console.log(quillRef);
       axios({
         url: "http://localhost:8080/post/img",
+        headers: {
+          Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+        },
         method: "post",
         data: formData,
         withCredentials: true,
       }).then((result) => {
-        console.log(result.data);
-        console.log("성공 시, 백엔드가 보내주는 데이터", result.data);
         const IMG_URL = result.data;
         // 이 URL을 img 태그의 src에 넣은 요소를 현재 에디터의 커서에 넣어주면 에디터 내에서 이미지가 나타난다
         // src가 base64가 아닌 짧은 URL이기 때문에 데이터베이스에 에디터의 전체 글 내용을 저장할 수있게된다
@@ -144,11 +142,14 @@ export default function PostComponent() {
     };
     const result = await axios({
       url: "http://localhost:8080/post/upload",
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
       method: "post",
       data: data,
       withCredentials: true,
     });
-    console.log(result);
+    navigate("/news");
   };
   return (
     <>

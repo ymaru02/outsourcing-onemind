@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TextTag = styled.div`
   font-weight: bold;
@@ -40,9 +40,11 @@ const Container = styled.div`
 `;
 
 export default function UpdatePost() {
+  const [postTitle, setPostTitle] = useState("");
   const [value, setValue] = useState("");
   const quillRef = useRef(null);
   const title = useRef(null);
+  const navigate = useNavigate();
   const { id } = useParams();
   const imageHandler = () => {
     console.log("에디터에서 이미지 버튼을 클릭하면 이 핸들러가 시작됩니다!");
@@ -145,17 +147,23 @@ export default function UpdatePost() {
     };
     const name = await axios({
       url: "http://localhost:8080/auth/takeid",
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
       method: "get",
       data: { name: window.sessionStorage.getItem("userName") },
       withCredentials: true,
     });
     const result = await axios({
       url: "http://localhost:8080/post/update",
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
       method: "post",
       data: { id: name.data, data: data },
       withCredentials: true,
     });
-    console.log(result);
+    navigate(`showpost/${id}`);
   };
   useEffect(() => {
     axios({
@@ -164,14 +172,19 @@ export default function UpdatePost() {
       params: { id: id },
       withCredentials: true,
     }).then((result) => {
-      console.log(result.data);
-      setValue(result.data.content);
+      const editor = quillRef.current.getEditor(); // 에디터 객체 가져오기
+      editor.clipboard.dangerouslyPasteHTML(0, result.data.content);
+      setPostTitle(result.data.title);
     });
-  });
+  }, []);
   return (
     <>
       <TextTag>제목</TextTag>
-      <TitleInput ref={title}></TitleInput>
+      <TitleInput
+        ref={title}
+        defaultValue={postTitle}
+        onChange={(e) => setPostTitle(e.target.value)}
+      ></TitleInput>
       <TextTag>내용</TextTag>
       <Container>
         <ReactQuill
@@ -179,7 +192,6 @@ export default function UpdatePost() {
           ref={quillRef}
           theme="snow"
           placeholder="글을 작성해 주세요"
-          value={value}
           onChange={setValue}
           modules={modules}
           formats={formats}

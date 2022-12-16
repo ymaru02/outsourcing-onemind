@@ -13,12 +13,13 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import YouTube from "./youtube";
+import UpdatePost from "./UpdatePost";
 
-export default function Introduction() {
+export default function PostUpdataDefault() {
   useEffect(() => {
     AOS.init();
-  });
+  }, []);
+
   return (
     <Wrap>
       <div style={{ height: "80px" }}></div>
@@ -35,9 +36,9 @@ export default function Introduction() {
         <Sidebar title="설교 말씀" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">설교 말씀</InfoTitleDiv>
-          <ContentsDiv data-aos="fade-up" data-aos-duration="800">
+          <ContentsDiv data-aos="fade-left" data-aos-duration="800">
             <InfoDiv>
-              <YouTube />
+              <UpdatePost></UpdatePost>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

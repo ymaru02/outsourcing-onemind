@@ -12,9 +12,6 @@ import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import styled from "styled-components";
 import axios from "axios";
-import { reverse } from "dns";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
 
 const Container = styled.div`
   display: flex;
@@ -95,7 +92,16 @@ const RegisTag = styled.button`
   margin-left: 10px;
   border-radius: 5px;
 `;
+const DeleteTag = styled.button`
+  background-color: white;
+  border-radius: 5px;
+  border: 0.1ch solid red;
+  cursor: pointer;
 
+  &:hover {
+    color: red;
+  }
+`;
 interface imgData {
   createdAt: string;
   id: number;
@@ -104,20 +110,18 @@ interface imgData {
 
 export default function Album() {
   const [imgList, setImgList] = useState([]);
-
   const upload_file = useRef(null);
   const upload_name = useRef(null);
-
   const [token, setToken] = useState("");
 
   useEffect(() => {
     setToken(window.sessionStorage.getItem("token"));
-
     const fetchPostimg = async () => {
       const params = { index: "2022" };
       let res = await axios.get("http://localhost:8080/member/takemember", {
         params,
       });
+
       setImgList(res.data.reverse());
     };
     fetchPostimg();
@@ -127,7 +131,13 @@ export default function Album() {
     const formData = new FormData();
     formData.append("files", upload_file.current.files[0]);
 
-    axios.post("http://localhost:8080/member/uploaddata", formData);
+    axios.post("http://localhost:8080/member/uploaddata", formData, {
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
+    });
+
+    window.location.reload();
   };
   const handleChange = () => {
     if (isImage(upload_file.current.files[0])) {
@@ -135,6 +145,18 @@ export default function Album() {
     }
   };
 
+  const handleDelete = (index: number) => {
+    const params = {
+      index: index,
+    };
+    axios.delete(`http://localhost:8080/member/delete/`, {
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
+      params,
+    });
+    window.location.reload();
+  };
   function isImage(file: any) {
     return file.type.indexOf("image") >= 0;
   }
@@ -190,6 +212,9 @@ export default function Album() {
                     return (
                       <Inner key={i}>
                         <Image src={data.imgLink} />
+                        <DeleteTag onClick={() => handleDelete(data.id)}>
+                          삭제
+                        </DeleteTag>
                       </Inner>
                     );
                   })}
