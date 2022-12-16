@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/jwt/jwt.guard';
 import { YouTubeDto } from '../dto/youtube.request.dto';
 import { YouTubeService } from '../service/you-tube.service';
@@ -22,5 +30,11 @@ export class YouTubeController {
   @Get('tag')
   async takeTag(@Query('id') num) {
     return this.service.findtag(num);
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete('delete')
+  async deleteTag(@Query('id') num) {
+    return this.service.deleteTag(num);
   }
 }

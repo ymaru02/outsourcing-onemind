@@ -38,4 +38,16 @@ export class YouTubeService {
       throw new BadGatewayException();
     }
   }
+
+  async deleteTag(id) {
+    try {
+      const data = await this.prismaService.youTube.delete({
+        where: { id: Number(id) },
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      throw new BadGatewayException();
+    }
+  }
 }

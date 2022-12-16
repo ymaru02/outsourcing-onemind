@@ -1,8 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Post,
+  Query,
   Req,
   UploadedFiles,
   UseGuards,
@@ -45,6 +47,18 @@ export class PostController {
   @Get('takecontent')
   async takeContent(@Req() req: Request) {
     const result = this.service.takeContent(Number(req.query.id));
+    return result;
+  }
+
+  @Post('update')
+  async updatePost(@Body() content) {
+    const result = this.service.updatePost(content.id, content.data);
+    return result;
+  }
+
+  @Delete('delete')
+  async deletePost(@Query('id') id: any) {
+    const result = this.service.deletePost(id);
     return result;
   }
 }
