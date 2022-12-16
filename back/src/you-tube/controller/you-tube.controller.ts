@@ -1,4 +1,5 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/jwt/jwt.guard';
 import { YouTubeDto } from '../dto/youtube.request.dto';
 import { YouTubeService } from '../service/you-tube.service';
 
@@ -6,6 +7,7 @@ import { YouTubeService } from '../service/you-tube.service';
 export class YouTubeController {
   constructor(private readonly service: YouTubeService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post('upload')
   async upload(@Body() content: YouTubeDto) {
     console.log(content);
