@@ -18,6 +18,7 @@ import ShowPost from "./components/PostComp/ShowPost";
 import Login from "./components/Layout/Login";
 import MakeSermon from "./components/Layout/MakeSermon";
 import ShowSermon from "./components/Layout/ShowSermon";
+import UpdatePost from "./components/Layout/updatePost";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/makesermon" element={<MakeSermon />} />
         <Route path="/showsermond/:id" element={<ShowSermon />} />
+        <Route path="/updatepost/:id" element={<UpdatePost />} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
