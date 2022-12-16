@@ -20,6 +20,12 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
+const ContentTag = styled.div`
+  max-width: 80vw;
+  img {
+    max-width: 100%;
+  }
+`;
 const DivTag = styled.div`
   display: flex;
   justify-content: end;
@@ -92,7 +98,7 @@ export default function ShowPost() {
                 <DeleteTag onClick={handleDelete}>삭제</DeleteTag>
               </DivTag>
               <TinyTitle fontsize="18px">{title}</TinyTitle>
-              <div ref={content}></div>
+              <ContentTag ref={content}></ContentTag>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>
