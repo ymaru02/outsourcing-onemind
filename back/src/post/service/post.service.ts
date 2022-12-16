@@ -70,25 +70,22 @@ export class PostService {
   }
 
   async updatePost(num: any, postInfo: PostDto) {
-    try {
-      const search = await this.prismaService.post.findUnique({
-        where: { id: Number(num) },
-      });
-      const result = await this.prismaService.user.findUnique({
-        where: { id: search.authorId },
-      });
-      const creatdata = {
-        title: postInfo.title,
-        content: postInfo.content,
-        authorId: result.id,
-      };
-      const data = await this.prismaService.post.update({
-        data: creatdata,
-        where: { id: Number(num) },
-      });
-      return data;
-    } catch (error) {
-      throw new BadGatewayException();
-    }
+    const search = await this.prismaService.post.findUnique({
+      where: { id: Number(num) },
+    });
+    console.log(search);
+    const result = await this.prismaService.user.findUnique({
+      where: { id: search.authorId },
+    });
+    const creatdata = {
+      title: postInfo.title,
+      content: postInfo.content,
+      authorId: result.id,
+    };
+    const data = await this.prismaService.post.update({
+      data: creatdata,
+      where: { id: Number(num) },
+    });
+    return data;
   }
 }

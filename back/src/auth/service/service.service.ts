@@ -15,7 +15,6 @@ export class ServiceService {
   ) {}
 
   async takeOneUser(name: string): Promise<User> {
-    console.log('들어는 왔음');
     return await this.prismaService.user.findUnique({ where: { name: name } });
   }
 
