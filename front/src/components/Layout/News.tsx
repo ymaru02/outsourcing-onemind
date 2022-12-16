@@ -10,7 +10,7 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import Notice from "../Layout/Notice";
+import Notice from "../Notice/Notice";
 
 export default function News() {
   return (

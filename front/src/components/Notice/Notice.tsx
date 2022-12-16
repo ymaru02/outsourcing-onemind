@@ -6,12 +6,16 @@ import moment from "moment";
 import styled from "styled-components";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store";
 
 const Content = styled.div``;
 
 const TopInner = styled.div``;
 const TopInnerText = styled.span`
   font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
 `;
 
 const PostWriteContainer = styled.div`
@@ -58,17 +62,17 @@ const Td = styled.td`
   background: #fff;
 `;
 
-const ButtonTag = styled.button``;
-
 const NoticeComponent = (props: any) => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
+  const [token, setToken] = useState("");
 
   useEffect(() => {
+    setToken(window.sessionStorage.getItem("token"));
     const fetchPosts = async () => {
       let res = await axios.get("http://localhost:8080/post/takepost");
-      console.log(res.data.date);
+      console.log(res.data);
       setPosts(res.data);
     };
     fetchPosts();
@@ -89,9 +93,13 @@ const NoticeComponent = (props: any) => {
       </TopInner>
       <div>
         <PostWriteContainer>
-          <Link to={"/MakePost"}>
-            <PostWrite>글쓰기</PostWrite>
-          </Link>
+          {token ? (
+            <Link to={"/MakePost"}>
+              <PostWrite>글쓰기</PostWrite>
+            </Link>
+          ) : (
+            <></>
+          )}
         </PostWriteContainer>
         <div data-aos="fade-top" data-aos-duration="800">
           <PostTable>
@@ -116,7 +124,7 @@ const NoticeComponent = (props: any) => {
                       {post.title}
                     </Link>
                   </Td>
-                  <Td>{moment(post.date).format("YYYY-MM-DD")}</Td>
+                  <Td>{moment(post.createdAt).format("YYYY-MM-DD")}</Td>
                 </tr>
               ))}
             </tbody>

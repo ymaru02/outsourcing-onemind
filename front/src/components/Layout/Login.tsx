@@ -20,9 +20,7 @@ import styled from "styled-components";
 import axios from "axios";
 import signLogo from "../../img/sign.png";
 
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store";
-import { access_token } from "../../store/token";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -67,17 +65,11 @@ const ButtonTag = styled.button`
   background-color: white;
 `;
 
-export default function WorshSigninip() {
+export default function Login() {
   const [ID, setID] = useState("");
   const [PW, setPW] = useState("");
 
-  const dispatch = useDispatch();
-  const { token } = useSelector((state: RootState) => state.token);
-
-  const access = (token: string) => {
-    // store에 있는 state 바꾸는 함수 실행
-    dispatch(access_token(token));
-  };
+  const navigate = useNavigate();
 
   const handleLogIn = () => {
     axios
@@ -85,7 +77,12 @@ export default function WorshSigninip() {
         email: ID,
         password: PW,
       })
-      .then((res) => access(res.data));
+      .then((res) => {
+        window.sessionStorage.setItem("userName", res.data.name);
+        window.sessionStorage.setItem("token", res.data.token);
+        navigate("/");
+        window.location.reload();
+      });
   };
   return (
     <Wrap>
