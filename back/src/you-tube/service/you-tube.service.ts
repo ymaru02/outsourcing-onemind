@@ -21,7 +21,9 @@ export class YouTubeService {
 
   async takeList() {
     try {
-      const data = await this.prismaService.youTube.findMany();
+      const data = await this.prismaService.youTube.findMany({
+        orderBy: { id: 'desc' },
+      });
       return data;
     } catch (error) {
       throw new BadGatewayException();
