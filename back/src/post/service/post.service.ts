@@ -43,7 +43,9 @@ export class PostService {
 
   async takePost(id: number): Promise<Post[]> {
     try {
-      const data = await this.prismaService.post.findMany();
+      const data = await this.prismaService.post.findMany({
+        orderBy: { id: 'desc' },
+      });
 
       return data;
     } catch (error) {
