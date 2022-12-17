@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Query,
+  Req,
+  UseGuards,
+} from '@nestjs/common';
 import { User } from '@prisma/client';
 import { ServiceService } from '../service/service.service';
 import { ApiOperation } from '@nestjs/swagger';
@@ -13,10 +21,12 @@ export class ControllerController {
   constructor(private readonly Service: ServiceService) {}
 
   @ApiOperation({ summary: '이메일 중복 체크' })
-  @Get()
+  @Get('takeid')
   @UseGuards(JwtAuthGuard)
-  async takeU(@Req() req: Request) {
-    return req.user;
+  async takeU(@Query('name') name: string) {
+    return await (
+      await this.Service.takeOneUser(name)
+    ).id;
   }
 
   @ApiOperation({ summary: '로그인' })

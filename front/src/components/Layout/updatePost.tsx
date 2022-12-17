@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import axios from "axios";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { useNavigate } from "react-router-dom";
-
 import styled from "styled-components";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const TextTag = styled.div`
   font-weight: bold;
@@ -39,13 +39,16 @@ const Container = styled.div`
   border: 1px solid black;
 `;
 
-export default function PostComponent() {
+export default function UpdatePost() {
+  const [postTitle, setPostTitle] = useState("");
   const [value, setValue] = useState("");
   const quillRef = useRef(null);
   const title = useRef(null);
   const navigate = useNavigate();
-
+  const { id } = useParams();
   const imageHandler = () => {
+    console.log("에디터에서 이미지 버튼을 클릭하면 이 핸들러가 시작됩니다!");
+
     // 1. 이미지를 저장할 input type=file DOM을 만든다.
     const input = document.createElement("input");
     // 속성 써주기
@@ -56,20 +59,25 @@ export default function PostComponent() {
 
     // input에 변화가 생긴다면 = 이미지를 선택
     input.addEventListener("change", async () => {
+      console.log("온체인지");
       const file = input.files[0];
       // multer에 맞는 형식으로 데이터 만들어준다.
       const formData = new FormData();
       formData.append("files", file); // formData는 키-밸류 구조
       // 백엔드 multer라우터에 이미지를 보낸다.
+      console.log(input.files[0]);
+      console.log(quillRef);
       axios({
-        url: "http://localhost:8080/post/img",
         headers: {
           Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
         },
+        url: "http://localhost:8080/post/img",
         method: "post",
         data: formData,
         withCredentials: true,
       }).then((result) => {
+        console.log(result.data);
+        console.log("성공 시, 백엔드가 보내주는 데이터", result.data);
         const IMG_URL = result.data;
         // 이 URL을 img 태그의 src에 넣은 요소를 현재 에디터의 커서에 넣어주면 에디터 내에서 이미지가 나타난다
         // src가 base64가 아닌 짧은 URL이기 때문에 데이터베이스에 에디터의 전체 글 내용을 저장할 수있게된다
@@ -140,21 +148,39 @@ export default function PostComponent() {
       authorId: "1",
       content: quillRef.current.value,
     };
+
     const result = await axios({
-      url: "http://localhost:8080/post/upload",
+      url: "http://localhost:8080/post/update",
+      method: "post",
       headers: {
         Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
       },
-      method: "post",
-      data: data,
+      data: { id: id, data: data },
       withCredentials: true,
     });
-    navigate("/news");
+    navigate(`/showpost/${id}`);
   };
+  useEffect(() => {
+    axios({
+      url: "http://localhost:8080/post/takecontent",
+      method: "get",
+      params: { id: id },
+      withCredentials: true,
+    }).then((result) => {
+      const editor = quillRef.current.getEditor(); // 에디터 객체 가져오기
+      console.log(result.data.content);
+      editor.clipboard.dangerouslyPasteHTML(0, result.data.content);
+      setPostTitle(result.data.title);
+    });
+  }, []);
   return (
     <>
       <TextTag>제목</TextTag>
-      <TitleInput ref={title}></TitleInput>
+      <TitleInput
+        ref={title}
+        defaultValue={postTitle}
+        onChange={(e) => setPostTitle(e.target.value)}
+      ></TitleInput>
       <TextTag>내용</TextTag>
       <Container>
         <ReactQuill
@@ -176,7 +202,7 @@ export default function PostComponent() {
           justifyContent: "flex-end",
         }}
       >
-        <ButtonTag onClick={sendData}>보내기</ButtonTag>
+        <ButtonTag onClick={sendData}>수정하기</ButtonTag>
       </div>
     </>
   );

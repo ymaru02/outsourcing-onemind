@@ -14,9 +14,8 @@ export class ServiceService {
     private jwtService: JwtService,
   ) {}
 
-  async takeOneUser(): Promise<User[]> {
-    console.log('들어는 왔음');
-    return await this.prismaService.user.findMany();
+  async takeOneUser(name: string): Promise<User> {
+    return await this.prismaService.user.findUnique({ where: { name: name } });
   }
 
   async findUser(info: EmailRequestDto): Promise<User> {

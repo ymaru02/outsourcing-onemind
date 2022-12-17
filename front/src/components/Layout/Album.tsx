@@ -12,7 +12,6 @@ import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import styled from "styled-components";
 import axios from "axios";
-import { reverse } from "dns";
 
 const Container = styled.div`
   display: flex;
@@ -20,6 +19,12 @@ const Container = styled.div`
   width: 100%;
   gap: 10px;
 `;
+
+const TextTag = styled.div`
+  font-weight: bold;
+  margin-bottom: 10px;
+`;
+
 const Inner = styled.div`
   width: 30%;
   gap: 10px;
@@ -51,7 +56,7 @@ const InputTag = styled.input`
   padding: 0 10px;
   vertical-align: middle;
   border: 1px solid #dddddd;
-  width: 60%;
+  width: 30%;
   color: #999999;
   border-radius: 5px;
 `;
@@ -87,7 +92,16 @@ const RegisTag = styled.button`
   margin-left: 10px;
   border-radius: 5px;
 `;
+const DeleteTag = styled.button`
+  background-color: white;
+  border-radius: 5px;
+  border: 0.1ch solid red;
+  cursor: pointer;
 
+  &:hover {
+    color: red;
+  }
+`;
 interface imgData {
   createdAt: string;
   id: number;
@@ -96,35 +110,59 @@ interface imgData {
 
 export default function Album() {
   const [imgList, setImgList] = useState([]);
-
   const upload_file = useRef(null);
   const upload_name = useRef(null);
+  const [token, setToken] = useState("");
 
   useEffect(() => {
+    setToken(window.sessionStorage.getItem("token"));
     const fetchPostimg = async () => {
       const params = { index: "2022" };
       let res = await axios.get("http://localhost:8080/member/takemember", {
         params,
       });
+
       setImgList(res.data.reverse());
     };
     fetchPostimg();
-
-    window.addEventListener("load", function () {
-      upload_file.current.addEventListener("input", () => {
-        if (isImage(upload_file.current.files[0])) {
-          changeVal(upload_name.current, upload_file.current.files[0].name);
-        }
-      });
-
-      function isImage(file: any) {
-        return file.type.indexOf("image") >= 0;
-      }
-      function changeVal(class_name: any, change_name: any) {
-        class_name.value = change_name;
-      }
-    });
   }, []);
+
+  const handleRegistImg = () => {
+    const formData = new FormData();
+    formData.append("files", upload_file.current.files[0]);
+
+    axios.post("http://localhost:8080/member/uploaddata", formData, {
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
+    });
+
+    window.location.reload();
+  };
+  const handleChange = () => {
+    if (isImage(upload_file.current.files[0])) {
+      changeVal(upload_name.current, upload_file.current.files[0].name);
+    }
+  };
+
+  const handleDelete = (index: number) => {
+    const params = {
+      index: index,
+    };
+    axios.delete(`http://localhost:8080/member/delete/`, {
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
+      params,
+    });
+    window.location.reload();
+  };
+  function isImage(file: any) {
+    return file.type.indexOf("image") >= 0;
+  }
+  function changeVal(class_name: any, change_name: any) {
+    class_name.value = change_name;
+  }
 
   return (
     <Wrap>
@@ -142,18 +180,28 @@ export default function Album() {
         <Sidebar title="교회 앨범" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">교회 앨범</InfoTitleDiv>
-          <div>
-            <InputTag
-              type="text"
-              ref={upload_name}
-              value="이미지를 업로드 하세요"
-              placeholder="이미지를 업로드 하세요"
-              disabled
-            />
-            <LabelTag htmlFor="upload-file">파일선택</LabelTag>
-            <RegisTag>등록</RegisTag>
-            <HiddenTag type="file" ref={upload_file} id="upload-file" />
-          </div>
+          {token ? (
+            <div>
+              <TextTag>사진 등록</TextTag>
+              <InputTag
+                type="text"
+                ref={upload_name}
+                value="이미지를 업로드 하세요"
+                placeholder="이미지를 업로드 하세요"
+                disabled
+              />
+              <LabelTag htmlFor="upload-file">파일선택</LabelTag>
+              <RegisTag onClick={handleRegistImg}>등록</RegisTag>
+              <HiddenTag
+                type="file"
+                ref={upload_file}
+                id="upload-file"
+                onChange={handleChange}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
           <YearText>2022</YearText>
           {imgList.map((mon, index) => {
             return mon.length ? (
@@ -164,6 +212,9 @@ export default function Album() {
                     return (
                       <Inner key={i}>
                         <Image src={data.imgLink} />
+                        <DeleteTag onClick={() => handleDelete(data.id)}>
+                          삭제
+                        </DeleteTag>
                       </Inner>
                     );
                   })}

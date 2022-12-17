@@ -24,7 +24,7 @@ export class PostService {
     try {
       const num = Number(postInfo.authorId);
       const result = await this.prismaService.user.findUnique({
-        where: { id: 1 },
+        where: { id: num },
       });
       const creatdata = {
         title: postInfo.title,
@@ -43,7 +43,9 @@ export class PostService {
 
   async takePost(id: number): Promise<Post[]> {
     try {
-      const data = await this.prismaService.post.findMany();
+      const data = await this.prismaService.post.findMany({
+        orderBy: { id: 'desc' },
+      });
 
       return data;
     } catch (error) {
@@ -53,6 +55,36 @@ export class PostService {
   async takeContent(id: number): Promise<Post> {
     const data = await this.prismaService.post.findUnique({
       where: { id: id },
+    });
+    return data;
+  }
+
+  async deletePost(id: any) {
+    try {
+      const data = await this.prismaService.post.delete({
+        where: { id: Number(id) },
+      });
+    } catch (error) {
+      throw new BadGatewayException();
+    }
+  }
+
+  async updatePost(num: any, postInfo: PostDto) {
+    const search = await this.prismaService.post.findUnique({
+      where: { id: Number(num) },
+    });
+    console.log(search);
+    const result = await this.prismaService.user.findUnique({
+      where: { id: search.authorId },
+    });
+    const creatdata = {
+      title: postInfo.title,
+      content: postInfo.content,
+      authorId: result.id,
+    };
+    const data = await this.prismaService.post.update({
+      data: creatdata,
+      where: { id: Number(num) },
     });
     return data;
   }

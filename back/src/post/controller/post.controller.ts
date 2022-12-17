@@ -1,8 +1,10 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   Post,
+  Query,
   Req,
   UploadedFiles,
   UseGuards,
@@ -29,22 +31,34 @@ export class PostController {
     return this.service.uploadImg(files);
   }
 
-  // @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Post('upload')
   async uploadPost(@Body() content: PostDto) {
     console.log(content);
     return this.service.uploadPost(content);
   }
 
-  // @UseGuards(JwtAuthGuard)
   @Get('takepost')
   async takePost(@Req() req: Request) {
     const result = this.service.takePost(Number(req.query.id));
     return result;
   }
+
   @Get('takecontent')
   async takeContent(@Req() req: Request) {
     const result = this.service.takeContent(Number(req.query.id));
+    return result;
+  }
+
+  @Post('update')
+  async updatePost(@Body() content) {
+    const result = this.service.updatePost(content.id, content.data);
+    return result;
+  }
+
+  @Delete('delete')
+  async deletePost(@Query('id') id: any) {
+    const result = this.service.deletePost(id);
     return result;
   }
 }

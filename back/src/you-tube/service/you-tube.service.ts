@@ -21,7 +21,9 @@ export class YouTubeService {
 
   async takeList() {
     try {
-      const data = await this.prismaService.youTube.findMany();
+      const data = await this.prismaService.youTube.findMany({
+        orderBy: { id: 'desc' },
+      });
       return data;
     } catch (error) {
       throw new BadGatewayException();
@@ -30,6 +32,18 @@ export class YouTubeService {
   async findtag(id) {
     try {
       const data = await this.prismaService.youTube.findUnique({
+        where: { id: Number(id) },
+      });
+      console.log(data);
+      return data;
+    } catch (error) {
+      throw new BadGatewayException();
+    }
+  }
+
+  async deleteTag(id) {
+    try {
+      const data = await this.prismaService.youTube.delete({
         where: { id: Number(id) },
       });
       console.log(data);

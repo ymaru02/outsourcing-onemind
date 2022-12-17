@@ -35,9 +35,9 @@ export default function Introduction() {
         <Sidebar title="설교 말씀" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">설교 말씀</InfoTitleDiv>
-          <ContentsDiv data-aos="fade-left" data-aos-duration="800">
+          <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
-                <YouTube/>
+              <YouTube />
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>
