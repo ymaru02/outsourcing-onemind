@@ -34,10 +34,6 @@ function Sidebar(prop: prop) {
       top: 0,
     });
   };
-
-  useEffect(() => {
-    console.log("currentClick", currentClick);
-  }, [currentClick]);
   return (
     <SidebarBox>
       <H2>{prop.title}</H2>

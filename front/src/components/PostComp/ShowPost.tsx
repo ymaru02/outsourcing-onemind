@@ -54,6 +54,7 @@ export default function ShowPost() {
   const content: any = useRef();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
+  const [token, setToken] = useState("");
   useEffect(() => {
     AOS.init();
     axios({
@@ -65,7 +66,8 @@ export default function ShowPost() {
       setTitle(result.data.title);
       content.current.innerHTML = result.data.content;
     });
-  });
+    setToken(window.sessionStorage.getItem("token"));
+  }, []);
 
   const handleDelete = () => {
     const params = {
@@ -73,7 +75,7 @@ export default function ShowPost() {
     };
     axios.delete(`http://localhost:8080/post/delete`, {
       headers: {
-        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+        Authorization: `Bearer ${token}`,
       },
       params,
     });
@@ -93,10 +95,14 @@ export default function ShowPost() {
           <InfoTitleDiv fontsize="20px">소식</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <InfoDiv>
-              <DivTag>
-                <UpdataTag onClick={handleUpdate}>수정</UpdataTag>
-                <DeleteTag onClick={handleDelete}>삭제</DeleteTag>
-              </DivTag>
+              {token ? (
+                <DivTag>
+                  <UpdataTag onClick={handleUpdate}>수정</UpdataTag>
+                  <DeleteTag onClick={handleDelete}>삭제</DeleteTag>
+                </DivTag>
+              ) : (
+                <></>
+              )}
               <TinyTitle fontsize="18px">{title}</TinyTitle>
               <ContentTag ref={content}></ContentTag>
             </InfoDiv>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
@@ -43,6 +43,7 @@ const DeleteTag = styled.button`
 export default function ShowSermon() {
   const { id } = useParams();
   const content: any = useRef();
+  const [token, setToken] = useState("");
   const navigate = useNavigate();
   useEffect(() => {
     AOS.init();
@@ -52,9 +53,9 @@ export default function ShowSermon() {
       params: { id: id },
       withCredentials: true,
     }).then((result: any) => {
-      console.log(result.data);
       content.current.innerHTML = result.data.tag;
     });
+    setToken(window.sessionStorage.getItem("token"));
   }, []);
 
   const handleDelete = () => {
@@ -63,7 +64,7 @@ export default function ShowSermon() {
     };
     axios.delete(`http://localhost:8080/you-tube/delete`, {
       headers: {
-        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+        Authorization: `Bearer ${token}`,
       },
       params,
     });
@@ -87,9 +88,13 @@ export default function ShowSermon() {
           <InfoTitleDiv fontsize="20px">설교 말씀</InfoTitleDiv>
           <ContentsDiv data-aos="fade-left" data-aos-duration="800">
             <InfoDiv>
-              <DivTag>
-                <DeleteTag onClick={handleDelete}>삭제</DeleteTag>
-              </DivTag>
+              {token ? (
+                <DivTag>
+                  <DeleteTag onClick={handleDelete}>삭제</DeleteTag>
+                </DivTag>
+              ) : (
+                <></>
+              )}
               <ContainerTag ref={content}></ContainerTag>
             </InfoDiv>
           </ContentsDiv>

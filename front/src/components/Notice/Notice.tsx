@@ -72,7 +72,6 @@ const NoticeComponent = (props: any) => {
     setToken(window.sessionStorage.getItem("token"));
     const fetchPosts = async () => {
       let res = await axios.get("http://localhost:8080/post/takepost");
-      console.log(res.data);
       setPosts(res.data);
     };
     fetchPosts();
