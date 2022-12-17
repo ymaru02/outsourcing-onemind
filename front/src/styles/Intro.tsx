@@ -169,4 +169,5 @@ export const PastorItem = styled(Flex)`
   border-radius: 5px;
   padding: 15px;
   margin: 15px;
+  gap: 5px;
 `;
