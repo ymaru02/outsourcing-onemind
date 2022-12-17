@@ -69,6 +69,7 @@ export const ContentsBox = styled(Flex)`
   gap: 30px;
   flex: 8;
   padding: 20px 0 0 0;
+  margin: 0 5px 0 5px;
 `;
 export const ContentsDiv = styled.div``;
 export const InfoDiv = styled.div`
@@ -86,6 +87,15 @@ export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
   font-size: ${(props) => props.fontsize};
   font-weight: bold;
   border-bottom: 1px solid lightgrey;
+`;
+export const IntroTitle = styled.p<{ fontsize: any }>`
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+  text-align: start;
+  margin: 20px 0px 20px 0;
+  border-bottom: 2px solid ${theme.mainColor};
+  border-right: 2px solid ${theme.mainColor};
+  padding-left: 5px;
 `;
 export const TinyTitle = styled.p<{ fontsize: any }>`
   font-size: ${(props) => props.fontsize};
@@ -169,4 +179,5 @@ export const PastorItem = styled(Flex)`
   border-radius: 5px;
   padding: 15px;
   margin: 15px;
+  gap: 5px;
 `;
