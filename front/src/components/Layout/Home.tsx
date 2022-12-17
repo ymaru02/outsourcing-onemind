@@ -18,7 +18,8 @@ const Video = styled.video`
   background-size: cover;
 `;
 const MainImg = styled.img`
-  width: 100%;
+  max-width: 100%;
+  max-height: 500px;
   display: flex;
   justify-content: center;
   margin: 0 auto;
