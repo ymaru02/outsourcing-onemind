@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Pagination from "../Pagination/Pagination";
 import moment from "moment";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 
@@ -58,7 +58,11 @@ const Td = styled.td`
   background: #fff;
 `;
 
-const ButtonTag = styled.button``;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+`;
 
 const YouTube = (props: any) => {
   const [posts, setPosts] = useState([]);
@@ -116,9 +120,9 @@ const YouTube = (props: any) => {
                 <tr key={post.id}>
                   <Td>{post.id}</Td>
                   <Td>
-                    <Link to={"/showsermond/" + String(post.id)}>
+                    <StyledLink to={"/showsermond/" + String(post.id)}>
                       {post.title}
-                    </Link>
+                    </StyledLink>
                   </Td>
                   <Td>{moment(post.createdAt).format("YYYY-MM-DD")}</Td>
                 </tr>

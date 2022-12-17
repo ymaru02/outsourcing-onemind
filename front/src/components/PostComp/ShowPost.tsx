@@ -23,7 +23,7 @@ import styled from "styled-components";
 const ContentTag = styled.div`
   max-width: 80vw;
   img {
-    max-width: 100%;
+    max-width: 50%;
   }
 `;
 const DivTag = styled.div`

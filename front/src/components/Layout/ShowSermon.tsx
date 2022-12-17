@@ -14,7 +14,7 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import YouTube from "./youtube";
+import YouTube from "./Youtube";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
