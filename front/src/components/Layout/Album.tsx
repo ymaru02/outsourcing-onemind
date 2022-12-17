@@ -212,9 +212,13 @@ export default function Album() {
                     return (
                       <Inner key={i}>
                         <Image src={data.imgLink} />
-                        <DeleteTag onClick={() => handleDelete(data.id)}>
-                          삭제
-                        </DeleteTag>
+                        {token ? (
+                          <DeleteTag onClick={() => handleDelete(data.id)}>
+                            삭제
+                          </DeleteTag>
+                        ) : (
+                          <></>
+                        )}
                       </Inner>
                     );
                   })}

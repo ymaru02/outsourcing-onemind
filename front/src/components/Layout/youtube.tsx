@@ -64,14 +64,14 @@ const YouTube = (props: any) => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
-
+  const [token, setToken] = useState("");
   useEffect(() => {
     const fetchPosts = async () => {
       let res = await axios.get("http://localhost:8080/you-tube/list");
-      console.log(res.data.date);
       setPosts(res.data);
     };
     fetchPosts();
+    setToken(window.sessionStorage.getItem("token"));
   }, []);
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -89,9 +89,13 @@ const YouTube = (props: any) => {
       </TopInner>
       <div>
         <PostWriteContainer>
-          <Link to={"/MakeSermon"}>
-            <PostWrite>글쓰기</PostWrite>
-          </Link>
+          {token ? (
+            <Link to={"/MakeSermon"}>
+              <PostWrite>글쓰기</PostWrite>
+            </Link>
+          ) : (
+            <></>
+          )}
         </PostWriteContainer>
         <div data-aos="fade-top" data-aos-duration="800">
           <PostTable>
