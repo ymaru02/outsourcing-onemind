@@ -61,6 +61,11 @@ const Td = styled.td`
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background: #fff;
 `;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+`;
 
 const NoticeComponent = (props: any) => {
   const [posts, setPosts] = useState([]);
@@ -119,9 +124,9 @@ const NoticeComponent = (props: any) => {
                 <tr key={post.id}>
                   <Td>{post.id}</Td>
                   <Td>
-                    <Link to={"/showpost/" + String(post.id)}>
+                    <StyledLink to={"/showpost/" + String(post.id)}>
                       {post.title}
-                    </Link>
+                    </StyledLink>
                   </Td>
                   <Td>{moment(post.createdAt).format("YYYY-MM-DD")}</Td>
                 </tr>
