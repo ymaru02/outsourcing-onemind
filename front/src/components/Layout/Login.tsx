@@ -82,6 +82,13 @@ export default function Login() {
         window.sessionStorage.setItem("token", res.data.token);
         navigate("/");
         window.location.reload();
+      })
+      .catch((error) => {
+        if (error.response.status === 400) {
+          alert("이메일 형식이 아닌것 같습니다");
+        }else if(error.response.status === 401){
+          alert("아이디 비밀번호를 확인하세요");
+        }
       });
   };
   return (
