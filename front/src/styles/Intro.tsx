@@ -69,6 +69,7 @@ export const ContentsBox = styled(Flex)`
   gap: 30px;
   flex: 8;
   padding: 20px 0 0 0;
+  margin: 0 5px 0 5px;
 `;
 export const ContentsDiv = styled.div``;
 export const InfoDiv = styled.div`
