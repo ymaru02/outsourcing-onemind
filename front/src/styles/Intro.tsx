@@ -88,6 +88,15 @@ export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
   font-weight: bold;
   border-bottom: 1px solid lightgrey;
 `;
+export const IntroTitle = styled.p<{ fontsize: any }>`
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+  text-align: start;
+  margin: 20px 0px 20px 0;
+  border-bottom: 2px solid ${theme.mainColor};
+  border-right: 2px solid ${theme.mainColor};
+  padding-left: 5px;
+`;
 export const TinyTitle = styled.p<{ fontsize: any }>`
   font-size: ${(props) => props.fontsize};
   font-weight: bold;
