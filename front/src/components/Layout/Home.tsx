@@ -29,9 +29,19 @@ const Nav = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   color: white;
+  margin-top: -90px;
+
+  @media ${(props) => props.theme.desktop} {
+    margin-top: 0;
+  }
 `;
 const Temp = styled.div`
-  height: 120px;
+  display: block;
+  height: 20px;
+
+  @media ${(props) => props.theme.desktop} {
+    height: 120px;
+  }
 `;
 
 export default function Home() {
