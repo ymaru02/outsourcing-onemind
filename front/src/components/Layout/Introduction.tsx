@@ -14,6 +14,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import Intro from "../Introduction/Intro";
 import History from "../Introduction/History";
+import IntroPastor from "../Introduction/IntroPastor";
 
 export default function Introduction() {
   useEffect(() => {
@@ -35,6 +36,9 @@ export default function Introduction() {
         <Sidebar title="교회 소개" />
         <ContentsBox>
           <InfoTitleDiv fontsize="20px">교회 소개</InfoTitleDiv>
+          <ContentsDiv data-aos="fade-up" data-aos-duration="800">
+            <IntroPastor />
+          </ContentsDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <Intro />
           </ContentsDiv>

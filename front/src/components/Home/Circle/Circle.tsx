@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Menu = styled.div`
-  width: 20vh;
-  height: 20vh;
+  width: 17vh;
+  height: 17vh;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.2);
   border: 0.5rem solid rgba(255, 255, 255, 0.6);
@@ -16,7 +16,7 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-size: 2em;
+  font-size: 1.8em;
   color: white;
 `;
 
