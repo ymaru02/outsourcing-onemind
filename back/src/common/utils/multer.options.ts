@@ -40,9 +40,11 @@ const storage = (folder: string): multer.StorageEngine => {
       //* 어떤 이름으로 올릴 지
 
       const ext = path.extname(file.originalname);
-
+      const originalname = Buffer.from(file.originalname, 'latin1').toString(
+        'utf8',
+      );
       const fileName = `${path.basename(
-        file.originalname,
+        originalname,
 
         ext,
       )}${Date.now()}${ext}`;

@@ -130,7 +130,7 @@ export default function Album() {
   const handleRegistImg = () => {
     const formData = new FormData();
     formData.append("files", upload_file.current.files[0]);
-
+    console.log(upload_file.current.files[0].name)
     axios.post("http://localhost:8080/member/uploaddata", formData, {
       headers: {
         Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,

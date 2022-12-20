@@ -13,7 +13,8 @@ import MakePost from "./components/PostComp/MakePost";
 import Pastor from "./components/Layout/Pastor";
 
 import Sermon from "./components/Layout/Sermon";
-
+import "react-quill/dist/quill.snow.css";
+import "react-quill/dist/quill.core.css";
 import ShowPost from "./components/PostComp/ShowPost";
 import Login from "./components/Layout/Login";
 import MakeSermon from "./components/Layout/MakeSermon";

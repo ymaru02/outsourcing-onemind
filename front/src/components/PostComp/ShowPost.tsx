@@ -25,6 +25,7 @@ const ContentTag = styled.div`
   img {
     max-width: 50%;
   }
+  
 `;
 const DivTag = styled.div`
   display: flex;
@@ -51,6 +52,7 @@ const UpdataTag = styled.button`
 `;
 export default function ShowPost() {
   const { id } = useParams();
+  const [contents,setContents]=useState('');
   const content: any = useRef();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
@@ -64,6 +66,7 @@ export default function ShowPost() {
       withCredentials: true,
     }).then((result) => {
       setTitle(result.data.title);
+      setContents(result.data.content);
       content.current.innerHTML = result.data.content;
     });
     setToken(window.sessionStorage.getItem("token"));
@@ -104,7 +107,7 @@ export default function ShowPost() {
                 <></>
               )}
               <TinyTitle fontsize="18px">{title}</TinyTitle>
-              <ContentTag ref={content}></ContentTag>
+              <ContentTag className="ql-editor" dangerouslySetInnerHTML={{__html:contents}}></ContentTag>
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>
