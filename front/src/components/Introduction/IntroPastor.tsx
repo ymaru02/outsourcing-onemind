@@ -1,12 +1,12 @@
 import React from "react";
 import { InfoDiv, FloatImg, IntroTitle } from "../../styles/Intro";
-import pastor2 from "../../img/pastor2.jpg";
+import pastor1 from "../../img/pastor1.jpg";
 
 export default function IntroPastor() {
   return (
     <InfoDiv>
       <FloatImg
-        src={pastor2}
+        src={pastor1}
         alt=""
         width="390px"
         height="530px"
