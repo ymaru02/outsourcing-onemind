@@ -15,7 +15,7 @@ import {
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
 import PostComponent from "./PostCompnent";
-
+// import "react-quill/dist/quill.core.css";
 export default function MakePost() {
   useEffect(() => {
     AOS.init();

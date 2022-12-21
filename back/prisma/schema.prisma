@@ -19,26 +19,32 @@ model User {
 }
 
 model Post {
-  id       Int     @id @default(autoincrement())
-  title    String
-  content  String? @db.Text
-  createdAt    DateTime       @default(now())
-  author   User    @relation(fields: [authorId], references: [id])
-  authorId Int
-  // Img      Img[]
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?  @db.Text
+  createdAt DateTime @default(now())
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+  File      File[]
 }
 
 model Member {
-  id      Int     @id @default(autoincrement())
-  imgLink String?
-  createdAt    DateTime       @default(now())
+  id        Int      @id @default(autoincrement())
+  imgLink   String?
+  createdAt DateTime @default(now())
 }
 
 model YouTube {
-  id      Int     @id @default(autoincrement())
-  tag     String? @db.Text
-  title   String 
-  createdAt    DateTime       @default(now())
+  id        Int      @id @default(autoincrement())
+  tag       String?  @db.Text
+  title     String
+  createdAt DateTime @default(now())
 }
 
-
+model File {
+  id        Int      @id @default(autoincrement())
+  tag       String?  @db.Text
+  Post      Post     @relation(fields: [PostId], references: [id])
+  PostId    Int
+  createdAt DateTime @default(now())
+}

@@ -31,10 +31,10 @@ export class PostService {
         content: postInfo.content,
         authorId: result.id,
       };
-      const data = await this.prismaService.post.createMany({
+      const data = await this.prismaService.post.create({
         data: creatdata,
       });
-
+      console.log(data);
       return data;
     } catch (error) {
       throw new BadGatewayException('알수없는오류로 업로드가 불가합니다');
@@ -87,5 +87,17 @@ export class PostService {
       where: { id: Number(num) },
     });
     return data;
+  }
+
+  async attachFiles(id, files: Array<Express.Multer.File>) {
+    let url = 'http://localhost:8080/media/attachFile/';
+    url += files[0].filename;
+    const findFileNum = await this.prismaService.post.findUnique({
+      where: { id: Number(id) },
+    });
+    console.log(findFileNum);
+    const data = { tag: url, PostId: findFileNum.id };
+    const insertData = await this.prismaService.file.create({ data: data });
+    return 1;
   }
 }

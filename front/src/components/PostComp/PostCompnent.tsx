@@ -34,7 +34,7 @@ const ButtonTag = styled.button`
 
 const Container = styled.div`
   margin-top: 10px;
-  height: 400px;
+  height: 423px;
   width: 100%;
   border: 1px solid black;
 `;
@@ -44,7 +44,7 @@ export default function PostComponent() {
   const quillRef = useRef(null);
   const title = useRef(null);
   const navigate = useNavigate();
-
+  const upload_file = useRef(undefined);
   const imageHandler = () => {
     // 1. 이미지를 저장할 input type=file DOM을 만든다.
     const input = document.createElement("input");
@@ -135,6 +135,8 @@ export default function PostComponent() {
   }, []);
 
   const sendData = async () => {
+    const formData = new FormData();
+    formData.append("files", upload_file.current.files[0]);
     const data = {
       title: title.current.value,
       authorId: "1",
@@ -149,6 +151,17 @@ export default function PostComponent() {
       data: data,
       withCredentials: true,
     });
+    console.log(result);
+    formData.append("authorId",result.data.id);
+    const Fileresult = await axios({
+      url: "http://localhost:8080/post/attachfile",
+      headers: {
+        Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
+      },
+      method: "post",
+      data: formData,
+      withCredentials: true,
+    });
     navigate("/news");
   };
   return (
@@ -157,6 +170,11 @@ export default function PostComponent() {
       <TitleInput ref={title}></TitleInput>
       <TextTag>내용</TextTag>
       <Container>
+        <input
+          type="file"
+          ref={upload_file}
+          id="upload-file"
+        />
         <ReactQuill
           style={{ height: "360px", color: "#999999", borderRadius: "5px" }}
           ref={quillRef}

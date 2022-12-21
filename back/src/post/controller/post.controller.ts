@@ -61,4 +61,15 @@ export class PostController {
     const result = this.service.deletePost(id);
     return result;
   }
+
+  @Post('attachfile')
+  @UseInterceptors(FilesInterceptor('files', 10, multerOptions('attachFile')))
+  async attachFile(
+    @UploadedFiles() files: Array<Express.Multer.File>,
+    @Body('authorId') id: any,
+  ) {
+    console.log(files, id);
+    const result = this.service.attachFiles(id, files);
+    return result;
+  }
 }
