@@ -44,7 +44,7 @@ export const SidebarBox = styled(Flex)`
   position: -webkit-sticky;
   position: sticky;
   top: 50px;
-  height: 700px;
+  height: 750px;
   flex-flow: column wrap;
   gap: 30px;
   flex: 2;
@@ -154,6 +154,7 @@ export const WorshipInnerItem = styled(Flex)`
   flex-flow: column wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 
   @media ${(props) => props.theme.mobile} {
     width: 50%;
@@ -161,7 +162,7 @@ export const WorshipInnerItem = styled(Flex)`
 `;
 export const P = styled.p`
   // border-bottom: 1px double ${theme.mainColor};
-  border-bottom: 1px double lightgrey;
+  border-bottom: 2px double lightgrey;
 `;
 // Pastor 적용
 export const PastorDiv = styled(Flex)`
@@ -181,4 +182,28 @@ export const PastorItem = styled(Flex)`
   padding: 15px;
   margin: 15px;
   gap: 5px;
+`;
+// Contribution 적용
+export const ContributionItem = styled(Flex)`
+  border-left: 2px solid ${theme.mainColor};
+  border-right: 2px solid ${theme.mainColor};
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  margin: 20px 0 0 0;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+
+  @media ${(props) => props.theme.mobile} {
+    flex-flow: column wrap;
+    gap: 50px;
+  }
+`;
+export const ContributionInnerItem = styled(Flex)`
+  width: 45%;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 `;
