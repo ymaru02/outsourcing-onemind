@@ -43,6 +43,7 @@ model YouTube {
 
 model File {
   id        Int      @id @default(autoincrement())
+  name      String?   @db.Text
   tag       String?  @db.Text
   Post      Post     @relation(fields: [PostId], references: [id])
   PostId    Int

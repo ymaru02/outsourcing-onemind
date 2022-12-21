@@ -55,7 +55,9 @@ export class PostService {
   async takeContent(id: number): Promise<Post> {
     const data = await this.prismaService.post.findUnique({
       where: { id: id },
+      include: { File: true },
     });
+    console.log(data);
     return data;
   }
 
@@ -89,14 +91,14 @@ export class PostService {
     return data;
   }
 
-  async attachFiles(id, files: Array<Express.Multer.File>) {
+  async attachFiles(id, name, files: Array<Express.Multer.File>) {
     let url = 'http://localhost:8080/media/attachFile/';
     url += files[0].filename;
     const findFileNum = await this.prismaService.post.findUnique({
       where: { id: Number(id) },
     });
-    console.log(findFileNum);
-    const data = { tag: url, PostId: findFileNum.id };
+    // console.log(findFileNum);
+    const data = { tag: url, PostId: findFileNum.id, name: name };
     const insertData = await this.prismaService.file.create({ data: data });
     return 1;
   }
