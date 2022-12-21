@@ -8,8 +8,8 @@ export default function IntroPastor() {
       <FloatImg
         src={pastor2}
         alt=""
-        width="340px"
-        height="440px"
+        width="390px"
+        height="530px"
         float="left"
       />
       <div>
@@ -44,11 +44,17 @@ export default function IntroPastor() {
           이를 위해 저희 교회의 비전은 다음의 세 가지입니다.
           <br />
           <br />
-          첫째, ‘복음을 복음되게(for the Gospel to become the Gospel)’ <br />
-          둘째, ‘교회를 교회되게(for the Church to become the Church)’ <br />
-          셋째, ‘성도를 성도되게(for the God’s People to become the God’s
-          People)’ 그리고 이러한 교회와 성도가 되기 위해서 저희들은 매일 매일의
-          삶 속에서 “not I, but Christ”(갈 2:20)를 고백하는 자들이 되기를
+          <strong>첫째, ‘복음을 복음되게(for the Gospel to become the Gospel)’ </strong><br />
+          <br />
+          <strong>둘째, ‘교회를 교회되게(for the Church to become the Church)’ </strong><br />
+          <br />
+          <strong>셋째, ‘성도를 성도되게(for the God’s People to become the God’s
+          People)’ </strong>
+          <br />
+          <br />
+          그리고 이러한 교회와 성도가 되기 위해서 저희들은 매일 매일의
+          삶 속에서 
+          “not I, but Christ”(갈 2:20)를 고백하는 자들이 되기를
           소망합니다.
           <br />
           <br />

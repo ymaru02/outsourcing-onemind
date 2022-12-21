@@ -67,7 +67,6 @@ export default function ShowPost() {
     }).then((result) => {
       setTitle(result.data.title);
       setContents(result.data.content);
-      content.current.innerHTML = result.data.content;
     });
     setToken(window.sessionStorage.getItem("token"));
   }, []);
