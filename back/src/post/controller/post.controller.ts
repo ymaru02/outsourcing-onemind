@@ -67,9 +67,10 @@ export class PostController {
   async attachFile(
     @UploadedFiles() files: Array<Express.Multer.File>,
     @Body('authorId') id: any,
+    @Body('originalName') name: any,
   ) {
-    console.log(files, id);
-    const result = this.service.attachFiles(id, files);
+    // console.log(files, id);
+    const result = this.service.attachFiles(id, name, files);
     return result;
   }
 }

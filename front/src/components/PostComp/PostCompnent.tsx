@@ -153,6 +153,7 @@ export default function PostComponent() {
     });
     console.log(result);
     formData.append("authorId",result.data.id);
+    formData.append("originalName",upload_file.current.files[0].name)
     const Fileresult = await axios({
       url: "http://localhost:8080/post/attachfile",
       headers: {
