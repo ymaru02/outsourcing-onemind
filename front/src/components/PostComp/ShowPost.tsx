@@ -25,7 +25,6 @@ const ContentTag = styled.div`
   img {
     max-width: 50%;
   }
-  
 `;
 const DivTag = styled.div`
   display: flex;
@@ -50,12 +49,31 @@ const UpdataTag = styled.button`
   color: green;
   cursor: pointer;
 `;
+
+const FilesTag = styled.div`
+  margin-top: 10px;
+`;
+const TextTag = styled.div`
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+`;
+const Filetag = styled.a`
+  padding: 3px;
+  font-size: 12px;
+  text-decoration: none;
+  color: gray;
+  background-color: rgba(200, 200, 200, 0.3);
+  border-radius: 5px;
+`;
+
 export default function ShowPost() {
   const { id } = useParams();
-  const [contents,setContents]=useState('');
+  const [contents, setContents] = useState("");
   const content: any = useRef();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
+  const [file, setFile] = useState([]);
   const [token, setToken] = useState("");
   useEffect(() => {
     AOS.init();
@@ -67,6 +85,8 @@ export default function ShowPost() {
     }).then((result) => {
       setTitle(result.data.title);
       setContents(result.data.content);
+      console.log(result.data.File);
+      setFile(result.data.File);
     });
     setToken(window.sessionStorage.getItem("token"));
   }, []);
@@ -106,7 +126,17 @@ export default function ShowPost() {
                 <></>
               )}
               <TinyTitle fontsize="18px">{title}</TinyTitle>
-              <ContentTag className="ql-editor" dangerouslySetInnerHTML={{__html:contents}}></ContentTag>
+              <ContentTag
+                className="ql-editor"
+                dangerouslySetInnerHTML={{ __html: contents }}
+              ></ContentTag>
+              <hr></hr>
+              {file.map((data) => (
+                <FilesTag>
+                  <TextTag>첨부파일</TextTag>
+                  <Filetag href={data.tag}>{data.name}</Filetag>
+                </FilesTag>
+              ))}
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

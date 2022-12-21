@@ -45,6 +45,7 @@ export class PostService {
     try {
       const data = await this.prismaService.post.findMany({
         orderBy: { id: 'desc' },
+        include: { File: true },
       });
 
       return data;
@@ -57,7 +58,6 @@ export class PostService {
       where: { id: id },
       include: { File: true },
     });
-    console.log(data);
     return data;
   }
 

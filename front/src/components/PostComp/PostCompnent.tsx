@@ -152,8 +152,8 @@ export default function PostComponent() {
       withCredentials: true,
     });
     console.log(result);
-    formData.append("authorId",result.data.id);
-    formData.append("originalName",upload_file.current.files[0].name)
+    formData.append("authorId", result.data.id);
+    formData.append("originalName", upload_file.current.files[0].name);
     const Fileresult = await axios({
       url: "http://localhost:8080/post/attachfile",
       headers: {
@@ -171,11 +171,7 @@ export default function PostComponent() {
       <TitleInput ref={title}></TitleInput>
       <TextTag>내용</TextTag>
       <Container>
-        <input
-          type="file"
-          ref={upload_file}
-          id="upload-file"
-        />
+        <input type="file" ref={upload_file} id="upload-file" />
         <ReactQuill
           style={{ height: "360px", color: "#999999", borderRadius: "5px" }}
           ref={quillRef}
