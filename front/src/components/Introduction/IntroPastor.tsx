@@ -9,7 +9,7 @@ export default function IntroPastor() {
         src={pastor1}
         alt=""
         width="390px"
-        height="530px"
+        height="560px"
         float="left"
       />
       <div>
