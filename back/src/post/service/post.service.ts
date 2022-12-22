@@ -2,11 +2,12 @@ import {
   BadGatewayException,
   Injectable,
   NotFoundException,
+  Res,
   UnauthorizedException,
 } from '@nestjs/common';
 import { Post } from '@prisma/client';
 import { prismaService } from 'src/prisma.service';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 import { PostDto } from '../dto/post.request.dto';
 import { Type } from 'class-transformer';
 
@@ -92,7 +93,7 @@ export class PostService {
   }
 
   async attachFiles(id, name, files: Array<Express.Multer.File>) {
-    let url = 'http://localhost:8080/media/attachFile/';
+    let url = '';
     url += files[0].filename;
     const findFileNum = await this.prismaService.post.findUnique({
       where: { id: Number(id) },
@@ -101,5 +102,13 @@ export class PostService {
     const data = { tag: url, PostId: findFileNum.id, name: name };
     const insertData = await this.prismaService.file.create({ data: data });
     return 1;
+  }
+
+  async filedownload(res: Response, name: string) {
+    const url = './dist/common/uploads/attachFile/';
+    const data = await this.prismaService.file.findUnique({
+      where: { id: Number(name) },
+    });
+    return res.download(`${url}${data.tag}`);
   }
 }
