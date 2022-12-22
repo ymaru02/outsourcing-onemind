@@ -23,6 +23,11 @@ const MainImg = styled.img`
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  margin-top: 40px;
+
+  @media ${(props) => props.theme.desktop} {
+    margin-top: -30px;
+  }
 `;
 const Nav = styled.div`
   justify-content: center;
@@ -30,10 +35,10 @@ const Nav = styled.div`
   flex-wrap: wrap;
   gap: 20px;
   color: white;
-  margin-top: -90px;
+  margin-top: 0;
 
   @media ${(props) => props.theme.desktop} {
-    margin-top: 0;
+    margin-top: -10px;
   }
 `;
 const Temp = styled.div`
@@ -51,9 +56,9 @@ export default function Home() {
       <Temp></Temp>
       <MainImg src={main} />
       <Nav>
-        <Circle image={img1} content={"예배시간"} link={"/news"}></Circle>
+        <Circle image={img1} content={"예배시간"} link={"/worship"}></Circle>
+        <Circle image={img3} content={"설교말씀"} link={"/sermon"}></Circle>
         <Circle image={img2} content={"교회소식"} link={"/news"}></Circle>
-        <Circle image={img3} content={"교회앨범"} link={"/album"}></Circle>
         <Circle image={img4} content={"오시는길"} link={"/location"}></Circle>
       </Nav>
       <Video controls={false} controlsList="nodownload" autoPlay loop muted>
