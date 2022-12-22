@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store";
 import img1 from "../../img/icon-detail-in-file.png";
+import fileDownload from "js-file-download";
 const Content = styled.div``;
 
 const TopInner = styled.div``;
@@ -89,7 +90,18 @@ const NoticeComponent = (props: any) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
+  const download = (e: any, name: string, id: any) => {
+    e.preventDefault();
+    axios({
+      url: "http://localhost:8080/post/download",
+      method: "get",
+      params: { id: id },
+      responseType: "blob",
+    }).then((res) => {
+      console.log(res.data);
+      fileDownload(res.data, name);
+    });
+  };
   useEffect(() => {
     AOS.init();
   });
@@ -135,9 +147,14 @@ const NoticeComponent = (props: any) => {
                   <Td>{moment(post.createdAt).format("YYYY-MM-DD")}</Td>
                   <Td>
                     {post.File.length ? (
-                      <a href={post.File[0].tag}>
+                      <div
+                      style={{cursor:'pointer'}}
+                        onClick={(e) => {
+                          download(e, post.File[0].name, post.File[0].id);
+                        }}
+                      >
                         <img src={img1} />
-                      </a>
+                      </div>
                     ) : (
                       ""
                     )}

@@ -19,6 +19,7 @@ import worshipImg from "../../img/worship.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import fileDownload from "js-file-download";
 
 const ContentTag = styled.div`
   max-width: 80vw;
@@ -58,13 +59,14 @@ const TextTag = styled.div`
   color: gray;
   margin-bottom: 10px;
 `;
-const Filetag = styled.a`
+const Filetag = styled.div`
   padding: 3px;
   font-size: 12px;
   text-decoration: none;
   color: gray;
   background-color: rgba(200, 200, 200, 0.3);
   border-radius: 5px;
+  cursor:pointer;
 `;
 
 export default function ShowPost() {
@@ -85,7 +87,7 @@ export default function ShowPost() {
     }).then((result) => {
       setTitle(result.data.title);
       setContents(result.data.content);
-      console.log(result.data.File);
+      // console.log(result.data.File);
       setFile(result.data.File);
     });
     setToken(window.sessionStorage.getItem("token"));
@@ -105,6 +107,18 @@ export default function ShowPost() {
   };
   const handleUpdate = () => {
     navigate(`/updatepost/${id}`);
+  };
+  const download = (e: any, name: string, id: any) => {
+    e.preventDefault();
+    axios({
+      url: "http://localhost:8080/post/download",
+      method: "get",
+      params: { id: id },
+      responseType: "blob",
+    }).then((res) => {
+      // console.log(res.data)
+      fileDownload(res.data, name);
+    });
   };
   return (
     <Wrap>
@@ -134,7 +148,13 @@ export default function ShowPost() {
               {file.map((data) => (
                 <FilesTag>
                   <TextTag>첨부파일</TextTag>
-                  <Filetag href={data.tag}>{data.name}</Filetag>
+                  <Filetag
+                    onClick={(e) => {
+                      download(e, data.name, data.id);
+                    }}
+                  >
+                    {data.name}
+                  </Filetag>
                 </FilesTag>
               ))}
             </InfoDiv>

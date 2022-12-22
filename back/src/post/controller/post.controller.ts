@@ -6,12 +6,13 @@ import {
   Post,
   Query,
   Req,
+  Res,
   UploadedFiles,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { PostService } from '../service/post.service';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 import { JwtAuthGuard } from 'src/auth/jwt/jwt.guard';
 import { FilesInterceptor } from '@nestjs/platform-express';
 import { multerOptions } from 'src/common/utils/multer.options';
@@ -72,5 +73,10 @@ export class PostController {
     // console.log(files, id);
     const result = this.service.attachFiles(id, name, files);
     return result;
+  }
+
+  @Get('download')
+  async filedownload(@Res() res: Response, @Query('id') name: string) {
+    return this.service.filedownload(res, name);
   }
 }
