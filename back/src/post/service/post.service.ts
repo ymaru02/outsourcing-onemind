@@ -2,11 +2,12 @@ import {
   BadGatewayException,
   Injectable,
   NotFoundException,
+  Res,
   UnauthorizedException,
 } from '@nestjs/common';
 import { Post } from '@prisma/client';
 import { prismaService } from 'src/prisma.service';
-import { Request } from 'express';
+import { Request, Response } from 'express';
 import { PostDto } from '../dto/post.request.dto';
 import { Type } from 'class-transformer';
 
@@ -31,10 +32,10 @@ export class PostService {
         content: postInfo.content,
         authorId: result.id,
       };
-      const data = await this.prismaService.post.createMany({
+      const data = await this.prismaService.post.create({
         data: creatdata,
       });
-
+      console.log(data);
       return data;
     } catch (error) {
       throw new BadGatewayException('알수없는오류로 업로드가 불가합니다');
@@ -45,6 +46,7 @@ export class PostService {
     try {
       const data = await this.prismaService.post.findMany({
         orderBy: { id: 'desc' },
+        include: { File: true },
       });
 
       return data;
@@ -55,6 +57,7 @@ export class PostService {
   async takeContent(id: number): Promise<Post> {
     const data = await this.prismaService.post.findUnique({
       where: { id: id },
+      include: { File: true },
     });
     return data;
   }
@@ -87,5 +90,25 @@ export class PostService {
       where: { id: Number(num) },
     });
     return data;
+  }
+
+  async attachFiles(id, name, files: Array<Express.Multer.File>) {
+    let url = '';
+    url += files[0].filename;
+    const findFileNum = await this.prismaService.post.findUnique({
+      where: { id: Number(id) },
+    });
+    // console.log(findFileNum);
+    const data = { tag: url, PostId: findFileNum.id, name: name };
+    const insertData = await this.prismaService.file.create({ data: data });
+    return 1;
+  }
+
+  async filedownload(res: Response, name: string) {
+    const url = './dist/common/uploads/attachFile/';
+    const data = await this.prismaService.file.findUnique({
+      where: { id: Number(name) },
+    });
+    return res.download(`${url}${data.tag}`);
   }
 }

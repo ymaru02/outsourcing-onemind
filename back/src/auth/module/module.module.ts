@@ -11,7 +11,7 @@ import { ServiceService } from '../service/service.service';
     PassportModule.register({ defaultStrategy: 'jwt', session: true }),
     JwtModule.register({
       secret: process.env.SECRET_KEY,
-      signOptions: { expiresIn: '1h' },
+      signOptions: { expiresIn: '1y' },
     }),
   ],
   controllers: [ControllerController],

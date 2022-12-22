@@ -19,6 +19,7 @@ import worshipImg from "../../img/worship.jpg";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import fileDownload from "js-file-download";
 
 const ContentTag = styled.div`
   max-width: 80vw;
@@ -49,11 +50,32 @@ const UpdataTag = styled.button`
   color: green;
   cursor: pointer;
 `;
+
+const FilesTag = styled.div`
+  margin-top: 10px;
+`;
+const TextTag = styled.div`
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+`;
+const Filetag = styled.div`
+  padding: 3px;
+  font-size: 12px;
+  text-decoration: none;
+  color: gray;
+  background-color: rgba(200, 200, 200, 0.3);
+  border-radius: 5px;
+  cursor:pointer;
+`;
+
 export default function ShowPost() {
   const { id } = useParams();
+  const [contents, setContents] = useState("");
   const content: any = useRef();
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
+  const [file, setFile] = useState([]);
   const [token, setToken] = useState("");
   useEffect(() => {
     AOS.init();
@@ -64,7 +86,9 @@ export default function ShowPost() {
       withCredentials: true,
     }).then((result) => {
       setTitle(result.data.title);
-      content.current.innerHTML = result.data.content;
+      setContents(result.data.content);
+      // console.log(result.data.File);
+      setFile(result.data.File);
     });
     setToken(window.sessionStorage.getItem("token"));
   }, []);
@@ -83,6 +107,18 @@ export default function ShowPost() {
   };
   const handleUpdate = () => {
     navigate(`/updatepost/${id}`);
+  };
+  const download = (e: any, name: string, id: any) => {
+    e.preventDefault();
+    axios({
+      url: "http://localhost:8080/post/download",
+      method: "get",
+      params: { id: id },
+      responseType: "blob",
+    }).then((res) => {
+      // console.log(res.data)
+      fileDownload(res.data, name);
+    });
   };
   return (
     <Wrap>
@@ -104,7 +140,23 @@ export default function ShowPost() {
                 <></>
               )}
               <TinyTitle fontsize="18px">{title}</TinyTitle>
-              <ContentTag ref={content}></ContentTag>
+              <ContentTag
+                className="ql-editor"
+                dangerouslySetInnerHTML={{ __html: contents }}
+              ></ContentTag>
+              <hr></hr>
+              {file.map((data) => (
+                <FilesTag>
+                  <TextTag>첨부파일</TextTag>
+                  <Filetag
+                    onClick={(e) => {
+                      download(e, data.name, data.id);
+                    }}
+                  >
+                    {data.name}
+                  </Filetag>
+                </FilesTag>
+              ))}
             </InfoDiv>
           </ContentsDiv>
         </ContentsBox>

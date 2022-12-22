@@ -8,7 +8,8 @@ import AOS from "aos"; // AOS import
 import "aos/dist/aos.css";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store";
-
+import img1 from "../../img/icon-detail-in-file.png";
+import fileDownload from "js-file-download";
 const Content = styled.div``;
 
 const TopInner = styled.div``;
@@ -72,12 +73,15 @@ const NoticeComponent = (props: any) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
   const [token, setToken] = useState("");
+  const [file, setFile] = useState([]);
 
   useEffect(() => {
     setToken(window.sessionStorage.getItem("token"));
     const fetchPosts = async () => {
       let res = await axios.get("http://localhost:8080/post/takepost");
       setPosts(res.data);
+      console.log(res.data);
+      setFile(res.data.File);
     };
     fetchPosts();
   }, []);
@@ -86,7 +90,18 @@ const NoticeComponent = (props: any) => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
+  const download = (e: any, name: string, id: any) => {
+    e.preventDefault();
+    axios({
+      url: "http://localhost:8080/post/download",
+      method: "get",
+      params: { id: id },
+      responseType: "blob",
+    }).then((res) => {
+      console.log(res.data);
+      fileDownload(res.data, name);
+    });
+  };
   useEffect(() => {
     AOS.init();
   });
@@ -117,6 +132,7 @@ const NoticeComponent = (props: any) => {
                 <Th>번호</Th>
                 <Th>제목</Th>
                 <Th>작성일시</Th>
+                <Th>첨부파일</Th>
               </tr>
             </Thead>
             <tbody>
@@ -129,6 +145,20 @@ const NoticeComponent = (props: any) => {
                     </StyledLink>
                   </Td>
                   <Td>{moment(post.createdAt).format("YYYY-MM-DD")}</Td>
+                  <Td>
+                    {post.File.length ? (
+                      <div
+                      style={{cursor:'pointer'}}
+                        onClick={(e) => {
+                          download(e, post.File[0].name, post.File[0].id);
+                        }}
+                      >
+                        <img src={img1} />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </Td>
                 </tr>
               ))}
             </tbody>

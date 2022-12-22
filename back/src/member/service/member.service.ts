@@ -22,7 +22,7 @@ export class MemberService {
       }
       strgte += String(i);
       strlt += String(i + 1);
-      console.log(strgte, strlt);
+      //console.log(strgte, strlt);
       const data = await this.prismaService.member.findMany({
         where: {
           createdAt: {
