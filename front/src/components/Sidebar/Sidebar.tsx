@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { H2, Lihover, SidebarBox, Ul } from "../../styles/Intro";
 import NotFound from "../Layout/NotFound";
@@ -16,8 +16,6 @@ interface E {
 }
 
 function Sidebar(prop: prop) {
-  const [currentClick, setCurrentClick] = useState(""); // 현재 클릭
-
   const pathName = useLocation().pathname; // url path 값을 받아옴
   const intro_menus: SideItem[] = [
     { name: "교회 소개", path: "/introduction", id: "introduction" },
@@ -30,7 +28,6 @@ function Sidebar(prop: prop) {
     { name: "교회 오시는 길", path: "/location", id: "location" },
   ];
   const GetClick = (e: E) => {
-    setCurrentClick(() => e.target.id);
     window.scroll({
       top: 0,
     });
