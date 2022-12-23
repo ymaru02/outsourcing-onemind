@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { InfoDiv, IntroTitle } from "../../styles/Intro";
-import YearItem from "./YearItem";
+import { InfoDiv } from "../../styles/Intro";
+import YearItem from "../Introduction/YearItem";
 
 const DivideBox = styled.div`
   display: flex;
@@ -14,10 +14,9 @@ const InfoBox = styled.div`
   flex: 7;
 `;
 
-export default function History() {
+export default function HistoryItem() {
   return (
     <InfoDiv>
-      <IntroTitle fontsize="20px">교회 연혁</IntroTitle>
       <DivideBox>
         <YearItem year="2022년" />
         <InfoBox>

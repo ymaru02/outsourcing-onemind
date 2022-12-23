@@ -6,7 +6,7 @@ interface Props {
   year: string;
 }
 const YearBox = styled.div`
-  flex: 2.5;
+  flex: 3;
   border-right: 2px solid ${theme.mainColor};
   text-align: center;
 `;
