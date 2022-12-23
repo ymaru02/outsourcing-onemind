@@ -21,6 +21,7 @@ import MakeSermon from "./components/Layout/MakeSermon";
 import ShowSermon from "./components/Layout/ShowSermon";
 import PostUpdataDefault from "./components/Layout/PostUpdataDefault";
 import Contribution from "./components/Layout/Contribution";
+import History from "./components/Layout/History";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/worship" element={<Worship />} />
         <Route path="/makepost" element={<MakePost />} />
         <Route path="/pastor" element={<Pastor />} />
+        <Route path="/history" element={<History />} />
         <Route path="/contribution" element={<Contribution />} />
         <Route path="/showpost/:id" element={<ShowPost />}></Route>
         <Route path="/login" element={<Login />} />

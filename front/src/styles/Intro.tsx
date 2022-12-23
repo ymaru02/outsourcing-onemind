@@ -44,7 +44,7 @@ export const SidebarBox = styled(Flex)`
   position: -webkit-sticky;
   position: sticky;
   top: 50px;
-  height: 750px;
+  height: 800px;
   flex-flow: column wrap;
   gap: 30px;
   flex: 2;
@@ -123,6 +123,7 @@ export const H2 = styled.h2`
   text-align: center;
 `;
 export const Lihover = styled(Li)`
+  width: 100%;
   height: 32px;
   color: black;
   text-decoration: none;
