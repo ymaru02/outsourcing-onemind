@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { InfoDiv, IntroTitle } from "../../styles/Intro";
+import { InfoDiv } from "../../styles/Intro";
 import YearItem from "../Introduction/YearItem";
 
 const DivideBox = styled.div`
