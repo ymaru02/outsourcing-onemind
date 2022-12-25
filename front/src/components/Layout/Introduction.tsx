@@ -32,9 +32,9 @@ export default function Introduction() {
         />
       </ImgBox>
       <DivideBox>
-        <Sidebar title="담임 목사 소개" />
+        <Sidebar title="인사말" />
         <ContentsBox>
-          <InfoTitleDiv fontsize="20px">담임 목사 소개</InfoTitleDiv>
+          <InfoTitleDiv fontsize="20px">인사말</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
             <IntroPastor />
           </ContentsDiv>

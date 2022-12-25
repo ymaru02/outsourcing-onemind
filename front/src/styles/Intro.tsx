@@ -28,7 +28,7 @@ export const FloatImg = styled.img<{ width: any; height: any; float: any }>`
   height: ${(props) => props.height};
   float: ${(props) => props.float};
   border-radius: 3px;
-  margin: 5px 20px 5px 0;
+  margin: 20px 0 5px 20px;
 
   @media ${(props) => props.theme.mobile} {
     margin: auto;
@@ -94,8 +94,6 @@ export const IntroTitle = styled.p<{ fontsize: any }>`
   font-weight: bold;
   text-align: start;
   margin: 20px 0px 20px 0;
-  border-bottom: 2px solid ${theme.mainColor};
-  border-right: 2px solid ${theme.mainColor};
   padding-left: 5px;
 `;
 export const TinyTitle = styled.p<{ fontsize: any }>`
@@ -108,6 +106,9 @@ export const TinyTitles = styled.p<{ fontsize: any }>`
   font-weight: bold;
   text-align: start;
   margin-left: 60px;
+`;
+export const Strong = styled.strong`
+  font-color: ${theme.mainColor};
 `;
 
 // Location 적용
@@ -164,6 +165,14 @@ export const WorshipInnerItem = styled(Flex)`
 export const P = styled.p`
   // border-bottom: 1px double ${theme.mainColor};
   border-bottom: 2px double lightgrey;
+`;
+export const IntroP = styled.p<{ fontsize: any }>`
+  color: ${theme.mainColor};
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+`;
+export const IntroBox = styled.div`
+  padding: 45px;
 `;
 // Pastor 적용
 export const PastorDiv = styled(Flex)`

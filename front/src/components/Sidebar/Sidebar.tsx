@@ -18,7 +18,7 @@ interface E {
 function Sidebar(prop: prop) {
   const pathName = useLocation().pathname; // url path 값을 받아옴
   const intro_menus: SideItem[] = [
-    { name: "담임 목사 소개", path: "/introduction", id: "introduction" },
+    { name: "인사말", path: "/introduction", id: "introduction" },
     { name: "목사 소개", path: "/pastor", id: "pastor" },
     { name: "설교 말씀", path: "/sermon", id: "sermon" },
     { name: "교회 소식", path: "/news", id: "news" },

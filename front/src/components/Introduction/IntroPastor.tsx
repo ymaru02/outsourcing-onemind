@@ -1,5 +1,5 @@
 import React from "react";
-import { InfoDiv, FloatImg, IntroTitle } from "../../styles/Intro";
+import { InfoDiv, FloatImg, IntroP, IntroBox } from "../../styles/Intro";
 import pastor1 from "../../img/pastor1.jpg";
 
 export default function IntroPastor() {
@@ -10,17 +10,17 @@ export default function IntroPastor() {
         alt=""
         width="390px"
         height="560px"
-        float="left"
+        float="right"
       />
-      <div>
-        <IntroTitle fontsize="20px">담임 목사 소개</IntroTitle>
-        <p style={{ fontSize: "17px" }}>
-          할렐루야! 저희 교회 홈페이지를 방문해 주신 여러분을 진심으로
-          환영합니다.
+      <IntroBox>
+        <IntroP fontsize="18px">
+          <p style={{ fontSize: "24px" }}>할렐루야!</p>
           <br />
+          저희 교회 홈페이지를 방문해 주신 여러분을 진심으로 환영합니다.
           <br />
           존귀하신 우리 주 예수 그리스도의 이름으로 평안을 전합니다.
-          <br />
+        </IntroP>
+        <p style={{ fontSize: "16px" }}>
           <br />
           한마음 교회는 2007년 4월에 개척한 대한예수교 장로회 합동측 교단에
           소속된 교회입니다. <br />
@@ -41,21 +41,21 @@ export default function IntroPastor() {
           세우는데 지속적으로 최선을 다할 것입니다.
           <br />
           <br />
-          이를 위해 저희 교회의 비전은 다음의 세 가지입니다.
+          <strong>이를 위해 저희 교회의 비전은 다음의 세 가지입니다.</strong>
           <br />
           <br />
-          <strong>첫째, ‘복음을 복음되게(for the Gospel to become the Gospel)’ </strong><br />
+          <IntroP fontsize="20px">
+            첫째, ‘복음을 복음되게(for the Gospel to become the Gospel)’ <br />
+            <br />
+            둘째, ‘교회를 교회되게(for the Church to become the Church)’ <br />
+            <br />
+            셋째, ‘성도를 성도되게(for the God’s People to become the God’s
+            People)’{" "}
+          </IntroP>
           <br />
-          <strong>둘째, ‘교회를 교회되게(for the Church to become the Church)’ </strong><br />
           <br />
-          <strong>셋째, ‘성도를 성도되게(for the God’s People to become the God’s
-          People)’ </strong>
-          <br />
-          <br />
-          그리고 이러한 교회와 성도가 되기 위해서 저희들은 매일 매일의
-          삶 속에서 
-          “not I, but Christ”(갈 2:20)를 고백하는 자들이 되기를
-          소망합니다.
+          그리고 이러한 교회와 성도가 되기 위해서 저희들은 매일 매일의 삶 속에서
+          “not I, but Christ”(갈 2:20)를 고백하는 자들이 되기를 소망합니다.
           <br />
           <br />
           어떤 인생도 주 예수 그리스도가 아니면 결코 채울 수 없는 영혼의
@@ -67,11 +67,13 @@ export default function IntroPastor() {
           초대합니다.
           <br />
           <br />
-          <p style={{ textAlign: "right", fontWeight: "bold" }}>
+          <p
+            style={{ fontSize: "22px", textAlign: "right", fontWeight: "bold" }}
+          >
             담임목사 서정현 올림
           </p>
         </p>
-      </div>
+      </IntroBox>
     </InfoDiv>
   );
 }
