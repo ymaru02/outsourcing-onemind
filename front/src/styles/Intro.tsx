@@ -90,12 +90,31 @@ export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
   font-weight: bold;
   border-bottom: 1px solid lightgrey;
 `;
-export const IntroTitle = styled.p<{ fontsize: any }>`
+export const IntroTitleBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 10px;
+`;
+export const IntroImg = styled.div`
+  display: flex;
+  align-items: center;
+  height: 45px;
+  margin: 10px 0 20px 0;
+`;
+export const IntroTitle = styled.div<{ fontsize: any }>`
+  display: flex;
+  align-items: center;
+  flex: 8;
+  height: 45px;
   font-size: ${(props) => props.fontsize};
   font-weight: bold;
   text-align: start;
-  margin: 20px 0px 20px 0;
+  margin: 10px 0 20px 0;
   padding-left: 5px;
+  border: 2px solid ${theme.mainColor};
+  border-radius: 5px;
 `;
 export const TinyTitle = styled.p<{ fontsize: any }>`
   font-size: ${(props) => props.fontsize};
@@ -110,6 +129,10 @@ export const TinyTitles = styled.p<{ fontsize: any }>`
 `;
 export const Strong = styled.strong`
   font-color: ${theme.mainColor};
+`;
+export const GreetingP = styled.p`
+  padding: 0 20px 0 20px;
+  margin-bottom: 50px;
 `;
 
 // Location 적용
