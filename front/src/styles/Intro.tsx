@@ -44,7 +44,7 @@ export const SidebarBox = styled(Flex)`
   position: -webkit-sticky;
   position: sticky;
   top: 50px;
-  height: 800px;
+  height: 890px;
   flex-flow: column wrap;
   gap: 30px;
   flex: 2;

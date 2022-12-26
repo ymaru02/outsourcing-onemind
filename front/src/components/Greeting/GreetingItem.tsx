@@ -8,8 +8,8 @@ export default function IntroPastor() {
       <FloatImg
         src={pastor1}
         alt=""
-        width="390px"
-        height="560px"
+        width="330px"
+        height="500px"
         float="right"
       />
       <IntroBox>
