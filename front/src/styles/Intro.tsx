@@ -130,8 +130,12 @@ export const TinyTitles = styled.p<{ fontsize: any }>`
 export const Strong = styled.strong`
   font-color: ${theme.mainColor};
 `;
-export const GreetingP = styled.p`
-  padding: 0 20px 0 20px;
+export const GreetingP1 = styled.p`
+  padding: 0 10px 0 12px;
+  margin-bottom: 50px;
+`;
+export const GreetingP2 = styled.p`
+  padding: 0 0 0 60px;
   margin-bottom: 50px;
 `;
 

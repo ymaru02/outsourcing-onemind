@@ -2,7 +2,7 @@ import React from "react";
 import { InfoDiv, FloatImg, IntroP, IntroBox } from "../../styles/Intro";
 import pastor1 from "../../img/pastor1.jpg";
 
-export default function IntroPastor() {
+export default function GreetingItem() {
   return (
     <InfoDiv>
       <FloatImg
@@ -14,13 +14,13 @@ export default function IntroPastor() {
       />
       <IntroBox>
         <IntroP fontsize="18px">
-          <p style={{ fontSize: "24px" }}>할렐루야!</p>
+          <span style={{ fontSize: "24px" }}>할렐루야!</span>
           <br />
           저희 교회 홈페이지를 방문해 주신 여러분을 진심으로 환영합니다.
           <br />
           존귀하신 우리 주 예수 그리스도의 이름으로 평안을 전합니다.
         </IntroP>
-        <p style={{ fontSize: "16px" }}>
+        <div style={{ fontSize: "16px" }}>
           <br />
           한마음 교회는 2007년 4월에 개척한 대한예수교 장로회 합동측 교단에
           소속된 교회입니다. <br />
@@ -72,7 +72,7 @@ export default function IntroPastor() {
           >
             담임목사 서정현 올림
           </p>
-        </p>
+        </div>
       </IntroBox>
     </InfoDiv>
   );
