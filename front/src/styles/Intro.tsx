@@ -29,6 +29,7 @@ export const FloatImg = styled.img<{ width: any; height: any; float: any }>`
   float: ${(props) => props.float};
   border-radius: 3px;
   margin: 20px 0 5px 20px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.22);
 
   @media ${(props) => props.theme.mobile} {
     margin: auto;
