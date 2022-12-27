@@ -6,6 +6,7 @@ import YearItem from "./YearItem";
 const DivideBox = styled.div`
   display: flex;
   flex-flow: row wrap;
+  width: 100%;
   gap: 30px;
   margin-bottom: 20px;
 `;
