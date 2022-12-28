@@ -182,7 +182,7 @@ export const IntroFirstTitle = styled.div<{ fontsize: any }>`
     font-size: 40px;
   }
   @media ${(props) => props.theme.mobile} {
-    margin: 60px 0 0px 30px;
+    margin: 45px 0 0 0;
     font-size: 40px;
   }
 `;
