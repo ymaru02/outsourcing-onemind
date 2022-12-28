@@ -26,6 +26,7 @@ const ContentTag = styled.div`
   img {
     max-width: 50%;
   }
+  border-bottom: 1px solid #eee;
 `;
 const DivTag = styled.div`
   display: flex;
@@ -144,7 +145,6 @@ export default function ShowPost() {
                 className="ql-editor"
                 dangerouslySetInnerHTML={{ __html: contents }}
               ></ContentTag>
-              <hr></hr>
               {file.map((data) => (
                 <FilesTag>
                   <TextTag>첨부파일</TextTag>

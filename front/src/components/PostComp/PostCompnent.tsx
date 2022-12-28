@@ -173,7 +173,12 @@ export default function PostComponent() {
       <Container>
         <input type="file" ref={upload_file} id="upload-file" />
         <ReactQuill
-          style={{ height: "360px", color: "#999999", borderRadius: "5px" }}
+          style={{
+            height: "360px",
+            color: "#999999",
+            borderRadius: "5px",
+            maxWidth: "100%",
+          }}
           ref={quillRef}
           theme="snow"
           placeholder="글을 작성해 주세요"
