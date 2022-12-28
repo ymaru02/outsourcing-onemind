@@ -76,45 +76,13 @@ export const ContentsBox = styled(Flex)`
 export const ContentsDiv = styled.div``;
 export const InfoDiv = styled.div`
   text-align: left;
+  position: realative;
 
   @media ${(props) => props.theme.mobile} {
     display: flex;
     flex-flow: row wrap;
     gap: 20px;
   }
-`;
-export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
-  height: 40px;
-  text-align: left;
-  font-size: ${(props) => props.fontsize};
-  font-weight: bold;
-  border-bottom: 1px solid lightgrey;
-`;
-export const IntroTitleBox = styled.div`
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  gap: 10px;
-`;
-export const IntroImg = styled.div`
-  display: flex;
-  align-items: center;
-  height: 45px;
-  margin: 10px 0 20px 0;
-`;
-export const IntroTitle = styled.div<{ fontsize: any }>`
-  display: flex;
-  align-items: center;
-  flex: 8;
-  height: 45px;
-  font-size: ${(props) => props.fontsize};
-  font-weight: bold;
-  text-align: start;
-  margin: 10px 0 20px 0;
-  padding-left: 5px;
-  border: 2px solid ${theme.mainColor};
-  border-radius: 5px;
 `;
 export const TinyTitle = styled.p<{ fontsize: any }>`
   font-size: ${(props) => props.fontsize};
@@ -130,15 +98,112 @@ export const TinyTitles = styled.p<{ fontsize: any }>`
 export const Strong = styled.strong`
   font-color: ${theme.mainColor};
 `;
-export const GreetingP1 = styled.p`
-  padding: 0 10px 0 12px;
-  margin-bottom: 50px;
+export const GreetingP1 = styled.div`
+  font-size: 1.7vh;
+  width: 70%;
+  padding: 0 30px 0 12px;
+  margin: 0 0 50px 30px;
+
+  @media ${(props) => props.theme.desktop} {
+    font-size: 1.5vw;
+  }
+  @media ${(props) => props.theme.mobile} {
+    font-size: 0.5vh;
+  }
 `;
 export const GreetingP2 = styled.p`
-  padding: 0 0 0 60px;
+  padding: 0 0 0 70px;
   margin-bottom: 50px;
+  @media ${(props) => props.theme.mobile} {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
 `;
+// Intro
+export const MainIntroBox = styled.div`
+  position: relative;
+`;
+export const MainIntroStart = styled.div`
+  top: 0;
+  position: absolute;
+  padding: 0 30px 0 20px;
+`;
+export const InfoTitleDiv = styled(InfoDiv)<{ fontsize: any }>`
+  height: 40px;
+  text-align: left;
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+  border-bottom: 1px solid lightgrey;
+`;
+export const IntroFirstTitleBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 90px;
+`;
+export const IntroTitleBox = styled.div`
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+`;
+export const IntroImg = styled.div`
+  display: flex;
+  align-items: center;
+  height: 45px;
+  margin: 10px 0 20px 0;
+`;
+export const IntroFirstTitle = styled.div<{ fontsize: any }>`
+  display: flex;
+  align-items: center;
+  flex: 8;
+  height: 45px;
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+  text-align: start;
+  margin: 30px 0 30px 120px;
+  padding-left: 5px;
+  border-radius: 5px;
 
+  @media ${(props) => props.theme.desktop} {
+    margin: 50px 0 35px 120px;
+    font-size: 40px;
+  }
+  @media ${(props) => props.theme.mobile} {
+    margin: 60px 0 0px 30px;
+    font-size: 40px;
+  }
+`;
+export const IntroTitle = styled.div<{ fontsize: any }>`
+  display: flex;
+  align-items: center;
+  flex: 8;
+  height: 45px;
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+  text-align: start;
+  margin: 10px 0 20px 0;
+  padding-left: 5px;
+  border: 2px solid ${theme.mainColor};
+  border-radius: 5px;
+`;
+export const IntroP = styled.p<{ fontsize: any }>`
+  color: ${theme.mainColor};
+  font-size: ${(props) => props.fontsize};
+  font-weight: bold;
+`;
+export const IntroBox = styled.div`
+  padding: 45px;
+`;
+export const IntroNum = styled.div`
+  top: 12px;
+  left: 15px;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+`;
 // Location 적용
 export const MapBox = styled.div`
   width: 100%;
@@ -193,14 +258,6 @@ export const WorshipInnerItem = styled(Flex)`
 export const P = styled.p`
   // border-bottom: 1px double ${theme.mainColor};
   border-bottom: 2px double lightgrey;
-`;
-export const IntroP = styled.p<{ fontsize: any }>`
-  color: ${theme.mainColor};
-  font-size: ${(props) => props.fontsize};
-  font-weight: bold;
-`;
-export const IntroBox = styled.div`
-  padding: 45px;
 `;
 // Pastor 적용
 export const PastorDiv = styled(Flex)`
