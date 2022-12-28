@@ -7,4 +7,5 @@
 
 body .down {
   transform: translateY(-80px);
+  background-color: rgba(200, 200, 200, 0.7);
 }

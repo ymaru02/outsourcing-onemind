@@ -117,7 +117,7 @@ export default function Album() {
   useEffect(() => {
     setToken(window.sessionStorage.getItem("token"));
     const fetchPostimg = async () => {
-      const params = { index: "2022" };
+      const params = { index: "2023" };
       let res = await axios.get("http://localhost:8080/member/takemember", {
         params,
       });
@@ -130,7 +130,7 @@ export default function Album() {
   const handleRegistImg = () => {
     const formData = new FormData();
     formData.append("files", upload_file.current.files[0]);
-    console.log(upload_file.current.files[0].name)
+    console.log(upload_file.current.files[0].name);
     axios.post("http://localhost:8080/member/uploaddata", formData, {
       headers: {
         Authorization: `Bearer ${window.sessionStorage.getItem("token")}`,
@@ -202,7 +202,7 @@ export default function Album() {
           ) : (
             <></>
           )}
-          <YearText>2022</YearText>
+          <YearText>2023</YearText>
           {imgList.map((mon, index) => {
             return mon.length ? (
               <div key={index}>
