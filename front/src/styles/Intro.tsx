@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { theme } from "./Theme";
+import GreetingBook from "../img/GreetingBook.png";
 
 const Flex = styled.div`
   display: flex;
@@ -23,15 +24,21 @@ export const Img = styled.img<{ width: any; height: any; margin: any }>`
   margin: ${(props) => props.margin};
   object-fit: cover;
 `;
-export const FloatImg = styled.img<{ width: any; height: any; float: any }>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
+export const FloatImg = styled.img<{ float: any }>`
+  width: 40%;
+  height: 50%;
   float: ${(props) => props.float};
   border-radius: 3px;
   margin: 20px 0 5px 20px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.22);
 
+  @media ${(props) => props.theme.desktop} {
+    width: 30%;
+    height: 40%;
+  }
   @media ${(props) => props.theme.mobile} {
+    width: 100%;
+    height: 40%;
     margin: auto;
   }
 `;
@@ -73,10 +80,13 @@ export const ContentsBox = styled(Flex)`
   padding: 20px 0 0 0;
   margin: 0 5px 0 5px;
 `;
-export const ContentsDiv = styled.div``;
+export const ContentsDiv = styled.div`
+  width: 100%;
+`;
 export const InfoDiv = styled.div`
+  width: 100%;
+  height: 100%;
   text-align: left;
-  position: realative;
 
   @media ${(props) => props.theme.mobile} {
     display: flex;
@@ -98,7 +108,7 @@ export const TinyTitles = styled.p<{ fontsize: any }>`
 export const Strong = styled.strong`
   font-color: ${theme.mainColor};
 `;
-export const GreetingP1 = styled.div`
+export const IntroP1 = styled.div`
   font-size: 1.7vh;
   width: 70%;
   padding: 0 30px 0 12px;
@@ -111,7 +121,7 @@ export const GreetingP1 = styled.div`
     font-size: 0.5vh;
   }
 `;
-export const GreetingP2 = styled.p`
+export const IntroP2 = styled.p`
   padding: 0 0 0 70px;
   margin-bottom: 50px;
   @media ${(props) => props.theme.mobile} {
@@ -189,13 +199,27 @@ export const IntroTitle = styled.div<{ fontsize: any }>`
   border: 2px solid ${theme.mainColor};
   border-radius: 5px;
 `;
-export const IntroP = styled.p<{ fontsize: any }>`
+export const GreetingP1 = styled.div<{ fontsize: any }>`
   color: ${theme.mainColor};
   font-size: ${(props) => props.fontsize};
   font-weight: bold;
 `;
-export const IntroBox = styled.div`
-  padding: 45px;
+export const GreetingP2 = styled.div<{ fontsize: any }>`
+  font-size: ${(props) => props.fontsize};
+`;
+export const GreetingBox = styled.div`
+  top: 0;
+  left: 0;
+  padding: 90px 120px 90px 130px;
+  background-image: url(${GreetingBook});
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  @media ${(props) => props.theme.mobile} {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 80px 70px 110px 70px;
+  }
 `;
 export const IntroNum = styled.div`
   top: 12px;
@@ -301,4 +325,8 @@ export const ContributionInnerItem = styled(Flex)`
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+`;
+// Greeting
+export const GreetingAbsolute = styled.div`
+  position: absolute;
 `;
