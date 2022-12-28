@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from "./components/Layout/NotFound";
 import Home from "./components/Layout/Home";
 import Footer from "./components/Footer/Footer";
+import Greeting from "./components/Layout/Greeting";
 import Introduction from "./components/Layout/Introduction";
 import News from "./components/Layout/News";
 import Album from "./components/Layout/Album";
@@ -21,6 +22,7 @@ import MakeSermon from "./components/Layout/MakeSermon";
 import ShowSermon from "./components/Layout/ShowSermon";
 import PostUpdataDefault from "./components/Layout/PostUpdataDefault";
 import Contribution from "./components/Layout/Contribution";
+import History from "./components/Layout/History";
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<NotFound />} />
+        <Route path="/greeting" element={<Greeting />} />
         <Route path="/introduction" element={<Introduction />} />
         <Route path="/pastor" element={<Pastor />} />
         <Route path="/sermon" element={<Sermon />} />
@@ -38,6 +41,7 @@ function App() {
         <Route path="/worship" element={<Worship />} />
         <Route path="/makepost" element={<MakePost />} />
         <Route path="/pastor" element={<Pastor />} />
+        <Route path="/history" element={<History />} />
         <Route path="/contribution" element={<Contribution />} />
         <Route path="/showpost/:id" element={<ShowPost />}></Route>
         <Route path="/login" element={<Login />} />

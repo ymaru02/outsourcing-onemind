@@ -12,9 +12,9 @@ import {
 } from "../../styles/Intro";
 import Sidebar from "../Sidebar/Sidebar";
 import Rainbow250 from "../../img/rainbowVer250.png";
-import Intro from "../Introduction/Intro";
+import HistoryItem from "../History/HistoryItem";
 
-export default function Introduction() {
+export default function History() {
   useEffect(() => {
     AOS.init();
   });
@@ -31,11 +31,11 @@ export default function Introduction() {
         />
       </ImgBox>
       <DivideBox>
-        <Sidebar title="교회 소개" />
+        <Sidebar title="교회 연혁" />
         <ContentsBox>
-          <InfoTitleDiv fontsize="20px">교회 소개</InfoTitleDiv>
+          <InfoTitleDiv fontsize="20px">교회 연혁</InfoTitleDiv>
           <ContentsDiv data-aos="fade-up" data-aos-duration="800">
-            <Intro />
+            <HistoryItem />
           </ContentsDiv>
         </ContentsBox>
       </DivideBox>

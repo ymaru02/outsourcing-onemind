@@ -6,7 +6,6 @@ import { MemberDto } from '../dto/member.request.dto';
 @Injectable()
 export class MemberService {
   constructor(private prismaService: prismaService) {}
-  // `${Number(qur)}-0${i}`
   async takemember(qur): Promise<Member[]> {
     const index = (Number(qur) - 1) * 20;
     const result = [];

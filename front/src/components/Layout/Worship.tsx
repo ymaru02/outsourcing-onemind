@@ -32,7 +32,6 @@ export default function Worship() {
     { title: "주일 학교 예배", time: "오전 9:30" },
     { title: "수요 예배", time: "수요일 오후 7:30" },
     { title: "중고등부 예배", time: "오후 13:00" },
-    { title: "영아부 예배", time: "오전 11:00" },
     { title: "새벽 기도회", time: "오전 5:00" },
   ];
   return (

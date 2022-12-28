@@ -38,7 +38,7 @@ export default function Footer() {
         <Items>
           <Item>위치: 대구광역시 수성구 범안8길 19</Item>
           <Item>담임 목사: 서정현</Item>
-          <Item>전화번호(Tel): 052 - xxxx - xxxx</Item>
+          <Item>전화번호(Tel): 053 - 784 - 0916</Item>
         </Items>
         <ItemText>Copyright ⓒ 2022 한마음교회 All Rights reserved.</ItemText>
       </Inner>

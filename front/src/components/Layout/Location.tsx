@@ -42,8 +42,7 @@ export default function Location() {
             <InfoDiv>
               <Ul>
                 <Li>📬 대구광역시 수성구 범안로8길 19(범물동) </Li>
-                <Li>📞 010-1234-5678</Li>
-                <Li>+ 그 외 추가 사항</Li>
+                <Li>📞 053-784-0916</Li>
               </Ul>
             </InfoDiv>
           </ContentsDiv>
