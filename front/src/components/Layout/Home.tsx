@@ -28,6 +28,8 @@ const MainImg = styled.img`
   @media ${(props) => props.theme.desktop} {
     margin-top: -30px;
   }
+  @media ${(props) => props.theme.mobile} {
+  }
 `;
 const Nav = styled.div`
   justify-content: center;

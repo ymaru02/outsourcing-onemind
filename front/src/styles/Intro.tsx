@@ -37,8 +37,8 @@ export const FloatImg = styled.img<{ float: any }>`
     height: 40%;
   }
   @media ${(props) => props.theme.mobile} {
-    width: 100%;
-    height: 40%;
+    width: 150px;
+    height: 210px;
     margin: auto;
   }
 `;
@@ -82,6 +82,12 @@ export const ContentsBox = styled(Flex)`
 `;
 export const ContentsDiv = styled.div`
   width: 100%;
+  @media ${(props) => props.theme.desktop} {
+    width: 90%;
+  }
+  @media ${(props) => props.theme.mobile} {
+    width: 100%;
+  }
 `;
 export const InfoDiv = styled.div`
   width: 100%;
@@ -203,9 +209,23 @@ export const GreetingP1 = styled.div<{ fontsize: any }>`
   color: ${theme.mainColor};
   font-size: ${(props) => props.fontsize};
   font-weight: bold;
+  width: 100%;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 80%;
+    margin-top: 10px;
+  }
 `;
 export const GreetingP2 = styled.div<{ fontsize: any }>`
+  width: 100%;
   font-size: ${(props) => props.fontsize};
+
+  @media ${(props) => props.theme.desktop} {
+    width: 80%;
+  }
+  @media ${(props) => props.theme.mobile} {
+    width: 100%;
+  }
 `;
 export const GreetingBox = styled.div`
   top: 0;
@@ -213,12 +233,13 @@ export const GreetingBox = styled.div`
   padding: 90px 120px 90px 130px;
   background-image: url(${GreetingBook});
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 91% 100%;
+  background-position: center;
 
   @media ${(props) => props.theme.mobile} {
     display: flex;
-    flex-flow: row wrap;
-    padding: 80px 70px 110px 70px;
+    flex-flow: column wrap;
+    padding: 80px 85px 110px 85px;
   }
 `;
 export const IntroNum = styled.div`
