@@ -1,4 +1,5 @@
 export const MenuItems = [
+  { name: "인사말", path: "/introduction", id: "introduction" },
   { name: "교회 소개", path: "/introduction", id: "introduction" },
   { name: "목사 소개", path: "/pastor", id: "pastor" },
   { name: "설교 말씀", path: "/sermon", id: "sermon" },
