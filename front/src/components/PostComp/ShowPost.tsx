@@ -26,7 +26,6 @@ const ContentTag = styled.div`
   img {
     max-width: 50%;
   }
-  border-bottom: 1px solid #eee;
 `;
 const DivTag = styled.div`
   display: flex;
@@ -55,6 +54,9 @@ const UpdataTag = styled.button`
 const FilesTag = styled.div`
   margin-top: 10px;
 `;
+const LineTag = styled.div`
+  border-top: 1px solid #eee;
+`;
 const TextTag = styled.div`
   font-size: 14px;
   color: gray;
@@ -67,7 +69,7 @@ const Filetag = styled.div`
   color: gray;
   background-color: rgba(200, 200, 200, 0.3);
   border-radius: 5px;
-  cursor:pointer;
+  cursor: pointer;
 `;
 
 export default function ShowPost() {
@@ -145,6 +147,7 @@ export default function ShowPost() {
                 className="ql-editor"
                 dangerouslySetInnerHTML={{ __html: contents }}
               ></ContentTag>
+              <LineTag></LineTag>
               {file.map((data) => (
                 <FilesTag>
                   <TextTag>첨부파일</TextTag>

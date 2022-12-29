@@ -7,4 +7,5 @@
 
 body .down {
   transform: translateY(-80px);
+  border-top: 1px solid #eee;
 }
