@@ -43,7 +43,7 @@
 
 ```
 onemind/
-├── front/                    # React 프론트엔드
+├── client/                   # Client (React)
 │   ├── src/
 │   │   ├── assets/          # 정적 파일
 │   │   │   └── images/      # 이미지 파일
@@ -57,7 +57,7 @@ onemind/
 │   │   ├── types/           # TypeScript 타입 정의
 │   │   └── styles/          # 스타일 파일
 │   └── public/              # Public 정적 파일
-├── back/                     # NestJS 백엔드
+├── server/                   # Server (NestJS)
 │   ├── src/
 │   │   ├── auth/            # 인증 모듈
 │   │   │   ├── controller/
@@ -96,11 +96,11 @@ onemind/
 
 ### 설치 및 실행
 
-#### 1. 백엔드 설정
+#### 1. Server 설정
 
 ```bash
-# 백엔드 디렉토리로 이동
-cd back
+# Server 디렉토리로 이동
+cd server
 
 # 의존성 설치
 npm install
@@ -122,13 +122,13 @@ npx prisma generate
 npm run start:dev
 ```
 
-백엔드 서버는 기본적으로 `http://localhost:3000`에서 실행됩니다.
+서버는 기본적으로 `http://localhost:3000`에서 실행됩니다.
 
-#### 2. 프론트엔드 설정
+#### 2. Client 설정
 
 ```bash
-# 프론트엔드 디렉토리로 이동
-cd front
+# Client 디렉토리로 이동
+cd client
 
 # 의존성 설치
 npm install
@@ -137,7 +137,7 @@ npm install
 npm start
 ```
 
-프론트엔드는 기본적으로 `http://localhost:3000`에서 실행됩니다.
+클라이언트는 기본적으로 `http://localhost:3000`에서 실행됩니다.
 
 ## 데이터베이스 스키마
 
@@ -170,14 +170,14 @@ npm start
 
 ## 개발 스크립트
 
-### 프론트엔드
+### Client
 ```bash
 npm start       # 개발 서버 실행
 npm run build   # 프로덕션 빌드
 npm test        # 테스트 실행
 ```
 
-### 백엔드
+### Server
 ```bash
 npm run start:dev      # 개발 모드 (watch mode)
 npm run start:prod     # 프로덕션 모드
